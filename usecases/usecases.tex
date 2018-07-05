@@ -9,11 +9,64 @@
 \maketitle
 
 \section{Introduction}
-Here is the text of your introduction.
+We are proposing changes to the Cinema specification that expand the
+capabilities of Spec D to relax some of the current constraints and expand the
+types of artifacts that can be written to the database. In particular, we are
+moving from mapping a set of parameters to a set of artifacts (files), to
+a collection of several mappings of parameters to several sets of artifacts
+(files). These use cases will be explained in the examples below.
 
+In particular, this new design will support several types of mappings of
+parameters to artifacts, all of which are possible in the spec, and must be
+managed by the producer and consumer of the database. This is explained in
+section \ref{s:mappings}.
 
-\subsection{Subsection Heading Here}
-Write your subsection text here.
+\section{Mappings of Parameters to Artifacts} \label{s:mappings}
+This is the section on mappings.
+
+\section{Use Cases}
+Two different artifacts, each at the same camera position and time:
+\begin{center}
+\begin{tabular}{l|l|l|l|l}
+phi & theta & time & FILE & FILE \\
+\hline
+0.0 & 0.0 & 1.0 & 00-00-10-00.png & \\
+1.0 & 0.0 & 1.0 & 10-00-10-00.png & \\
+2.0 & 0.0 & 1.0 & 20-00-10-00.png & \\
+3.0 & 0.0 & 1.0 & 20-00-10-00.png & \\
+0.0 & 0.0 & 1.0 & & 00-00-10-01.png \\
+1.0 & 0.0 & 1.0 & & 10-00-10-01.png \\
+2.0 & 0.0 & 1.0 & & 20-00-10-01.png \\
+3.0 & 0.0 & 1.0 & & 20-00-10-01.png \\
+\end{tabular}
+\end{center}
+
+A single artifact consisting of two images:
+\begin{center}
+\begin{tabular}{l|l|l|l|l}
+phi & theta & time & FILE & FILE \\
+\hline
+0.0 & 0.0 & 1.0 & 00-00-10-00.png & 00-00-10-01.png\\
+1.0 & 0.0 & 1.0 & 10-00-10-00.png & 10-00-10-01.png\\
+2.0 & 0.0 & 1.0 & 20-00-10-00.png & 20-00-10-01.png\\
+3.0 & 0.0 & 1.0 & 20-00-10-00.png & 30-00-10-01.png\\
+\end{tabular}
+\end{center}
+
+A single artifact consisting of two images at a specific time, and another
+consisting of a single grid file for the data. The timesteps for which the grid
+is valid is not provided in the Cinema database:
+\begin{center}
+\begin{tabular}{l|l|l|l|l|l}
+phi & theta & time & FILE & FILE & FILE\\
+\hline
+0.0 & 0.0 & 1.0 & 00-00-10-00.png & 00-00-10-01.png & \\
+1.0 & 0.0 & 1.0 & 10-00-10-00.png & 10-00-10-01.png & \\
+2.0 & 0.0 & 1.0 & 20-00-10-00.png & 20-00-10-01.png & \\
+3.0 & 0.0 & 1.0 & 20-00-10-00.png & 30-00-10-01.png & \\
+ &  &  & & & out.grid\\
+\end{tabular}
+\end{center}
 
 %\begin{figure}
 %    \centering
@@ -21,8 +74,5 @@ Write your subsection text here.
 %    \caption{Simulation Results}
 %    \label{simulationfigure}
 %\end{figure}
-
-\section{Conclusion}
-Write your conclusion here.
 
 \end{document}

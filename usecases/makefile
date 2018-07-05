@@ -7,10 +7,11 @@ DOC     = usecases
 
 $(DOC).pdf: $(SRC)
 	$(LATEX) $(DOC).tex
-	rm -f *.aux *.bbl *.blg *.dvi *.log *.out *.toc *.swp
+	$(LATEX) $(DOC).tex
+	rm -f .log *.aux *.bbl *.blg *.dvi *.log *.out *.toc *.swp
 
 clean:
-	rm -f *.aux *.bbl *.blg *.dvi *.log *.out *.toc *.swp *.pdf
+	rm -f .log *.aux *.bbl *.blg *.dvi *.log *.out *.toc *.swp *.pdf
 
 view:
 	open $(DOC).pdf
