@@ -36,7 +36,7 @@ The `cinema.json` file is a `json` file that optionally includes the following d
     "type" : "object",
     "properties" : {
         "version" : {
-            "type" : "string"
+            "type" : "string",
             "description" : "the version number of the database specification defining this database"
         },
         "data" : {
