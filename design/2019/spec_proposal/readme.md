@@ -28,6 +28,8 @@ The `cinema.json` file is a `json` file that optionally includes the following d
     - may include **cinema optional fields**
     - may include any other valid `json`
 
+### Schema
+
 ```
 {
     "title" : "cinema database metadata specification",
@@ -94,6 +96,8 @@ The `cinema.json` file is a `json` file that optionally includes the following d
     }
 }
 ```
+
+### Example
 
 ```
 {
