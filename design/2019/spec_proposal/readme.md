@@ -24,7 +24,6 @@ The `cinema.json` file is a `json` file that optionally includes the following d
 - may not be present
 - if present, the file:
     - shall be valid `json`
-    - may be empty
     - may include **cinema optional fields**
     - may include any other valid `json`
 
