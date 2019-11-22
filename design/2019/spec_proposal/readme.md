@@ -21,10 +21,12 @@ We propose to optionally include a `cinema.json` file in a Cinema database. The 
 
 The `cinema.json` file is a `json` file that optionally includes the following data. The file:
 
-- must be valid `json`.
-- may be empty
-- may include **cinema optional fields**
-- may include any other valid `json`
+- may not be present
+- if present, the file:
+    - shall be valid `json`
+    - may be empty
+    - may include **cinema optional fields**
+    - may include any other valid `json`
 
 ```
 {
