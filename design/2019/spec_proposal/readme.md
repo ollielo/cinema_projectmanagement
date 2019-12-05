@@ -91,6 +91,11 @@ The `cinema.json` file is a `json` file that optionally includes the following d
                     "description" : "a description of the database creation"
                 }
             }
+        },
+        "extensions" : {
+            "type" : "object"
+            "description : "a set of extensions",
+            "additionalProperties": { "type": "string" }
         }
     }
 }
@@ -115,10 +120,16 @@ The `cinema.json` file is a `json` file that optionally includes the following d
                 "version" : "1.0.62"
             }
         }
+    },
+    "extensions" : {
+        "name" : "filename"
     }
 }
 ```
  
 
 
+## Additions
+
+- added 'extensions' clause - a ``key,value`` pairs that note extensions
 
