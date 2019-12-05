@@ -140,10 +140,3 @@ The `cinema.json` file is a `json` file that optionally includes the following d
     }
 }
 ```
- 
-
-
-## Additions
-
-- added 'extensions' clause - a ``key,value`` pairs that note extensions
-
