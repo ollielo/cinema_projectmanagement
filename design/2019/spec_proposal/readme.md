@@ -95,7 +95,18 @@ The `cinema.json` file is a `json` file that optionally includes the following d
         "extensions" : {
             "type" : "object"
             "description : "a set of extensions",
-            "additionalProperties": { "type": "string" }
+            "additionalProperties: " {
+            	"type" : "object"
+                "description" : "an instance of an extension",
+                    "version" : {
+                        "type" : "string",
+                        "description" : "the version of the extension"
+                    },
+                    "additionalProperties": { 
+                        "type": "string" 
+                    }
+                }
+            }
         }
     }
 }
@@ -122,7 +133,10 @@ The `cinema.json` file is a `json` file that optionally includes the following d
         }
     },
     "extensions" : {
-        "name" : "filename"
+        "myextension" : {
+            "version" : "2.1",
+            "another" : "somevalue"
+        }
     }
 }
 ```
