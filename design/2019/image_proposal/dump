@@ -3,30 +3,27 @@
 import sys
 import h5py
 
-infile = "test.cci"
-
 if len(sys.argv) > 1:
     infile = sys.argv[1]
+else:
+    print("no file input arg ... exiting")
+    exit(0)
 
 with h5py.File(infile, "r") as f:
     for a in f.attrs:
         print("{}: {}".format(a, f.attrs[a]))
 
-    print("layers:")
+    print("images:")
+    for i in f["images"]:
+        print("  image: {}".format(i))
 
-    for c in f["layers"]:
-        print("  ID: {}".format(c))
+        for l in f["images"][i]["layers"]:
+            print("    layer: {}".format(l))
 
-        for d in f["layers"][c]:
-            if d == "mask":
-                print("    mask channel found")
-            elif d == "depth":
-                print("    depth channel found")
-            elif d == "shadow":
-                print("    shadow channel found")
-            else:
-                print("    {}".format(d))
+            print("      channels:")
+            for d in f["images"][i]["layers"][l]:
+                print("        {}".format(d))
 
-        for a in f["layers"][c].attrs:
-            print("    {}: {}".format(a, f["layers"][c].attrs[a]))
+            for a in f["images"][i]["layers"][l].attrs:
+                print("      {}: {}".format(a, f["images"][i]["layers"][l].attrs[a]))
 
