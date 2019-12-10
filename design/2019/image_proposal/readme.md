@@ -8,7 +8,12 @@
 | Type    | composablechannelimage |
 | Extension | `.cci` |
 
+Cinema creates two types of data that are useful both within Cinema, but also to a wider set of applications. The formats are discussed in [1]. In order to standardize these data types and enable their use in other applications, we propose this standard specification.
+
 This specification covers data needed to write out Cinema's `float images` and `composable float images` in the same format.
+
+1. `float images` contain float values for a single image. These are used to compute information about a variable from a rendered object, or to allow an image to be recolored with different color maps after it has been rendered. 
+1. `composable images` contain several layers that can be composited to show a correct rendering from a specific camera position. These can also be recolored with different color maps. Using a set of these images, one can turn on and off different parts of a rendering, making the resulting image more interactive.
 
 ## Overview
 
@@ -49,15 +54,15 @@ The `composable channel image` can be stored in HDF5 format. If it is stored in 
 
 ```
 /
-    dims    (attribute)
-    type    (attribute)
-    version (attribute)
-    layer/ (group)
-        <name>/ (one or more named groups)
+    dims    (attribute) (required)
+    type    (attribute) (required)
+    version (attribute) (required)
+    layer/ (group) (required)
+        <name>/ (one or more named groups required)
             depth/  (optional dataset)
             shadow/ (optional dataset)
             mask/   (optional dataset)
-            <name>/ (one or more named datasets) 
+            <name>/ (one or more named datasets required) 
                 globalrange (optional attribute)
 ```
 
@@ -74,3 +79,7 @@ Example python code included in this directory writes and reads a simple `compos
 Requirements:
 
 1. `h5py` module
+
+## References
+
+1. James Ahrens, SÃ©bastien Jourdain, Patrick O'Leary, John Patchett, David H. Rogers, and Mark Petersen. An image-based approach to extreme scale in situ visualization and analysis. In Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis (SC '14). IEEE Press, Piscataway, NJ, USA, 424-434, 2014.
