@@ -39,7 +39,7 @@ def create_image(images, name):
     d.attrs["globalrange"] = [-1.0, 25.3]
 
 
-with h5py.File("float.cci", "w") as f:
+with h5py.File("float.cis", "w") as f:
     f.attrs["class"]   = "composablechannelimage"
     f.attrs["dims"]  = dShape 
     f.attrs["version"] = "1.0"
@@ -59,7 +59,7 @@ with h5py.File("float.cci", "w") as f:
     p = l.create_dataset("pressure", shape=dShape, data=[[6.0, 7.0, 8.0], [9.0, 10.0, 11.0]])
     p.attrs["globalrange"] = [-1.0, 25.3]
 
-with h5py.File("compose.cci", "w") as f:
+with h5py.File("compose.cis", "w") as f:
     f.attrs["class"]   = "composablechannelimage"
     f.attrs["dims"]  = dShape 
     f.attrs["version"] = "1.0"
