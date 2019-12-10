@@ -17,13 +17,14 @@ with h5py.File(infile, "r") as f:
     for i in f["images"]:
         print("  image: {}".format(i))
 
+        print("    layers:")
         for l in f["images"][i]["layers"]:
-            print("    layer: {}".format(l))
+            print("      layer: {}".format(l))
 
-            print("      channels:")
+            print("        channels:")
             for d in f["images"][i]["layers"][l]:
-                print("        {}".format(d))
+                print("          {}".format(d))
 
             for a in f["images"][i]["layers"][l].attrs:
-                print("      {}: {}".format(a, f["images"][i]["layers"][l].attrs[a]))
+                print("        {}: {}".format(a, f["images"][i]["layers"][l].attrs[a]))
 

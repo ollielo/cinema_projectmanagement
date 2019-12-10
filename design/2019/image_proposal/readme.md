@@ -64,18 +64,18 @@ If it is stored in HDF5 format, it shall have the following structure:
 
 ```
 /
-    dims    (attribute) (required)
-    class   (attribute) (required)
-    version (attribute) (required)
+    dims    (attribute) (required) [int, int]
+    class   (attribute) (required) COMPOSABLE_IMAGE_SET 
+    version (attribute) (required) string
     images/ (group) (required)
-        <name>/ (one or more named groups required)
-            layer/ (group) (required)
-                <name>/ (one or more named groups required)
-                    depth/  (optional dataset)
-                    shadow/ (optional dataset)
-                    mask/   (optional dataset)
-                    <name>/ (one or more named datasets required) 
-                        globalrange (optional attribute)
+        <name>/ (one or more named groups) (required)
+            layers/ (group) (required)
+                <name>/ (one or more named groups) (required)
+                    depth/  (optional dataset) (MxN floats)
+                    shadow/ (optional dataset) (MxN floats)
+                    mask/   (optional dataset) (MxN booleans)
+                    <name>/ (one or more named datasets) (required) (MxN floats)
+                        globalrange (attribute) (optional) [float, float]
 ```
 
 ## Example
