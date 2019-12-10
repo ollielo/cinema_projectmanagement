@@ -38,11 +38,11 @@ A `float channel image` may be stored in any of several formats.
 The `float channel image` can be stored in HDF5 format. If it is stored in HDF5 format, it shall have the following structure:
 
 ```
-    attr: width
-    attr: height
-    attr: type
-    attr: version
-    group: channels
+    attr: width <int>
+    attr: height <int>
+    attr: type "floatchannelimage"
+    attr: version <string>
+    group: "channels"
         dataset: <named>
             attr: globalrange (optional)
 ```
