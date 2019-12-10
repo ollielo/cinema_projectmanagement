@@ -1,4 +1,4 @@
-# Float image format specification
+# Float Channel Image format specification
 
 
 |  |  |
