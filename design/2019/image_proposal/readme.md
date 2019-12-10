@@ -96,7 +96,7 @@ Requirements:
 
 The specification and storage models should include the following information, so that the producer and consumer can perform an apples-to-apples comparison of the images:
 
-1. Default State. This should include current image, layer states (on or off), global variable ranges and color maps.
+1. Default State. This should include current image, layer states (on or off), global variable ranges and default color maps.
 2. Color maps
 
 ## References
