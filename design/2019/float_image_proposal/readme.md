@@ -6,9 +6,9 @@ Version: 1.0
 
 ## Overview
 
-A float image is a collection of one or more `MxN` sets of values. 
+A `float channel image` is a collection of one or more `MxN` sets of values. 
 
-The float image has: 
+The `float channel image` has: 
 
 1. A two dimensional shape (`MxN`)
 1. A version number, referencing the version of this specification
@@ -17,7 +17,7 @@ The float image has:
 
 Each set of `values` shall have the following meta data:
 
-1. A name. Each name shall be unique within the scope of this float image.
+1. A name. Each name shall be unique within the scope of this `float channel image`.
 1. Global range (min, max). This is the global context for the range of the value.
 
 Each `value` may be:
@@ -27,7 +27,7 @@ Each `value` may be:
 
 ## Storage
 
-A float image may be stored in any of several formats.
+A `float channel image` may be stored in any of several formats.
 
 ## Cinema storage
 
@@ -35,7 +35,7 @@ A float image may be stored in any of several formats.
 
 ## HDF5 storage
 
-The float image can be stored in HDF5 format. If it is stored in HDF5 format, it shall have the following structure:
+The `float channel image` can be stored in HDF5 format. If it is stored in HDF5 format, it shall have the following structure:
 
 ```
     attr: width
@@ -43,14 +43,13 @@ The float image can be stored in HDF5 format. If it is stored in HDF5 format, it
     attr: type
     attr: version
     group: channels
-        dataset: mask
         dataset: <named>
-            attr: globalrange
+            attr: globalrange (optional)
 ```
 
 ## Example
 
-Example python code included in this directory writes and reads a simple float image in HDF5 format.
+Example python code included in this directory writes and reads a simple `float channel image` in HDF5 format.
 
 Requirements:
 
