@@ -52,7 +52,7 @@ A `composable image set` may be stored in any of several formats.
 
 ## HDF5 storage
 
-The `composable image set` can be stored in HDF5 format. If it is stored in HDF5 format, it shall have the following structure:
+The `composable image set` can be stored a single [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) file. If it is stored in HDF5 format, it shall have the following structure:
 
 ```
 /
@@ -86,4 +86,4 @@ Requirements:
 
 ## References
 
-1. James Ahrens, SÃƒÂ©bastien Jourdain, Patrick O'Leary, John Patchett, David H. Rogers, and Mark Petersen. An image-based approach to extreme scale in situ visualization and analysis. In Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis (SC '14). IEEE Press, Piscataway, NJ, USA, 424-434, 2014.
+1. James Ahrens, Sebastien Jourdain, Patrick O'Leary, John Patchett, David H. Rogers, and Mark Petersen. An image-based approach to extreme scale in situ visualization and analysis. In Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis (SC '14). IEEE Press, Piscataway, NJ, USA, 424-434, 2014.
