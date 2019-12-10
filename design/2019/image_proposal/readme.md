@@ -8,6 +8,7 @@
 | Type    | composablechannelimage |
 | Extension | `.cci` |
 
+This specification covers data needed to write out Cinema's `float images` and `composable float images` in the same format.
 
 ## Overview
 
