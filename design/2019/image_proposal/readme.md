@@ -42,7 +42,7 @@ Each `float value` may be:
 1. A valid float. This includes NaN (point to IEEE spec)
 1. Null. This means that there is no data for this value, and it should be considered 'blank', or not present. 
 
-## Storage
+# Storage
 
 A `composable image set` may be stored in any of several formats.
 
