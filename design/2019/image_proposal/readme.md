@@ -26,8 +26,9 @@ A `layer` is:
 1. Of dimension `MxN`.
 1. One or more float channels. 
 1. An optional `shadow` float channel
-1. An optional `depth` float channel 
-1. An optional `mask` boolean layer 
+1. An optional `depth` or an optional `mask` channel. It cannot contain both a `depth` and a `mask` layer. 
+    1. `depth` is a float channel
+    1. `mask` is a boolean channel 
 
 Each `float value` may be:
 
