@@ -1,38 +1,41 @@
-# Float Channel Image format specification
+# Composable Channel Image format specification
 
 
 |  |  |
 |--|--|
 | Date    | 10 Dec 2019 |
 | Version | 1.0 |
-| Type    | floatchanneliamge |
-| Extension | `.fci` |
+| Type    | composablechannelimage |
+| Extension | `.cci` |
 
 
 ## Overview
 
-A `float channel image` is a collection of one or more `MxN` sets of float values. 
+A `composable channel image` is a collection of one or more sets of float values that encode information that can be reconstructed into images.
 
-The `float channel image` has: 
+The `composable channel image` consists of: 
 
-1. A two dimensional shape (`MxN`)
-1. A version number, referencing the version of this specification
-1. A type designation, which is the type designation included in this specification
-1. One or more sets of `values` of dimension `MxN`.
+1. A single two dimensional shape (`MxN`)
+1. One or more `layers`, composed of `channels`.
 
-Each set of `values` shall have the following meta data:
+A `channel` is a set of `MxN` values. The values can either be floats or booleans. 
 
-1. A name. Each name shall be unique within the scope of this `float channel image`.
-1. Global range (min, max). This is the global context for the range of the value.
+A `layer` is:
 
-Each `value` may be:
+1. Of dimension `MxN`.
+1. One or more float channels. 
+1. An optional `shadow` float channel
+1. An optional `depth` float channel 
+1. An optional `mask` boolean layer 
+
+Each `float value` may be:
 
 1. A valid float. This includes NaN (point to IEEE spec)
 1. Null. This means that there is no data for this value, and it should be considered 'blank', or not present. 
 
 ## Storage
 
-A `float channel image` may be stored in any of several formats.
+A `composable channel image` may be stored in any of several formats.
 
 ## Cinema storage
 
@@ -40,21 +43,28 @@ A `float channel image` may be stored in any of several formats.
 
 ## HDF5 storage
 
-The `float channel image` can be stored in HDF5 format. If it is stored in HDF5 format, it shall have the following structure:
+The `composable channel image` can be stored in HDF5 format. If it is stored in HDF5 format, it shall have the following structure:
 
 ```
     attr: width <int>
     attr: height <int>
-    attr: type "floatchannelimage"
+    attr: type "composablechannelimage"
     attr: version <string>
-    group: "channels"
-        dataset: <named>
-            attr: globalrange (optional)
+    group: "layer"
+        group: "ID"
+            dataset: "depth" (optional)
+                attr: "type" (optional)
+            dataset: "shadow" (optional)
+            dataset: <name>
+                attr: globalrange (optional)
+            dataset: <name>
+                attr: globalrange (optional)
+            ...
 ```
 
 ## Example
 
-Example python code included in this directory writes and reads a simple `float channel image` in HDF5 format.
+Example python code included in this directory writes and reads a simple `composable channel image` in HDF5 format.
 
 Requirements:
 
