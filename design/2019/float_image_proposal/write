@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+import h5py
+
+height = 1
+width  = 3
+dShape = (height, width) 
+
+
+with h5py.File("test.flim", "w") as f:
+    f.attrs["type"]   = "float"
+    f.attrs["width"]  = width
+    f.attrs["height"] = height
+    f.attrs["version"] = "1.0"
+
+    channels = f.create_group("channels") 
+    m = channels.create_dataset("mask", shape=dShape, data=[0, 1, 0])
+    t = channels.create_dataset("temperature", shape=dShape, data=[1.0, 2.0, 3.0])
+    t.attrs["globalrange"] = [0.0, 52.0] 
+    p = channels.create_dataset("pressure", shape=dShape, data=[4.0, 5.0, 6.0])
+    p.attrs["globalrange"] = [-1.0, 25.3]
+
