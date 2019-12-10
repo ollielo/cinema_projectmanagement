@@ -1,8 +1,13 @@
 # Float image format specification
 
-Date: 10 Dec 2019
 
-Version: 1.0
+|  |  |
+|--|--|
+| Date    | 10 Dec 2019 |
+| Version | 1.0 |
+| Type    | floatchanneliamge |
+| Extension | `.fci` |
+
 
 ## Overview
 
