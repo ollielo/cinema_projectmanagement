@@ -75,8 +75,8 @@ The `composable image set` can be stored in HDF5 format. If it is stored in HDF5
 Example python code included in this directory writes and reads a simple `composable image set` in HDF5 format.
 
 1. run `./write` to create several example files:
-    - `float.cci` contains a single float image with several variable channels and a single mask.
-    - `composable.cci` contains several layers that can be composed together, and recolored by several variables.  
+    - `float.cci` contains a single image with several variable channels and a single mask.
+    - `composable.cci` contains a single image with several layers that can be composed together, and recolored by several variables.  
 1. run `./dump <filename>` to dump the example files
 
 
