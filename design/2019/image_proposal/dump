@@ -1,15 +1,32 @@
 #!/usr/bin/env python
 
+import sys
 import h5py
 
+infile = "test.cci"
 
-with h5py.File("test.flim", "r") as f:
+if len(sys.argv) > 1:
+    infile = sys.argv[1]
+
+with h5py.File(infile, "r") as f:
     for a in f.attrs:
         print("{}: {}".format(a, f.attrs[a]))
 
-    print("channels:")
-    for c in f["channels"]:
-        print("  " + c)
-        for a in f["channels"][c].attrs:
-            print("    {}: {}".format(a, f["channels"][c].attrs[a]))
+    print("layers:")
+
+    for c in f["layers"]:
+        print("  ID: {}".format(c))
+
+        for d in f["layers"][c]:
+            if d == "mask":
+                print("    mask channel found")
+            elif d == "depth":
+                print("    depth channel found")
+            elif d == "shadow":
+                print("    shadow channel found")
+            else:
+                print("    {}".format(d))
+
+        for a in f["layers"][c].attrs:
+            print("    {}: {}".format(a, f["layers"][c].attrs[a]))
 
