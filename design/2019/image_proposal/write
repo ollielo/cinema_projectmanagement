@@ -6,34 +6,8 @@ height = 2
 width  = 3
 dShape = (height, width) 
 
-
-with h5py.File("float.cci", "w") as f:
-    f.attrs["type"]   = "composablechannelimage"
-    f.attrs["dims"]  = dShape 
-    f.attrs["version"] = "1.0"
-
-    images = f.create_group("images")
-    image  = images.create_group("0000")
-    layers = image.create_group("layers") 
-
-    # create a layer
-    l = layers.create_group("0000")
-
-    m = l.create_dataset("mask", shape=dShape, data=[[0, 1, 0], [0, 1, 0]])
-
-    t = l.create_dataset("temperature", shape=dShape, data=[[0.0, 1.0, 2.0], [3.0, 4.0, 5.0]])
-    t.attrs["globalrange"] = [0.0, 52.0] 
-
-    p = l.create_dataset("pressure", shape=dShape, data=[[6.0, 7.0, 8.0], [9.0, 10.0, 11.0]])
-    p.attrs["globalrange"] = [-1.0, 25.3]
-
-with h5py.File("compose.cci", "w") as f:
-    f.attrs["type"]   = "composablechannelimage"
-    f.attrs["dims"]  = dShape 
-    f.attrs["version"] = "1.0"
-
-    images = f.create_group("images") 
-    image  = images.create_group("0000")
+def create_image(images, name):
+    image  = images.create_group(name)
     layers = image.create_group("layers") 
 
     # create a layer
@@ -63,3 +37,35 @@ with h5py.File("compose.cci", "w") as f:
 
     d = l.create_dataset("density", shape=dShape, data=[[12.0, 13.0, 14.0], [15.0, 16.0, 17.0]])
     d.attrs["globalrange"] = [-1.0, 25.3]
+
+
+with h5py.File("float.cci", "w") as f:
+    f.attrs["type"]   = "composablechannelimage"
+    f.attrs["dims"]  = dShape 
+    f.attrs["version"] = "1.0"
+
+    images = f.create_group("images")
+    image  = images.create_group("0000")
+    layers = image.create_group("layers") 
+
+    # create a layer
+    l = layers.create_group("0000")
+
+    m = l.create_dataset("mask", shape=dShape, data=[[0, 1, 0], [0, 1, 0]])
+
+    t = l.create_dataset("temperature", shape=dShape, data=[[0.0, 1.0, 2.0], [3.0, 4.0, 5.0]])
+    t.attrs["globalrange"] = [0.0, 52.0] 
+
+    p = l.create_dataset("pressure", shape=dShape, data=[[6.0, 7.0, 8.0], [9.0, 10.0, 11.0]])
+    p.attrs["globalrange"] = [-1.0, 25.3]
+
+with h5py.File("compose.cci", "w") as f:
+    f.attrs["type"]   = "composablechannelimage"
+    f.attrs["dims"]  = dShape 
+    f.attrs["version"] = "1.0"
+
+    images = f.create_group("images") 
+
+    # create an image
+    create_image(images, "0000")
+    create_image(images, "0001")
