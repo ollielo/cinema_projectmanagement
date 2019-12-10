@@ -17,6 +17,11 @@ This specification covers data needed to write out Cinema's `float images` and `
 
 Often these images are useful to collect in sets, so this specification defines a format for a collection of such images.
 
+This specification allows the user to encode a range of information. The range of information goes from:
+
+1. Minimal information. This is the minimal information needed to construct an image. All consumers of the images are expected to behave reasonably when optional information is not provided. 
+2. Maximum information. This allows a consumer to (optionally) display the finished image in the exact state that the producer expects it to be in. This allows a direct comparison between the producer's image and the consumer's.
+
 ## Overview
 
 A `composable image set` is a collection of one or more images, each of which are sets of float values that encode information that can be reconstructed into images. The options for compositing and recoloring depend upon the contents of the `composable image set`.
@@ -83,6 +88,13 @@ Example python code included in this directory writes and reads a simple `compos
 Requirements:
 
 1. `h5py` module
+
+## TBD
+
+The specification and storage models should include the following information, so that the producer and consumer can perform an apples-to-apples comparison of the images:
+
+1. Default State. This should include current image, layer states (on or off), global variable ranges and color maps.
+2. Color maps
 
 ## References
 
