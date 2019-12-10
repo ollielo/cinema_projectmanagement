@@ -71,9 +71,9 @@ If it is stored in HDF5 format, it shall have the following structure:
         <name>/ (one or more named groups) (required)
             layers/ (group) (required)
                 <name>/ (one or more named groups) (required)
-                    depth/  (optional dataset) (MxN floats)
-                    shadow/ (optional dataset) (MxN floats)
-                    mask/   (optional dataset) (MxN booleans)
+                    depth/  (dataset) (optional) (MxN floats)
+                    shadow/ (dataset) (optional) (MxN floats)
+                    mask/   (dataset) (optional) (MxN booleans)
                     <name>/ (one or more named datasets) (required) (MxN floats)
                         globalrange (attribute) (optional) [float, float]
 ```
