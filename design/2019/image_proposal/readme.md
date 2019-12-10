@@ -57,12 +57,16 @@ A `composable image set` may be stored in any of several formats.
 
 ## HDF5 storage
 
-The `composable image set` can be stored a single [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) file. If it is stored in HDF5 format, it shall have the following structure:
+The `composable image set` can be stored a single [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) file. We note the [existing specification](https://support.hdfgroup.org/HDF5/doc/ADGuide/ImageSpec.html) for images to be stored in HDF5 format. Where possible, this specification adopts conventions from that specification. 
+
+If it is stored in HDF5 format, it shall have the following structure:
+
+### Example
 
 ```
 /
     dims    (attribute) (required)
-    type    (attribute) (required)
+    class   (attribute) (required)
     version (attribute) (required)
     images/ (group) (required)
         <name>/ (one or more named groups required)

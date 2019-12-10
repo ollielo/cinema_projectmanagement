@@ -40,7 +40,7 @@ def create_image(images, name):
 
 
 with h5py.File("float.cci", "w") as f:
-    f.attrs["type"]   = "composablechannelimage"
+    f.attrs["class"]   = "composablechannelimage"
     f.attrs["dims"]  = dShape 
     f.attrs["version"] = "1.0"
 
@@ -60,7 +60,7 @@ with h5py.File("float.cci", "w") as f:
     p.attrs["globalrange"] = [-1.0, 25.3]
 
 with h5py.File("compose.cci", "w") as f:
-    f.attrs["type"]   = "composablechannelimage"
+    f.attrs["class"]   = "composablechannelimage"
     f.attrs["dims"]  = dShape 
     f.attrs["version"] = "1.0"
 
