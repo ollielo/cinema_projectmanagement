@@ -46,25 +46,26 @@ A `composable channel image` may be stored in any of several formats.
 The `composable channel image` can be stored in HDF5 format. If it is stored in HDF5 format, it shall have the following structure:
 
 ```
-    attr: width <int>
-    attr: height <int>
-    attr: type "composablechannelimage"
-    attr: version <string>
-    group: "layer"
-        group: "ID"
-            dataset: "depth" (optional)
-                attr: "type" (optional)
-            dataset: "shadow" (optional)
-            dataset: <name>
-                attr: globalrange (optional)
-            dataset: <name>
-                attr: globalrange (optional)
-            ...
+/
+    dims    (attribute)
+    type    (attribute)
+    version (attribute)
+    layer/ (group)
+        <name>/ (one or more named groups)
+            depth/  (optional dataset)
+            shadow/ (optional dataset)
+            mask/   (optional dataset)
+            <name>/ (one or more named datasets) 
+                globalrange (optional attribute)
 ```
 
 ## Example
 
 Example python code included in this directory writes and reads a simple `composable channel image` in HDF5 format.
+
+1. run `./write` to create several example files
+1. run `./dump <filename>` to dump the example files
+
 
 Requirements:
 
