@@ -12,7 +12,7 @@ This specification covers data needed to write out Cinema's `float images` and `
 
 ## Overview
 
-A `composable channel image` is a collection of one or more sets of float values that encode information that can be reconstructed into images.
+A `composable channel image` is a collection of one or more sets of float values that encode information that can be reconstructed into images. The options for compositing and recoloring depend upon the contents of the `composable channel image`.
 
 The `composable channel image` consists of: 
 
