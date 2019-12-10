@@ -8,7 +8,7 @@
 | Type    | composableimageset |
 | Extension | `.cis` |
 
-Cinema creates two types of data that are useful both within Cinema, but also to a wider set of applications. The formats are discussed in [1]. In order to standardize these data types and enable their use in other applications, we propose this standard specification.
+Cinema creates two types of data that are useful both within Cinema, but also to a wider set of applications. The formats are discussed in <superscript>[1]</superscript>. In order to standardize these data types and enable their use in other applications, we propose this standard specification.
 
 This specification covers data needed to write out Cinema's `float images` and `composable float images` in the same format.
 
