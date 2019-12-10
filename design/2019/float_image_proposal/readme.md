@@ -11,7 +11,7 @@
 
 ## Overview
 
-A `float channel image` is a collection of one or more `MxN` sets of values. 
+A `float channel image` is a collection of one or more `MxN` sets of float values. 
 
 The `float channel image` has: 
 
