@@ -6,24 +6,24 @@ Version: 1.0
 
 ## Overview
 
-A float image is a set of one or more `MxN` set of values. 
+A float image is a collection of one or more `MxN` sets of values. 
 
-The set of values has:
+The float image has: 
 
-1. A shape (`MxN`)
-2. A version number, referencing the version of this specification
-3. A type designation, which is the type designation included in this specification
-4. A set of `MxN` `values`
+1. A two dimensional shape (`MxN`)
+1. A version number, referencing the version of this specification
+1. A type designation, which is the type designation included in this specification
+1. One or more sets of `values` of dimension `MxN`.
 
 Each set of `values` shall have the following meta data:
 
-1. A name. Each name shall be used only once per float image.
+1. A name. Each name shall be unique within the scope of this float image.
 1. Global range (min, max). This is the global context for the range of the value.
 
 Each `value` may be:
 
 1. A valid float. This includes NaN (point to IEEE spec)
-2. Null. This means that there is no data for this value, and it should be considered 'blank', or not present. 
+1. Null. This means that there is no data for this value, and it should be considered 'blank', or not present. 
 
 ## Storage
 
