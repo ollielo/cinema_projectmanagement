@@ -76,7 +76,7 @@ Example python code included in this directory writes and reads a simple `compos
 
 1. run `./write` to create several example files:
     - `float.cci` contains a single image with several variable channels and a single mask.
-    - `composable.cci` contains a single image with several layers that can be composed together, and recolored by several variables.  
+    - `composable.cci` contains several images with several layers that can be composed together, and recolored by several variables.  
 1. run `./dump <filename>` to dump the example files
 
 
