@@ -41,9 +41,9 @@ A **layer** is a logical collection of values used to construct a final `image`.
 1. Is of known 2D size, less than or equal to the size of the `image`. There is no restriction on the 2D size of the layer, though the values must be integers.
 2. Is placed at a properly oriented [x,y] offset from the `image` origin. The offset values must be integers, but there is no other restriction on their value.
 3. Must contain one or more value channels. 
-4. May contain an optional `shadow` channel
-5. May contain an optional `depth` channel
-6. May contain an optional `mask` channel
+4. May contain an optional `shadow` channel. This contains information about the lighting at a value.
+5. May contain an optional `depth` channel. This contains information about the depth of a value in image space. Values are in the range [0.0, 1.0], where 0.0 is the closest, and 1.0 is the farthest.
+6. May contain an optional `mask` channel. This contains information about which values in the layer are 'valid' or 'invalid'. A valid value should be used in rendering, while an invalid value should not. Values default to boolean, with 1 meaning valid, and 0 meaning invalid. This specification does not define values if the producer overrides the type of the mask layer to be anything other than boolean.
 
 A **channel** is a set of values. A channel:
 
