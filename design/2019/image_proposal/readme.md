@@ -60,22 +60,39 @@ The `composable image set` can be stored a single [HDF5](https://en.wikipedia.or
 
 If it is stored in HDF5 format, it shall have the following structure:
 
-### Example
-
 ```
 /
-    dims    (attribute) (required) [int, int]
     class   (attribute) (required) COMPOSABLE_IMAGE_SET 
+    dims    (attribute) (required) [int, int]
+            This is the absolute size of the completed image
+    origin  (attribute) (optional) [UL, UR, LL, LR]
+            The 0,0 point for the image. Default value is LL
     version (attribute) (required) string
+            The version of this specification that the data conforms with
     images/ (group) (required)
         <name>/ (one or more named groups) (required)
             layers/ (group) (required)
+                offset (attribute) (optional) [int, int]
+                       Offset of the layer's channels from "/origin". If not included, default
+                       value is [0, 0], or no offset
+                dims   (attribute) (optional) [int, int]
+                       Dimensions of the layer. If not present, assumed to be "/dims"
                 <name>/ (one or more named groups) (required)
-                    depth/  (dataset) (optional) (MxN floats)
-                    shadow/ (dataset) (optional) (MxN floats)
+                    depth/  (dataset) (optional)
+                        type (attribute) (optional) [valid type string]
+                              If not present, values are assumed to be float
+                    shadow/ (dataset) (optional)
+                        type (attribute) (optional) [valid type string]
+                              If not present, values are assumed to be float
                     mask/   (dataset) (optional) (MxN booleans)
+                        type (attribute) (optional) [valid type string]
+                              If not present, values are assumed to be boolean
                     <name>/ (one or more named datasets) (required) (MxN floats)
-                        globalrange (attribute) (optional) [float, float]
+                        type (attribute) (optional) [valid type string]
+                              If not present, values are assumed to be float
+                        globalrange (attribute) (optional) [type, type]
+                              A global range for this data. If not included, it is 
+                              assumed to be the range of the data contained in this layer
 ```
 
 ## Example
@@ -83,8 +100,8 @@ If it is stored in HDF5 format, it shall have the following structure:
 Example python code included in this directory writes and reads a simple `composable image set` in HDF5 format.
 
 1. run `./write` to create several example files:
-    - `float.cci` contains a single image with several variable channels and a single mask.
-    - `composable.cci` contains several images with several layers that can be composed together, and recolored by several variables.  
+    - `float.cis` contains a single image with several variable channels and a single mask.
+    - `composable.cis` contains several images with several layers that can be composed together, and recolored by several variables.  
 1. run `./dump <filename>` to dump the example files
 
 
