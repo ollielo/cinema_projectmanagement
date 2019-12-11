@@ -8,43 +8,48 @@
 | Type    | composableimageset |
 | Extension | `.cis` |
 
-Cinema creates two types of data that are useful both within Cinema, but also to a wider set of applications. The formats are discussed in <sup>[1]</sup>. In order to standardize these data types and enable their use in other applications, we propose this specification.
+Cinema creates two types of image-based data that are useful within Cinema but also to a wider set of applications. The formats are discussed in <sup>[1]</sup>. The purpose of this specification is to standardize these data types and enable their use in other applications.
 
-This specification covers data needed to write out Cinema's `float images` and `composable float images` in the same format.
+This specification covers data needed to write out Cinema's `float images` and `composable images`. Per current Cinema specs:
 
 1. `float images` contain float values for a single image. These are used to compute information about a variable from a rendered object, or to allow an image to be recolored with different color maps after it has been rendered. 
 1. `composable images` contain several layers that can be composited to show a correct rendering from a specific camera position. These can also be recolored with different color maps. Using a set of these images, one can turn on and off different parts of a rendering, making the resulting image more interactive.
 
-Often these images are useful to collect in sets, so this specification defines a format for a collection of such images.
+Often these images are useful to collect in sets, so this specification defines a format for collections of one or more such images.
 
-This specification allows the user to encode a range of information. The range of information goes from:
+## Flexible Information Encoding
 
-1. Minimal information. This is the minimal information needed to construct an image. All consumers of the images are expected to behave reasonably when optional information is not provided. 
+This specification allows the producer of the image to encode a range of information, though there are no constraints on how the image is to be consumed. 
+
+The range of information goes from:
+
+1. Minimal information. This is the minimal information needed to construct an image. All consumers of the images are expected to behave reasonably when minimal information is provided. 
 2. Maximum information. This allows a consumer to (optionally) display the finished image in the exact state that the producer expects it to be in. This allows a direct comparison between the producer's image and the consumer's.
 
 ## Overview
 
-A `composable image set` is a collection of one or more images, each of which are sets of float values that encode information that can be reconstructed into images. The options for compositing and recoloring depend upon the contents of the `composable image set`.
+A `composable image set` is a collection of one or more `images`. `Images` are sets of one or more `layers`. `Layers` are composed of one or more `channels`.
 
-The `composable image set` consists of: 
+An **image** is: a logical collection of data, formatted to be rendered into an `MxN` array of values intended to be transformed into a color image for display, printing, or in-memory computation. How the pixels are transformed and displayed is up to the consumer of this data, though the producer can provide information about expected results and constraints on this process. The image:
 
-1. A single two dimensional shape (`MxN`)
-1. One or more `images`, composed of `layers`. `Layers` are composed of `channels`.
+1. Has a know origin, which is one of four values: UL, UR, LL, LR. (upper left, upper right, lower left, lower right)
+2. Has a specific 2D size (`MxN`)
+3. Has one or more `layers`.
 
-A `layer` is:
+A **layer** is a logical collection of values used to construct a final `image`. A layer:
 
-1. Of dimension `MxN`.
-1. One or more float channels. 
-1. An optional `shadow` float channel
-1. An optional `depth` float channel
-1. An optional `mask` boolean channel
+1. Is of known 2D size, less than or equal to the size of the `image`. There is no restriction on the 2D size of the layer, though the values must be integers.
+2. Is placed at a properly oriented [x,y] offset from the `image` origin. The offset values must be integers, but there is no other restriction on their value.
+3. Must contain one or more value channels. 
+4. May contain an optional `shadow` channel
+5. May contain an optional `depth` channel
+6. May contain an optional `mask` channel
 
-A `channel` is a set of `MxN` values. The values can either be `float values` or booleans. 
+A `channel` is a set of values. A channel:
 
-Each `float value` may be:
-
-1. A valid float. This includes NaN (point to IEEE spec)
-1. Null. This means that there is no data for this value, and it should be considered 'blank', or not present. 
+1. Is the dimension of the layer that contains it
+2. May be of any valid type
+ 
 
 # Storage
 
@@ -87,7 +92,7 @@ If it is stored in HDF5 format, it shall have the following structure:
                     mask/   (dataset) (optional) (MxN booleans)
                         type (attribute) (optional) [valid type string]
                               If not present, values are assumed to be boolean
-                    <name>/ (one or more named datasets) (required) (MxN floats)
+                    <name>/ (one or more named datasets) (required)
                         type (attribute) (optional) [valid type string]
                               If not present, values are assumed to be float
                         globalrange (attribute) (optional) [type, type]
