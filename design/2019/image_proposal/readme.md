@@ -19,7 +19,7 @@ Often these images are useful to collect in sets, so this specification defines 
 
 ## Flexible Information Encoding
 
-This specification allows the producer of the image to encode a range of information, though there are no constraints on how the image is to be consumed. 
+This specification allows the **producer** of the image to encode a range of information, though there are no constraints on what a **consumer** of the image must do with it. 
 
 The range of information goes from:
 
