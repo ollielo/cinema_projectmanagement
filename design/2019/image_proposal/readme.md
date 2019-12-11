@@ -28,7 +28,7 @@ The range of information goes from:
 
 ## Overview
 
-A `composable image set` is a collection of one or more `images`. `Images` are sets of one or more `layers`. `Layers` are composed of one or more `channels`.
+A `composable image set` is a collection of one or more `images`. `Images` are sets of one or more `layers`. `Layers` are composed of one or more `channels`. `Channels` are composed of `values`.
 
 An **image** is: a logical collection of data, formatted to be rendered into an `MxN` array of values intended to be transformed into a color image for display, printing, or in-memory computation. How the pixels are transformed and displayed is up to the consumer of this data, though the producer can provide information about expected results and constraints on this process. The image:
 
@@ -45,7 +45,7 @@ A **layer** is a logical collection of values used to construct a final `image`.
 5. May contain an optional `depth` channel
 6. May contain an optional `mask` channel
 
-A `channel` is a set of values. A channel:
+A **channel** is a set of values. A channel:
 
 1. Is the dimension of the layer that contains it
 2. May be of any valid type
