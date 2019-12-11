@@ -19,9 +19,7 @@ Often these images are useful to collect in sets, so this specification defines 
 
 ## Flexible Information Encoding
 
-This specification allows the **producer** of the image to encode a range of information, though there are no constraints on what a **consumer** of the image must do with it. 
-
-The range of information goes from:
+This specification allows the **producer** of the image to encode a range of information, though there are no constraints on what a **consumer** of the image must do with it. The range of information goes from:
 
 1. Minimal information. This is the minimal information needed to construct an image. All consumers of the images are expected to behave reasonably when minimal information is provided. 
 2. Maximum information. This allows a consumer to (optionally) display the finished image in the exact state that the producer expects it to be in. This allows a direct comparison between the producer's image and the consumer's.
