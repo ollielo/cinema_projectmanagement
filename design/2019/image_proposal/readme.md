@@ -112,7 +112,7 @@ Requirements:
 
 1. `h5py` module
 
-## TBD
+## Open areas 
 
 One question is how to represent to a consumer enough of a state so that the image can be reconstructed to an expected result. The specification and storage models should include the following information, so that the producer and consumer can perform an apples-to-apples comparison of the images:
 
