@@ -6,7 +6,7 @@ height = 2
 width  = 3
 dShape = (height, width) 
 
-def create_image(images, name):
+def create_composable_image(images, name):
     # create an image
     image  = images.create_group(name)
 
@@ -14,6 +14,14 @@ def create_image(images, name):
     layers = image.create_group("layers") 
     create_layer(layers, "0000")
     create_layer(layers, "0001")
+
+def create_float_image(images, name):
+    # create an image
+    image  = images.create_group(name)
+
+    # create layers
+    layers = image.create_group("layers") 
+    create_layer(layers, "0000")
 
 def create_layer(layers, name):
     # create a layer
@@ -41,7 +49,7 @@ with h5py.File("float.cis", "w") as f:
     f.attrs["version"] = "1.0"
 
     images = f.create_group("images")
-    create_image(images, "0000")
+    create_float_image(images, "0000")
 
 with h5py.File("compose.cis", "w") as f:
     f.attrs["class"]   = "composablechannelimage"
@@ -51,5 +59,6 @@ with h5py.File("compose.cis", "w") as f:
     images = f.create_group("images") 
 
     # create an image
-    create_image(images, "0000")
-    create_image(images, "0001")
+    create_composable_image(images, "0000")
+    create_composable_image(images, "0001")
+    create_composable_image(images, "0002")
