@@ -83,15 +83,17 @@ If it is stored in HDF5 format, it shall have the following structure:
                        Dimensions of the layer. If not present, assumed to be "/dims"
                 <name>/ (one or more named groups) (required)
                     channels/
-                        depth/  (dataset) (optional)
-                            type (attribute) (optional) [valid type string]
-                                  If not present, values are assumed to be float
-                        shadow/ (dataset) (optional)
-                            type (attribute) (optional) [valid type string]
-                                  If not present, values are assumed to be float
-                        mask/   (dataset) (optional) (MxN booleans)
-                            type (attribute) (optional) [valid type string]
-                                  If not present, values are assumed to be boolean
+                        cis/ (group) (optional)
+                             optional group for cis-specific layers
+                            depth/  (dataset) (optional)
+                                type (attribute) (optional) [valid type string]
+                                      If not present, values are assumed to be float
+                            shadow/ (dataset) (optional)
+                                type (attribute) (optional) [valid type string]
+                                      If not present, values are assumed to be float
+                            mask/   (dataset) (optional) (MxN booleans)
+                                type (attribute) (optional) [valid type string]
+                                      If not present, values are assumed to be boolean
                         <name>/ (one or more named datasets) (required)
                             type (attribute) (optional) [valid type string]
                                   If not present, values are assumed to be float
