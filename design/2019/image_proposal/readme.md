@@ -81,8 +81,8 @@ If it is stored in HDF5 format, it shall have the following structure:
                        value is [0, 0], or no offset
                 dims   (attribute) (optional) [int, int]
                        Dimensions of the layer. If not present, assumed to be "/dims"
-                channels/
-                    <name>/ (one or more named groups) (required)
+                <name>/ (one or more named groups) (required)
+                    channels/
                         depth/  (dataset) (optional)
                             type (attribute) (optional) [valid type string]
                                   If not present, values are assumed to be float
