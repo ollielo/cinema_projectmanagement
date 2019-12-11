@@ -81,22 +81,23 @@ If it is stored in HDF5 format, it shall have the following structure:
                        value is [0, 0], or no offset
                 dims   (attribute) (optional) [int, int]
                        Dimensions of the layer. If not present, assumed to be "/dims"
-                <name>/ (one or more named groups) (required)
-                    depth/  (dataset) (optional)
-                        type (attribute) (optional) [valid type string]
-                              If not present, values are assumed to be float
-                    shadow/ (dataset) (optional)
-                        type (attribute) (optional) [valid type string]
-                              If not present, values are assumed to be float
-                    mask/   (dataset) (optional) (MxN booleans)
-                        type (attribute) (optional) [valid type string]
-                              If not present, values are assumed to be boolean
-                    <name>/ (one or more named datasets) (required)
-                        type (attribute) (optional) [valid type string]
-                              If not present, values are assumed to be float
-                        globalrange (attribute) (optional) [type, type]
-                              A global range for this data. If not included, it is 
-                              assumed to be the range of the data contained in this layer
+                channels/
+                    <name>/ (one or more named groups) (required)
+                        depth/  (dataset) (optional)
+                            type (attribute) (optional) [valid type string]
+                                  If not present, values are assumed to be float
+                        shadow/ (dataset) (optional)
+                            type (attribute) (optional) [valid type string]
+                                  If not present, values are assumed to be float
+                        mask/   (dataset) (optional) (MxN booleans)
+                            type (attribute) (optional) [valid type string]
+                                  If not present, values are assumed to be boolean
+                        <name>/ (one or more named datasets) (required)
+                            type (attribute) (optional) [valid type string]
+                                  If not present, values are assumed to be float
+                            globalrange (attribute) (optional) [type, type]
+                                  A global range for this data. If not included, it is 
+                                  assumed to be the range of the data contained in this layer
 ```
 
 ## Example
