@@ -14,7 +14,7 @@ Cinema creates two types of image-based data that are useful within Cinema but a
 <img src="img/image_pipeline_numbers_fill.png" width="70%" border="1"></img>
 </p>
 
-<p style="width:70%">
+<p style="width:50%">
 <small>Workflow for Cinema image set. Channels (1) are selected (2) to create layers (3), which are then composited into a final image (4) for viewing in some application (5).</small)
 </p>
 
