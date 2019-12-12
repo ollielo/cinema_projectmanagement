@@ -1,64 +1,67 @@
 #!/usr/bin/env python
 
 import h5py
+import numpy
 
-height = 2
-width  = 3
-dShape = (height, width) 
+im_height = 50
+im_width  = 100
+im_shape = (im_height, im_width) 
 
-def create_composable_image(images, name):
-    # create an image
-    image  = images.create_group(name)
+shape = [(10, 10),
+         (10, 15),
+         (10, 20)]
 
-    # create layers
-    layers = image.create_group("layers") 
-    create_layer(layers, "0000")
-    create_layer(layers, "0001")
+offsets = {} 
+offsets["0000"] = ( 0, 0)
+offsets["0001"] = (10, 10)
+offsets["0002"] = (20, 20)
 
-def create_float_image(images, name):
-    # create an image
-    image  = images.create_group(name)
+ranges = [
+          (0.0, 10.0),
+          (10.0, 20.0),
+          (20.0, 30.0)
+         ]
 
-    # create layers
-    layers = image.create_group("layers") 
-    create_layer(layers, "0000")
+im_names = ["0000"]
+layer_names = ["0000", "0001", "0002"] 
 
-def create_layer(layers, name):
+def add_channel(channels, name, dims, minmax):
+
+    values = numpy.random.uniform( minmax[0], minmax[1], dims) 
+    c = channels.create_dataset(name, shape=dims, data=values)
+    # print(c)
+    # print(values)
+
+    return
+
+def create_layer(layers, name, shape):
+    global ranges
+    global offsets
+
     # create a layer
     l = layers.create_group(name)
+    l.attrs["offset"] = offsets[name]
+    l.attrs["dims"]   = shape 
 
     # create channels
     c = l.create_group("channels")
 
-    m = c.create_dataset("depth", shape=dShape, data=[[1.0, 0.5, 1.0], [0.5, 1.0, 0.5]])
+    add_channel(c, "temperature", shape, ranges[0]) 
+    add_channel(c, "density",     shape, ranges[1]) 
+    add_channel(c, "pressure",    shape, ranges[2]) 
 
-    t = l.create_dataset("temperature", shape=dShape, data=[[0.0, 1.0, 2.0], [3.0, 4.0, 5.0]])
-    t.attrs["globalrange"] = [0.0, 52.0] 
-
-    p = c.create_dataset("pressure", shape=dShape, data=[[6.0, 7.0, 8.0], [9.0, 10.0, 11.0]])
-    p.attrs["globalrange"] = [-1.0, 25.3]
-
-    d = c.create_dataset("density", shape=dShape, data=[[12.0, 13.0, 14.0], [15.0, 16.0, 17.0]])
-    d.attrs["globalrange"] = [-1.0, 25.3]
-
-
-
-with h5py.File("float.cis", "w") as f:
-    f.attrs["class"]   = "composablechannelimage"
-    f.attrs["dims"]  = dShape 
-    f.attrs["version"] = "1.0"
-
-    images = f.create_group("images")
-    create_float_image(images, "0000")
 
 with h5py.File("compose.cis", "w") as f:
     f.attrs["class"]   = "composablechannelimage"
-    f.attrs["dims"]  = dShape 
+    f.attrs["dims"]  = im_shape 
     f.attrs["version"] = "1.0"
 
     images = f.create_group("images") 
 
     # create an image
-    create_composable_image(images, "0000")
-    create_composable_image(images, "0001")
-    create_composable_image(images, "0002")
+    for name in im_names:
+        image  = images.create_group(name)
+        layers = image.create_group("layers") 
+        for i in range(len(layer_names)): 
+            create_layer(layers, layer_names[i], shape[i])
+

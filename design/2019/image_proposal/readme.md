@@ -117,8 +117,7 @@ If it is stored in HDF5 format, it shall have the following structure:
 
 Example python code included in this directory writes and reads a simple `composable image set` in HDF5 format.
 
-1. run `./write` to create several example files:
-    - `float.cis` contains a single image with several variable channels and a single mask.
+1. run `./write` to create example files:
     - `composable.cis` contains several images with several layers that can be composed together, and recolored by several variables.  
 1. run `./dump <filename>` to dump the example files
 
