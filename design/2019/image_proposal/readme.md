@@ -11,7 +11,7 @@
 Cinema creates two types of image-based data that are useful within Cinema but also to a wider set of applications. The formats are discussed in <sup>[1]</sup>. The purpose of this specification is to standardize these data types and enable their use in other applications.
 
 <p align="center">
-<table width="70%">
+<table align="center" width="70%">
 <tr><td>
 <img src="img/image_pipeline_numbers_fill.png" width="70%" border="1"></img>
 </td></tr>
