@@ -1,6 +1,7 @@
 # Composable Image Set format specification
 
 
+|----|----|
 | Date    | 10 Dec 2019 |
 | Version | 1.0 |
 | Type    | composableimageset |
