@@ -120,6 +120,7 @@ Example python code included in this directory writes and reads a simple `compos
 1. run `./write` to create example files:
     - `composable.cis` contains several images with several layers that can be composed together, and recolored by several variables.  
 1. run `./dump <filename>` to dump the example files
+1. run `./render <filename>` to render the images (under development)
 
 
 Requirements:
