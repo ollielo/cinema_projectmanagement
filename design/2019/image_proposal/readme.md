@@ -135,7 +135,8 @@ Providing semantic meaning in a Cinema database entails providing metadata about
 
 ### Explicit resource path example
 
-We provide two examples. This first example provides an explicit path to data in a `.cis` file:
+This example shows a set of images encoding three layers for an image, each of which has three channels. 
+This example provides an explicit path to data in a `.cis` file:
 
 | time | phi  | theta | isoval | var  | path | resource |
 | ---- | ---- | ----- | ------ | ---- | ---- | -------- |
@@ -151,7 +152,8 @@ We provide two examples. This first example provides an explicit path to data in
 
 ### Algorithmic resource path example
 
-An alternative example does not provide a path, but instead requires that there is a definition of how to construct a path from the metatdata, known by both the **producer** and **consumer**.
+This example shows a set of images encoding three layers for an image, each of which has three channels. 
+This example does not provide a path, but instead requires that there is a definition of how to construct a path from the metatdata, known by both the **producer** and **consumer**.
 
 | time | phi  | theta | isoval | var  | resource |
 | ---- | ---- | ----- | ------ | ---- | -------- |
