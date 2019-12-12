@@ -131,7 +131,9 @@ One question is how to represent to a consumer enough of a state so that the ima
 
 The `.cis` format is a way of encoding specific types of information. It is up to a **producer** and **consumer** of the data to determine the semantic meaning of the encoded data.
 
-Providing semantic meaning in a Cinema database entails providing metadata about the image/layer/channel components, and referencing a path in the `.cis` file. This is exactly analogous to providing a path to disk, except that the resource that the path maps to is a `.cis` file. For example:
+Providing semantic meaning in a Cinema database entails providing metadata about the image/layer/channel components, and referencing a path in the `.cis` file. This is exactly analogous to providing a path to disk, except that the resource that the path maps to is a `.cis` file. 
+
+We provide two examples. This first example provides an explicit path to data in a `.cis` file:
 
 | time | phi  | theta | isoval | var  | path | resource |
 | ---- | ---- | ----- | ------ | ---- | ---- | -------- |
@@ -144,6 +146,20 @@ Providing semantic meaning in a Cinema database entails providing metadata about
 | 1.0  | 10.0 | 10.0  | 30.0   | temperature | /images/0001/layers/0001/channels/0003/temperature | output.cis |
 | 1.0  | 10.0 | 10.0  | 30.0   | pressure    | /images/0001/layers/0001/channels/0003/pressure | output.cis |
 | 1.0  | 10.0 | 10.0  | 30.0   | procID      | /images/0001/layers/0001/channels/0003/procID | output.cis |
+
+An alternative example does not provide a path, but instead requiers that there is a definition of how to construct a path from the metatdata, known by both the **producer** and **consumer**.
+
+| time | phi  | theta | isoval | var  | resource |
+| ---- | ---- | ----- | ------ | ---- | -------- |
+| 1.0  | 10.0 | 10.0  | 10.0   | temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 10.0   | pressure    | output.cis |
+| 1.0  | 10.0 | 10.0  | 10.0   | procID      | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | pressure    | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | procID      | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | pressure    | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | procID      | output.cis |
 
 ## References
 
