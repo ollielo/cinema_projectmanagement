@@ -127,13 +127,6 @@ Requirements:
 
 1. `h5py` module
 
-## Open areas 
-
-One question is how to represent to a consumer enough of a state so that the image can be reconstructed to an expected result. The specification and storage models should include the following information, so that the producer and consumer can perform an apples-to-apples comparison of the images:
-
-1. Default State. This should include current image, layer states (on or off), global variable ranges and default color maps.
-2. Color maps
-
 ## Cinema Database Reference Example
 
 The `.cis` format is a way of encoding specific types of information. It is up to a **producer** and **consumer** of the data to determine the semantic meaning of the encoded data.
@@ -171,6 +164,14 @@ An alternative example does not provide a path, but instead requires that there 
 | 1.0  | 10.0 | 10.0  | 30.0   | temperature | output.cis |
 | 1.0  | 10.0 | 10.0  | 30.0   | pressure    | output.cis |
 | 1.0  | 10.0 | 10.0  | 30.0   | procID      | output.cis |
+
+## Open areas 
+
+One question is how to represent to a consumer enough of a state so that the image can be reconstructed to an expected result. The specification and storage models should include the following information, so that the producer and consumer can perform an apples-to-apples comparison of the images:
+
+1. Default State. This should include current image, layer states (on or off), global variable ranges and default color maps.
+2. Color maps
+
 
 ## References
 
