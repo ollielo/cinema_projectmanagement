@@ -75,13 +75,17 @@ If it is stored in HDF5 format, it shall have the following structure:
             The version of this specification that the data conforms with
     images/ (group) (required)
         <name>/ (one or more named groups) (required)
+            <name> (attribute) (optional) 
+                   Optional attributes may be added
             layers/ (group) (required)
-                offset (attribute) (optional) [int, int]
-                       Offset of the layer's channels from "/origin". If not included, default
-                       value is [0, 0], or no offset
-                dims   (attribute) (optional) [int, int]
-                       Dimensions of the layer. If not present, assumed to be "/dims"
                 <name>/ (one or more named groups) (required)
+                    offset (attribute) (optional) [int, int]
+                           Offset of the layer's channels from "/origin". If not included, default
+                           value is [0, 0], or no offset
+                    dims   (attribute) (optional) [int, int]
+                           Dimensions of the layer. If not present, assumed to be "/dims"
+                    <name> (attribute) (optional) 
+                           Optional attributes may be added
                     channels/
                         cis/ (group) (optional)
                              optional group for cis-specific layers
