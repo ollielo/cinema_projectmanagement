@@ -127,6 +127,24 @@ One question is how to represent to a consumer enough of a state so that the ima
 1. Default State. This should include current image, layer states (on or off), global variable ranges and default color maps.
 2. Color maps
 
+## Cinema Database Reference Example
+
+The `.cis` format is a way of encoding specific types of information. It is up to a **producer** and **consumer** of the data to determine the semantic meaning of the encoded data.
+
+Providing semantic meaning in a Cinema database entails providing metadata about the image/layer/channel components, and referencing a path in the `.cis` file. This is exactly analogous to providing a path to disk, except that the resource that the path maps to is a `.cis` file. For example:
+
+| time | phi  | theta | isoval | var  | path | resource |
+| ---- | ---- | ----- | ------ | ---- | ---- | -------- |
+| 1.0  | 10.0 | 10.0  | 10.0   | temperature | /images/0001/layers/0001/channels/0001/temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 10.0   | pressure    | /images/0001/layers/0001/channels/0001/pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | 10.0   | procID      | /images/0001/layers/0001/channels/0001/procID | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | temperature | /images/0001/layers/0001/channels/0002/temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | pressure    | /images/0001/layers/0001/channels/0002/pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | procID      | /images/0001/layers/0001/channels/0002/procID | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | temperature | /images/0001/layers/0001/channels/0003/temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | pressure    | /images/0001/layers/0001/channels/0003/pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | procID      | /images/0001/layers/0001/channels/0003/procID | output.cis |
+
 ## References
 
 1. James Ahrens, Sebastien Jourdain, Patrick O'Leary, John Patchett, David H. Rogers, and Mark Petersen. An image-based approach to extreme scale in situ visualization and analysis. In Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis (SC '14). IEEE Press, Piscataway, NJ, USA, 424-434, 2014.
