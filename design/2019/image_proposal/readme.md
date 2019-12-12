@@ -66,42 +66,47 @@ If it is stored in HDF5 format, it shall have the following structure:
 
 ```
 /
-    class   (attribute) (required) COMPOSABLE_IMAGE_SET 
-    dims    (attribute) (required) [int, int]
+    class   (attribute, required) COMPOSABLE_IMAGE_SET 
+    dims    (attribute, required) [int, int]
             This is the absolute size of the completed image
-    origin  (attribute) (optional) [UL, UR, LL, LR]
-            The 0,0 point for the image. Default value is LL
-    version (attribute) (required) string
+    flags   (attribute, optional)
+            CONSTANT_CHANNELS   all images/layers have the same set of channels, with the same meaning
+            A list of flags, providing additional information about this data
+    origin  (attribute, optional) [UL, UR, LL, LR]
+            The 0,0 point for the image. Default value is UL
+    version (attribute, required) string
             The version of this specification that the data conforms with
-    images/ (group) (required)
+    <name>  (attribute, optional) 
+            Optional attributes may be added
+    images/ (group, required)
+        <name> (attribute, optional) 
+               Optional attributes may be added
         <name>/ (one or more named groups) (required)
-            <name> (attribute) (optional) 
+            <name> (attribute, optional) 
                    Optional attributes may be added
-            layers/ (group) (required)
+            layers/ (group, required)
                 <name>/ (one or more named groups) (required)
-                    offset (attribute) (optional) [int, int]
+                    offset (attribute, optional) [int, int]
                            Offset of the layer's channels from "/origin". If not included, default
                            value is [0, 0], or no offset
-                    dims   (attribute) (optional) [int, int]
+                    dims   (attribute, optional) [int, int]
                            Dimensions of the layer. If not present, assumed to be "/dims"
-                    <name> (attribute) (optional) 
+                    <name> (attribute, optional) 
                            Optional attributes may be added
                     channels/
-                        cis/ (group) (optional)
-                             optional group for cis-specific layers
-                            depth/  (dataset) (optional)
-                                type (attribute) (optional) [valid type string]
-                                      If not present, values are assumed to be float
-                            shadow/ (dataset) (optional)
-                                type (attribute) (optional) [valid type string]
-                                      If not present, values are assumed to be float
-                            mask/   (dataset) (optional) (MxN booleans)
-                                type (attribute) (optional) [valid type string]
-                                      If not present, values are assumed to be boolean
-                        <name>/ (one or more named datasets) (required)
+                        depth/  (dataset, optional)
                             type (attribute) (optional) [valid type string]
+                                 If not present, values are assumed to be float
+                        shadow/ (dataset, optional)
+                            type (attribute, optional) [valid type string]
+                                 If not present, values are assumed to be float
+                        mask/   (dataset, optional)
+                            type (attribute, optional) [valid type string]
+                                 If not present, values are assumed to be boolean
+                        <name>/ (one or more named datasets, required)
+                            type (attribute, optional) [valid type string]
                                   If not present, values are assumed to be float
-                            globalrange (attribute) (optional) [type, type]
+                            globalrange (attribute, optional) [type, type]
                                   A global range for this data. If not included, it is 
                                   assumed to be the range of the data contained in this layer
 ```
