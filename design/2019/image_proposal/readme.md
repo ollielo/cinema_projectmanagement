@@ -11,7 +11,8 @@
 Cinema creates two types of image-based data that are useful within Cinema but also to a wider set of applications. The formats are discussed in <sup>[1]</sup>. The purpose of this specification is to standardize these data types and enable their use in other applications.
 
 <p align="center">
-<img src="img/image_pipeline_numbers_fill.png" width="80%" border="1"></img>
+<img src="img/image_pipeline_numbers_fill.png" width="70%" border="1"></img>
+Workflow for Cinema image set. Channels (1) are selected (2) to create layers (3), which are then composited into a final image (4) for viewing in some application (5).
 </p>
 
 This specification covers data needed to write out Cinema's `float images` and `composable images`. Per current Cinema specs:
