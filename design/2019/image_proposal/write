@@ -53,8 +53,9 @@ def create_layer(layers, name, shape):
 
 with h5py.File("compose.cis", "w") as f:
     f.attrs["class"]   = "composablechannelimage"
-    f.attrs["dims"]  = im_shape 
+    f.attrs["dims"]    = im_shape 
     f.attrs["version"] = "1.0"
+    f.attrs["flags"]   = ["CONSTANT_CHANNELS"]
 
     images = f.create_group("images") 
 
