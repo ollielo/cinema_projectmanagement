@@ -10,6 +10,8 @@
 
 Cinema creates two types of image-based data that are useful within Cinema but also to a wider set of applications. The formats are discussed in <sup>[1]</sup>. The purpose of this specification is to standardize these data types and enable their use in other applications.
 
+<img src="img/image_pipeline_numbers_fill.png"></img>
+
 This specification covers data needed to write out Cinema's `float images` and `composable images`. Per current Cinema specs:
 
 1. `float images` contain float values for a single image. These are used to compute information about a variable from a rendered object, or to allow an image to be recolored with different color maps after it has been rendered. 
