@@ -12,7 +12,9 @@ Cinema creates two types of image-based data that are useful within Cinema but a
 
 <p align="center">
 <img src="img/image_pipeline_numbers_fill.png" width="70%" border="1"></img>
-Workflow for Cinema image set. Channels (1) are selected (2) to create layers (3), which are then composited into a final image (4) for viewing in some application (5).
+</p>
+<p width="70%">
+<small>Workflow for Cinema image set. Channels (1) are selected (2) to create layers (3), which are then composited into a final image (4) for viewing in some application (5).</small)
 </p>
 
 This specification covers data needed to write out Cinema's `float images` and `composable images`. Per current Cinema specs:
