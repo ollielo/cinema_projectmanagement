@@ -81,13 +81,13 @@ If it is stored in HDF5 format, it shall have the following structure:
     images/ (group, required)
         <name> (attribute, optional) 
                Optional attributes may be added
-        <name>/ (one or more named groups) (required)
+        <name>/ (one or more named groups, each of which is an image) (required)
             <name> (attribute, optional) 
                    Optional attributes may be added
             layers/ (group, required)
                 <name> (attribute, optional) 
                        Optional attributes may be added
-                <name>/ (one or more named groups) (required)
+                <name>/ (one or more named groups, each of which is a layer) (required)
                     offset (attribute, optional) [int, int]
                            Offset of the layer's channels from "/origin". If not included, default
                            value is [0, 0], or no offset
