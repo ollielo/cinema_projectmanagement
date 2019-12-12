@@ -151,7 +151,7 @@ We provide two examples. This first example provides an explicit path to data in
 
 ### Algorithmic resource path example
 
-An alternative example does not provide a path, but instead requiers that there is a definition of how to construct a path from the metatdata, known by both the **producer** and **consumer**.
+An alternative example does not provide a path, but instead requires that there is a definition of how to construct a path from the metatdata, known by both the **producer** and **consumer**.
 
 | time | phi  | theta | isoval | var  | resource |
 | ---- | ---- | ----- | ------ | ---- | -------- |
