@@ -20,6 +20,8 @@ with h5py.File(infile, "r") as f:
         print("    layers:")
         for l in f["images"][i]["layers"]:
             print("      layer: {}".format(l))
+            for a in f["images"][i]["layers"][l].attrs:
+                print("        {}: {}".format(a, f["images"][i]["layers"][l].attrs[a]))
 
             print("        channels:")
             for c in f["images"][i]["layers"][l]["channels"]:
