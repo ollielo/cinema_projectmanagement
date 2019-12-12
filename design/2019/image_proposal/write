@@ -29,8 +29,7 @@ def add_channel(channels, name, dims, minmax):
 
     values = numpy.random.uniform( minmax[0], minmax[1], dims) 
     c = channels.create_dataset(name, shape=dims, data=values)
-    # print(c)
-    # print(values)
+    c.attrs["globalrange"] = minmax
 
     return
 
