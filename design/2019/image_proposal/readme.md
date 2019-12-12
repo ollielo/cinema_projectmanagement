@@ -84,7 +84,7 @@ If it is stored in HDF5 format, it shall have the following structure:
         <name>/ (one or more named groups) (required)
             <name> (attribute, optional) 
                    Optional attributes may be added
-         layers/ (group, required)
+        layers/ (group, required)
             <name> (attribute, optional) 
                    Optional attributes may be added
             <name>/ (one or more named groups) (required)
