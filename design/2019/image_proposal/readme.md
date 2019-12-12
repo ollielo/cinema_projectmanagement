@@ -84,33 +84,33 @@ If it is stored in HDF5 format, it shall have the following structure:
         <name>/ (one or more named groups) (required)
             <name> (attribute, optional) 
                    Optional attributes may be added
-        layers/ (group, required)
-            <name> (attribute, optional) 
-                   Optional attributes may be added
-            <name>/ (one or more named groups) (required)
-                offset (attribute, optional) [int, int]
-                       Offset of the layer's channels from "/origin". If not included, default
-                       value is [0, 0], or no offset
-                dims   (attribute, optional) [int, int]
-                       Dimensions of the layer. If not present, assumed to be "/dims"
+            layers/ (group, required)
                 <name> (attribute, optional) 
                        Optional attributes may be added
-                channels/
-                    depth/  (dataset, optional)
-                        type (attribute) (optional) [valid type string]
-                             If not present, values are assumed to be float
-                    shadow/ (dataset, optional)
-                        type (attribute, optional) [valid type string]
-                             If not present, values are assumed to be float
-                    mask/   (dataset, optional)
-                        type (attribute, optional) [valid type string]
-                             If not present, values are assumed to be boolean
-                    <name>/ (one or more named datasets, required)
-                        type (attribute, optional) [valid type string]
-                             If not present, values are assumed to be float
-                        globalrange (attribute, optional) [type, type]
-                                    A global range for this data. If not included, it is 
-                                    assumed to be the range of the data contained in this layer
+                <name>/ (one or more named groups) (required)
+                    offset (attribute, optional) [int, int]
+                           Offset of the layer's channels from "/origin". If not included, default
+                           value is [0, 0], or no offset
+                    dims   (attribute, optional) [int, int]
+                           Dimensions of the layer. If not present, assumed to be "/dims"
+                    <name> (attribute, optional) 
+                           Optional attributes may be added
+                    channels/
+                        depth/  (dataset, optional)
+                            type (attribute) (optional) [valid type string]
+                                 If not present, values are assumed to be float
+                        shadow/ (dataset, optional)
+                            type (attribute, optional) [valid type string]
+                                 If not present, values are assumed to be float
+                        mask/   (dataset, optional)
+                            type (attribute, optional) [valid type string]
+                                 If not present, values are assumed to be boolean
+                        <name>/ (one or more named datasets, required)
+                            type (attribute, optional) [valid type string]
+                                 If not present, values are assumed to be float
+                            globalrange (attribute, optional) [type, type]
+                                        A global range for this data. If not included, it is 
+                                        assumed to be the range of the data contained in this layer
 ```
 
 ## Example
