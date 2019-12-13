@@ -12,12 +12,16 @@ Cinema creates two types of image-based data that are useful within Cinema but a
 
 <p align="center">
 <table align="center" width="70%">
-<tr><td>
-<img src="img/image_pipeline_numbers_fill.png" width="70%" border="1"></img>
-</td></tr>
-<tr><td>
-Workflow for Cinema image set. Channels (1) are selected (2) to create layers (3), which are then composited into a final image (4) for viewing in some application (5).
-</td></tr>
+<tr>
+<td>&nbsp</td>
+<td><img src="img/image_pipeline_numbers_fill.png" width="70%" border="1"></img></td>
+<td>&nbsp</td>
+</tr>
+<tr>
+<td>&nbsp</td>
+<td>Workflow for Cinema image set. Channels (1) are selected (2) to create layers (3), which are then composited into a final image (4) for viewing in some application (5).</td>
+<td>&nbsp</td>
+</tr>
 </table>
 </p>
 
