@@ -39,17 +39,17 @@ A **composable image set** is a collection of one or more `images`. `Images` are
 An **image** is: a logical collection of data, formatted to be rendered into an `MxN` array of values intended to be transformed into a color image for display, printing, or in-memory computation. How the pixels are transformed and displayed is up to the consumer of this data, though the producer can provide information about expected results and constraints on this process. The image:
 
 1. Has a know origin, which is one of four values: UL, UR, LL, LR. (upper left, upper right, lower left, lower right)
-2. Has a specific 2D size (`MxN`)
+2. Has a specific 2D integer size (`MxN`)
 3. Has one or more `layers`.
 
 A **layer** is a logical collection of values used to construct a final `image`. A layer:
 
-1. Is of known 2D size, less than or equal to the size of the `image`. There is no restriction on the 2D size of the layer, though the values must be integers.
-2. Is placed at a properly oriented [x,y] offset from the `image` origin. The offset values must be integers, but there is no other restriction on their value.
-3. Must contain one or more value channels. 
-4. May contain an optional `shadow` channel. This contains information about the lighting at a value.
-5. May contain an optional `depth` channel. This contains information about the depth of a value in image space. Values are in the range [0.0, 1.0], where 0.0 is the closest, and 1.0 is the farthest.
-6. May contain an optional `mask` channel. This contains information about which values in the layer are 'valid' or 'invalid'. A valid value should be used in rendering, while an invalid value should not. Values default to boolean, with 1 meaning valid, and 0 meaning invalid. This specification does not define values if the producer overrides the type of the mask layer to be anything other than boolean.
+1. Is of known 2D integer size, less than or equal to the size of the `image`.
+2. Is placed at a properly oriented [x,y] offset from the `image` origin. The offset values must be integers on the ranges `[0,M]` and `[0,N]`.
+3. Must contain one or more channels. 
+4. May contain an optional `shadow` channel. This contains information about the lighting at a value. 
+5. May contain an optional `depth` channel. This contains information about the depth of a value in image space. Values are in the range `[0.0, 1.0]`, where `0.0` is the closest, and `1.0` is the farthest.
+6. May contain an optional `mask` channel. This channel's values are by default boolean, but they may be any other valid type.
 
 A **channel** is a set of values. A channel:
 
@@ -77,8 +77,10 @@ If it is stored in HDF5 format, it shall have the following structure:
     dims    (attribute, required) [int, int]
             This is the absolute size of the completed image
     flags   (attribute, optional)
-            CONSTANT_CHANNELS   all images/layers have the same set of channels, with the same meaning
             A list of flags, providing additional information about this data
+            - IMAGES_INDEPENDENT images DO NOT have the same set of layers and channels. 
+                                 Default, if this flag is not included, is that all images 
+                                 have the same layers, and all layers have the same channels.
     origin  (attribute, optional) [UL, UR, LL, LR]
             The 0,0 point for the image. Default value is UL
     version (attribute, required) string
@@ -158,7 +160,7 @@ This example provides an explicit path to data in a `.cis` file:
 | 1.0  | 10.0 | 10.0  | 30.0   | pressure    | /images/0001/layers/0001/channels/0003/pressure | output.cis |
 | 1.0  | 10.0 | 10.0  | 30.0   | procID      | /images/0001/layers/0001/channels/0003/procID | output.cis |
 
-### Algorithmic resource path example
+### Algorithm-defined resource path example
 
 This example shows a set of images for a single (time, phi, theta) value, encoding three layers for an image 
 (encoding different isovalues), each of which has three channels. 

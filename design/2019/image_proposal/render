@@ -27,6 +27,21 @@ def get_channel_names(source, image, layer):
         results.append(i)
     return results 
 
+def get_full_image_from_channel(dims, channel, offset):
+    im   = numpy.zeros(dims)
+    mask = numpy.zeros(dims)
+
+    i = 0
+    j = 0
+    for x in range(offset[0], dims[0]):
+        for y in range(offset[1], dims[1]):
+            im[x][y]   = channel[i][j]
+            mask[x][y] = 1
+            j = j + 1 
+        i = i + 1 
+
+    return im
+
 with h5py.File(infile, "r") as f:
 
     for im in get_image_names(f):
@@ -36,3 +51,4 @@ with h5py.File(infile, "r") as f:
             for ch in get_channel_names(f, im, layer):
                 print("    channel: {}".format(ch))
 
+        print("{}.png".format(im))
