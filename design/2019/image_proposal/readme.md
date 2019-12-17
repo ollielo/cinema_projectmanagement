@@ -47,7 +47,7 @@ A **layer** is a logical collection of values used to construct a final `image`.
 1. Is of known 2D integer size, less than or equal to the size of the `image`.
 2. Is placed at a properly oriented [x,y] offset from the `image` origin. The offset values must be integers on the ranges `[0,M]` and `[0,N]`.
 3. Must contain one or more channels. 
-4. May contain an optional `shadow` channel. This contains information about the lighting at a value. 
+4. May contain an optional `lighting` channel. This contains information about the lighting at a value. A lighting channel can be of several types `[TYPE1, TYPE2, ...]`
 5. May contain an optional `depth` channel. This contains information about the depth of a value in image space. Values are in the range `[0.0, 1.0]`, where `0.0` is the closest, and `1.0` is the farthest.
 6. May contain an optional `mask` channel. This channel's values are by default boolean, but they may be any other valid type.
 
@@ -108,7 +108,7 @@ If it is stored in HDF5 format, it shall have the following structure:
                         depth/  (dataset, optional)
                             type (attribute) (optional) [valid type string]
                                  If not present, values are assumed to be float
-                        shadow/ (dataset, optional)
+                        lighting/ (dataset, optional)
                             type (attribute, optional) [valid type string]
                                  If not present, values are assumed to be float
                         mask/   (dataset, optional)
@@ -117,9 +117,8 @@ If it is stored in HDF5 format, it shall have the following structure:
                         <name>/ (one or more named datasets, required)
                             type (attribute, optional) [valid type string]
                                  If not present, values are assumed to be float
-                            globalrange (attribute, optional) [type, type]
-                                        A global range for this data. If not included, it is 
-                                        assumed to be the range of the data contained in this layer
+                            variable (attribute, optional)
+                                 The variable that this channel references
 ```
 
 ## Example
@@ -150,15 +149,15 @@ This example provides an explicit path to data in a `.cis` file:
 
 | time | phi  | theta | isoval | var  | path | resource |
 | ---- | ---- | ----- | ------ | ---- | ---- | -------- |
-| 1.0  | 10.0 | 10.0  | 10.0   | temperature | /images/0001/layers/0001/channels/0001/temperature | output.cis |
-| 1.0  | 10.0 | 10.0  | 10.0   | pressure    | /images/0001/layers/0001/channels/0001/pressure | output.cis |
-| 1.0  | 10.0 | 10.0  | 10.0   | procID      | /images/0001/layers/0001/channels/0001/procID | output.cis |
-| 1.0  | 10.0 | 10.0  | 20.0   | temperature | /images/0001/layers/0001/channels/0002/temperature | output.cis |
-| 1.0  | 10.0 | 10.0  | 20.0   | pressure    | /images/0001/layers/0001/channels/0002/pressure | output.cis |
-| 1.0  | 10.0 | 10.0  | 20.0   | procID      | /images/0001/layers/0001/channels/0002/procID | output.cis |
-| 1.0  | 10.0 | 10.0  | 30.0   | temperature | /images/0001/layers/0001/channels/0003/temperature | output.cis |
-| 1.0  | 10.0 | 10.0  | 30.0   | pressure    | /images/0001/layers/0001/channels/0003/pressure | output.cis |
-| 1.0  | 10.0 | 10.0  | 30.0   | procID      | /images/0001/layers/0001/channels/0003/procID | output.cis |
+| 1.0  | 10.0 | 10.0  | 10.0   | temperature | /images/0001/layers/0001/channels/temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 10.0   | pressure    | /images/0001/layers/0001/channels/pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | 10.0   | procID      | /images/0001/layers/0001/channels/procID | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | temperature | /images/0001/layers/0001/channels/temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | pressure    | /images/0001/layers/0001/channels/pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | procID      | /images/0001/layers/0001/channels/procID | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | temperature | /images/0001/layers/0001/channels/temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | pressure    | /images/0001/layers/0001/channels/pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | procID      | /images/0001/layers/0001/channels/procID | output.cis |
 
 ### Algorithm-defined resource path example
 
