@@ -4,9 +4,9 @@
 |----|----|
 | Date    | 10 Dec 2019 |
 | Version | 1.0 |
-| Type    | composableimageset |
+| Type    | COMPOSABLE_IMAGE_SET |
 | Extension | `.cis` |
-| Authors | David H. Rogers |
+| Authors | David H. Rogers, John Patchet, Ethan Stam, Dave DeMarle, Sebastian Jourdain, Jonas Lucasczyk |
 
 Cinema creates two types of image-based data that are useful within Cinema but also to a wider set of applications. The formats are discussed in <sup>[1]</sup>. The purpose of this specification is to standardize these data types and enable their use in other applications.
 
@@ -24,6 +24,10 @@ This specification covers data needed to write out Cinema's `float images` and `
 1. `composable images` contain several layers that can be composited to show a correct rendering from a specific camera position. These can also be recolored with different color maps. Using a set of these images, one can turn on and off different parts of a rendering, making the resulting image more interactive.
 
 Often these images are useful to collect in sets, so this specification defines a format for collections of one or more such images.
+
+## Requirements
+
+- The specification shall provide capabilities for a **consumer** of the data to reconstruct a completely reproducable result. This data is not required, but the capabilty must exist within the specification.
 
 ## Flexible Information Encoding
 
@@ -87,6 +91,9 @@ If it is stored in HDF5 format, it shall have the following structure:
             The version of this specification that the data conforms with
     <name>  (attribute, optional) 
             Optional attributes may be added
+    <type>/ (group, optional)
+        <name> (attribute, optional)
+            Named instace of a type of data 
     images/ (group, required)
         <name> (attribute, optional) 
                Optional attributes may be added
