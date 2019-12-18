@@ -26,7 +26,7 @@ We note that `lighting`, `depth` and `mask` channels may or may not be present i
         theta  [type:float]
         isoval [type:float]
         isovar [type:string]
-    parameter/
+    parameters/
         time 1.0
     images/
         0000/
