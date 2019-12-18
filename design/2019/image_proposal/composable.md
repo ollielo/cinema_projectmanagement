@@ -1,11 +1,10 @@
 # Composable Image Set format specification
 
-This is a Cinema database that provides parameters for manipuliting a Cinema Composable Image Set (`.cis`) file. This shows definitions for a single image with three layers, each of which has three channels. 
+This is a Cinema database that provides parameters for manipulating a Composable Image Set (`.cis`) file. This shows definitions for a single image with three layers, each of which has three channels. 
 
 We note that `lighting`, `depth` and `mask` channels may or may not be present in the `output.cis` file, and **consumers** are expected to examine the contents of the file for that information. 
 
-Though we could encode the image, layer and channel information within a single path variable, that would mean that the **consumer** would have to parse the path in order to determine what components are available. This proposal means that the **producer** and **consumer** need to know about a set of parameter names, but the parsing is not necessary.
-
+This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters. Though we could encode these within a single path parameter, the **consumer** would have to parse the path in order to determine what components are available in the Cinema Database. This proposal requires that the **producer** and **consumer** know about a set of parameter names, but the parsing is not necessary. In addition, the **consumer** knows about the structure of a `cis` image, and how such an image can be manipulated. 
 
 | time | phi  | theta | isoval | isovar  | cis:image | cis:layer | cis:channel | resource |
 | ---- | ---- | ----- | ------ | ---- | ----- | ----- | ------- | -------- |
