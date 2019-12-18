@@ -20,7 +20,7 @@ We note that `lighting`, `depth` and `mask` channels are not explicitly represen
 | 1.0  | 10.0 | 10.0  | 30.0   | density | 0000 | 0002 | pressure | output.cis |
 | 1.0  | 10.0 | 10.0  | 30.0   | density | 0000 | 0002 | procID | output.cis | 
 
-## Option 2: channels are introspected (not available through the Cinema database)
+## Option 2: channels are derived through introspection of cis file 
 
 | time | phi  | theta | isoval | isovar | cis:image | cis:layer | resource |
 | ---- | ---- | ----- | ------ | ------ | --------- | --------- | ------- |
