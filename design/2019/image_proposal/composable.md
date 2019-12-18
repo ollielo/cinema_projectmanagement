@@ -2,7 +2,9 @@
 
 This is a Cinema database that provides parameters for manipuliting a Cinema Composable Image Set (`.cis`) file. This shows definitions for a single image with three layers, each of which has three channels. 
 
-We note that `lighting`, `depth` and `mask` channels may or may not be present in the `output.cis` file, and **consumers** are expected to examine the contents of the file for that information. Though we could encode the image, layer and channel information within a single path variable, that would mean that the **consumer** would have to parse the path in order to determine what components are available. This proposal means that the **producer** and **consumer** need to know about a set of parameter names, but the parsing is not necessary.
+We note that `lighting`, `depth` and `mask` channels may or may not be present in the `output.cis` file, and **consumers** are expected to examine the contents of the file for that information. 
+
+Though we could encode the image, layer and channel information within a single path variable, that would mean that the **consumer** would have to parse the path in order to determine what components are available. This proposal means that the **producer** and **consumer** need to know about a set of parameter names, but the parsing is not necessary.
 
 
 | time | phi  | theta | isoval | isovar  | cis:image | cis:layer | cis:channel | resource |
