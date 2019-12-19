@@ -25,9 +25,9 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
 
 ## Option 2: channels and layers are derived through introspection of cis file 
 
-| time | phi  | theta | cis:image | FILE | 
-| ---- | ---- | ----- | --------- | ---- | 
-| 1.0  | 10.0 | 10.0  | 0000 | output.cis |
+| time | FILE | 
+| ---- | ---- | 
+| 1.0  | output.cis |
 
 #### HDF5 Encoding (include depth and lighting channels)
 ```
