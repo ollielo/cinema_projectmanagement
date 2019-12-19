@@ -23,7 +23,7 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
 | 1.0  | 10.0 | 10.0  | 30.0   | density | 0000 | 0002 | pressure | output.cis |
 | 1.0  | 10.0 | 10.0  | 30.0   | density | 0000 | 0002 | procID | output.cis | 
 
-## Option 2: images, channels and layers are derived through introspection of cis file 
+## Option 2: images, channels and layers derived through cis file 
 
 | time | FILE | 
 | ---- | ---- | 
