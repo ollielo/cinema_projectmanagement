@@ -1,4 +1,4 @@
-# Composable Image Set format specification
+# Cinema Database: Composable Image Set parameter specification 
 
 This is a Cinema database that provides parameters for manipulating a Composable Image Set (`.cis`) file. This shows definitions for a single image with three layers, each of which has three channels. 
 
