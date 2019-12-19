@@ -94,16 +94,20 @@ If it is stored in HDF5 format, it shall have the following structure:
     <type>/ (group, optional)
         <name> (attribute, optional)
             Named instace of a type of data 
-    images/ (group, required)
+    image/ (group, required)
         <name> (attribute, optional) 
                Optional attributes may be added
         <name>/ (one or more named groups, each of which is an image) (required)
             <name> (attribute, optional) 
                    Optional attributes may be added
-            layers/ (group, required)
+            parameters/ (group, optional)
+                    parameters that define this level of the hierarchy
+            layer/ (group, required)
                 <name> (attribute, optional) 
                        Optional attributes may be added
                 <name>/ (one or more named groups, each of which is a layer) (required)
+                    parameters/ (group, optional)
+                                 parameters that define this level of the hierarchy
                     offset (attribute, optional) [int, int]
                            Offset of the layer's channels from "/origin". If not included, default
                            value is [0, 0], or no offset
@@ -152,19 +156,129 @@ Providing semantic meaning in a Cinema database entails providing metadata about
 
 This example shows a set of images for a single (time, phi, theta) value, encoding three layers for an image 
 (encoding different isovalues), each of which has three channels. 
-This example provides an explicit path to data in a `.cis` file:
+This example provides an explicit path to data in a `.cis` file.
+
+#### Cinema `.csv.` file
 
 | time | phi  | theta | isoval | var  | path | resource |
 | ---- | ---- | ----- | ------ | ---- | ---- | -------- |
-| 1.0  | 10.0 | 10.0  | 10.0   | temperature | /images/0001/layers/0001/channels/temperature | output.cis |
-| 1.0  | 10.0 | 10.0  | 10.0   | pressure    | /images/0001/layers/0001/channels/pressure | output.cis |
-| 1.0  | 10.0 | 10.0  | 10.0   | procID      | /images/0001/layers/0001/channels/procID | output.cis |
-| 1.0  | 10.0 | 10.0  | 20.0   | temperature | /images/0001/layers/0001/channels/temperature | output.cis |
-| 1.0  | 10.0 | 10.0  | 20.0   | pressure    | /images/0001/layers/0001/channels/pressure | output.cis |
-| 1.0  | 10.0 | 10.0  | 20.0   | procID      | /images/0001/layers/0001/channels/procID | output.cis |
-| 1.0  | 10.0 | 10.0  | 30.0   | temperature | /images/0001/layers/0001/channels/temperature | output.cis |
-| 1.0  | 10.0 | 10.0  | 30.0   | pressure    | /images/0001/layers/0001/channels/pressure | output.cis |
-| 1.0  | 10.0 | 10.0  | 30.0   | procID      | /images/0001/layers/0001/channels/procID | output.cis |
+| 1.0  | 10.0 | 10.0  | 10.0   | temperature | /image/0000/layer/0000/channels/temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 10.0   | pressure    | /image/0000/layer/0000/channels/pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | 10.0   | procID      | /image/0000/layer/0000/channels/procID | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | temperature | /image/0000/layer/0001/channels/temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | pressure    | /image/0000/layer/0001/channels/pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | 20.0   | procID      | /image/0000/layer/0001/channels/procID | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | temperature | /image/0000/layer/0002/channels/temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | pressure    | /image/0000/layer/0002/channels/pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | 30.0   | procID      | /image/0000/layer/0002/channels/procID | output.cis |
+
+#### HDF5 Encoding
+```
+/
+    parameterlist/
+        isoval [type:float]
+        var    [type:string]
+    image/
+        0000/
+            layer/
+                0000/
+                    parameters/     	
+                        isovalue 10.0
+                    channels/
+                        temperature
+                            parameters/
+                                var temperature
+                        pressure
+                            parameters/
+                                var pressure
+                        procID
+                            parameters/
+                                var procID
+                0001/
+                    parameters/     	
+                        isovalue 20.0
+                    channels/
+                        temperature
+                            parameters/
+                                var temperature
+                        pressure
+                            parameters/
+                                var pressure
+                        procID
+                            parameters/
+                                var procID
+                0002/
+                    parameters/     	
+                        isovalue 30.0
+                    channels/
+                        temperature
+                            parameters/
+                                var temperature
+                        pressure
+                            parameters/
+                                var pressure
+                        procID
+                            parameters/
+                                var procID
+
+```
+
+#### HDF5 Encoding, with depth and lighting channels
+```
+/
+    parameterlist/
+        isoval [type:float]
+        var    [type:string]
+    image/
+        0000/
+            layer/
+                0000/
+                    parameters/     	
+                        isovalue 10.0
+                    channels/
+                        depth
+                        lighting
+                        temperature
+                            parameters/
+                                var temperature
+                        pressure
+                            parameters/
+                                var pressure
+                        procID
+                            parameters/
+                                var procID
+                0001/
+                    parameters/     	
+                        isovalue 20.0
+                    channels/
+                        depth
+                        lighting
+                        temperature
+                            parameters/
+                                var temperature
+                        pressure
+                            parameters/
+                                var pressure
+                        procID
+                            parameters/
+                                var procID
+                0002/
+                    parameters/     	
+                        isovalue 30.0
+                    channels/
+                        depth
+                        lighting
+                        temperature
+                            parameters/
+                                var temperature
+                        pressure
+                            parameters/
+                                var pressure
+                        procID
+                            parameters/
+                                var procID
+
+```
 
 ### Algorithm-defined resource path example
 

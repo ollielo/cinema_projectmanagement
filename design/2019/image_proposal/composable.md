@@ -39,12 +39,12 @@ We note that `lighting`, `depth` and `mask` channels are not explicitly represen
         isovar [type:string]
     parameters/
         time 1.0
-    images/
+    image/
         0000/
             parameters/
                 phi 10.0
                 theta 10.0
-            layers/
+            layer/
                 0000/
                     parameters/     	
                         isoval 10.0
