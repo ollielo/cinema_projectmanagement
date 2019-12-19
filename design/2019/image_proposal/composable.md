@@ -6,6 +6,7 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
 
 ## Design 
 
+- The **consumer** must know about the structure of the `.cis` file in order to display it. Therefore, multiple representations are possible in the Cinema database. Two reasonable options are shown below.
 - `lighting`, `depth` and `mask` channels shall not be explicitly represented in the Cinema database. In general, they need not be present in the `cis` file, so **consumers** are expected to examine the contents of the file for that information. 
 
 ## Option 1: include all layers
@@ -22,13 +23,11 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
 | 1.0  | 10.0 | 10.0  | 30.0   | density | 0000 | 0002 | pressure | output.cis |
 | 1.0  | 10.0 | 10.0  | 30.0   | density | 0000 | 0002 | procID | output.cis | 
 
-## Option 2: channels are derived through introspection of cis file 
+## Option 2: channels and layers are derived through introspection of cis file 
 
-| time | phi  | theta | isoval | isovar | cis:image | cis:layer | FILE |
-| ---- | ---- | ----- | ------ | ------ | --------- | --------- | ------- |
-| 1.0  | 10.0 | 10.0  | 10.0   | density | 0000 | 0000 | output.cis |
-| 1.0  | 10.0 | 10.0  | 20.0   | density | 0000 | 0001 | output.cis |
-| 1.0  | 10.0 | 10.0  | 30.0   | density | 0000 | 0002 | output.cis |
+| time | phi  | theta | cis:image | FILE | 
+| ---- | ---- | ----- | --------- | ---- | 
+| 1.0  | 10.0 | 10.0  | 0000 | output.cis |
 
 #### HDF5 Encoding (include depth and lighting channels)
 ```
