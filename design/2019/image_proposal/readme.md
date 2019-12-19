@@ -100,13 +100,13 @@ If it is stored in HDF5 format, it shall have the following structure:
         <name>/ (one or more named groups, each of which is an image) (required)
             <name> (attribute, optional) 
                    Optional attributes may be added
-            parameters/ (group, optional)
+            parameter/ (group, optional)
                     parameters that define this level of the hierarchy
             layer/ (group, required)
                 <name> (attribute, optional) 
                        Optional attributes may be added
                 <name>/ (one or more named groups, each of which is a layer) (required)
-                    parameters/ (group, optional)
+                    parameter/ (group, optional)
                                  parameters that define this level of the hierarchy
                     offset (attribute, optional) [int, int]
                            Offset of the layer's channels from "/origin". If not included, default
@@ -115,7 +115,7 @@ If it is stored in HDF5 format, it shall have the following structure:
                            Dimensions of the layer. If not present, assumed to be "/dims"
                     <name> (attribute, optional) 
                            Optional attributes may be added
-                    channels/
+                    channel/
                         depth/  (dataset, optional)
                             type (attribute) (optional) [valid type string]
                                  If not present, values are assumed to be float

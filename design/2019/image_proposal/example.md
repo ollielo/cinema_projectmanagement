@@ -20,19 +20,19 @@
         0000/
             layers/
                 0000/
-                    parameters/     	
+                    parameter/     	
                         isoval 10.0
                         isovar density
-                    channels/
+                    channel/
                         depth
                         lighting
                         temperature
                         pressure
                         procID
                 0001/
-                    parameters/     	
+                    parameter/     	
                         cut 1
-                    channels/
+                    channel/
                         depth
                         lighting
                         temperature

@@ -39,39 +39,39 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
         theta  [type:float]
         isoval [type:float]
         isovar [type:string]
-    parameters/
+    parameter/
         time 1.0
     image/
         0000/
-            parameters/
+            parameter/
                 phi 10.0
                 theta 10.0
             layer/
                 0000/
-                    parameters/     	
+                    parameter/     	
                         isoval 10.0
                         isovar density
-                    channels/
+                    channel/
                         depth
                         lighting
                         temperature
                         pressure
                         procID
                 0001/
-                    parameters/     	
+                    parameter/     	
                         isoval 20.0
                         isovar density
-                    channels/
+                    channel/
                         depth
                         lighting
                         temperature
                         pressure
                         procID
                 0002/
-                    parameters/     	
+                    parameter/     	
                         isoval 30.0
                         isovar density
-                    channels/
+                    channel/
                         depth
                         lighting
                         temperature

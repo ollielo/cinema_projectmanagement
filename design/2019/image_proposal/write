@@ -43,7 +43,7 @@ def create_layer(layers, name, shape):
     l.attrs["dims"]   = shape 
 
     # create channels
-    c = l.create_group("channels")
+    c = l.create_group("channel")
 
     add_channel(c, "temperature", shape, ranges[0]) 
     add_channel(c, "density",     shape, ranges[1]) 
@@ -56,12 +56,12 @@ with h5py.File("compose.cis", "w") as f:
     f.attrs["version"] = "1.0"
     f.attrs["flags"]   = ["CONSTANT_CHANNELS"]
 
-    images = f.create_group("images") 
+    images = f.create_group("image") 
 
     # create an image
     for name in im_names:
         image  = images.create_group(name)
-        layers = image.create_group("layers") 
+        layers = image.create_group("layer") 
         for i in range(len(layer_names)): 
             create_layer(layers, layer_names[i], shape[i])
 
