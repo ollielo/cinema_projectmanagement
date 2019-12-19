@@ -31,6 +31,7 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
 | time | FILE | 
 | ---- | ---- | 
 | 1.0  | output.cis |
+| 2.0  | output.cis |
 
 #### HDF5 Encoding (include depth and lighting channels)
 ```
