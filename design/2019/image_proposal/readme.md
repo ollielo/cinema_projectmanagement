@@ -152,7 +152,7 @@ The `.cis` format is a way of encoding specific types of information. It is up t
 
 Providing semantic meaning in a Cinema database entails providing metadata about the image/layer/channel components, and referencing a path in the `.cis` file. This is exactly analogous to providing a path to disk, except that the `FILE` that the path maps to is a `.cis` file. 
 
-[This proposal](component.md) shows how this data should be encoded in a Cinema database.
+[This proposal](composable.md) shows how this data should be encoded in a Cinema database.
 
 
 ## Open areas 
