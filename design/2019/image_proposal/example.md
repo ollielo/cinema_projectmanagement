@@ -2,7 +2,7 @@
 
 #### Cinema `.csv.` file
 
-| time | phi  | theta | isoval | isovar | cut | path | resource |
+| time | phi  | theta | isoval | isovar | cut | path | FILE |
 | ---- | ---- | ----- | ------ | ------ | --- | ---- | -------- |
 | 1.0  | 10.0 | 10.0  | 10.0   | density | | /image/0000/layers/0000 | output.cis |
 | 1.0  | 10.0 | 10.0  |        |         |1| /image/0000/layers/0001 | output.cis |

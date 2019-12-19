@@ -8,7 +8,7 @@ We note that `lighting`, `depth` and `mask` channels are not explicitly represen
 
 ## Option 1: include all layers
 
-| time | phi  | theta | isoval | isovar  | cis:image | cis:layer | cis:channel | resource |
+| time | phi  | theta | isoval | isovar  | cis:image | cis:layer | cis:channel | FILE |
 | ---- | ---- | ----- | ------ | ---- | ----- | ----- | ------- | -------- |
 | 1.0  | 10.0 | 10.0  | 10.0   | density | 0000 | 0000 | temperature | output.cis |
 | 1.0  | 10.0 | 10.0  | 10.0   | density | 0000 | 0000 | pressure | output.cis |
@@ -22,7 +22,7 @@ We note that `lighting`, `depth` and `mask` channels are not explicitly represen
 
 ## Option 2: channels are derived through introspection of cis file 
 
-| time | phi  | theta | isoval | isovar | cis:image | cis:layer | resource |
+| time | phi  | theta | isoval | isovar | cis:image | cis:layer | FILE |
 | ---- | ---- | ----- | ------ | ------ | --------- | --------- | ------- |
 | 1.0  | 10.0 | 10.0  | 10.0   | density | 0000 | 0000 | output.cis |
 | 1.0  | 10.0 | 10.0  | 20.0   | density | 0000 | 0001 | output.cis |

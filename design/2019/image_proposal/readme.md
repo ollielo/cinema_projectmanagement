@@ -150,9 +150,9 @@ Requirements:
 
 The `.cis` format is a way of encoding specific types of information. It is up to a **producer** and **consumer** of the data to determine the semantic meaning of the encoded data.
 
-Providing semantic meaning in a Cinema database entails providing metadata about the image/layer/channel components, and referencing a path in the `.cis` file. This is exactly analogous to providing a path to disk, except that the resource that the path maps to is a `.cis` file. 
+Providing semantic meaning in a Cinema database entails providing metadata about the image/layer/channel components, and referencing a path in the `.cis` file. This is exactly analogous to providing a path to disk, except that the `FILE` that the path maps to is a `.cis` file. 
 
-### Explicit resource path example
+### Explicit FILE path example
 
 This example shows a set of images for a single (time, phi, theta) value, encoding three layers for an image 
 (encoding different isovalues), each of which has three channels. 
@@ -160,7 +160,7 @@ This example provides an explicit path to data in a `.cis` file.
 
 #### Cinema `.csv.` file
 
-| time | phi  | theta | isoval | var  | path | resource |
+| time | phi  | theta | isoval | var  | path | FILE |
 | ---- | ---- | ----- | ------ | ---- | ---- | -------- |
 | 1.0  | 10.0 | 10.0  | 10.0   | temperature | /image/0000/layer/0000/channels/temperature | output.cis |
 | 1.0  | 10.0 | 10.0  | 10.0   | pressure    | /image/0000/layer/0000/channels/pressure | output.cis |
@@ -280,13 +280,13 @@ This example provides an explicit path to data in a `.cis` file.
 
 ```
 
-### Algorithm-defined resource path example
+### Algorithm-defined FILE path example
 
 This example shows a set of images for a single (time, phi, theta) value, encoding three layers for an image 
 (encoding different isovalues), each of which has three channels. 
 This example does not provide a path, but instead requires that there is a definition of how to construct a path from the metatdata, known by both the **producer** and **consumer**.
 
-| time | phi  | theta | isoval | var  | resource |
+| time | phi  | theta | isoval | var  | FILE |
 | ---- | ---- | ----- | ------ | ---- | -------- |
 | 1.0  | 10.0 | 10.0  | 10.0   | temperature | output.cis |
 | 1.0  | 10.0 | 10.0  | 10.0   | pressure    | output.cis |
