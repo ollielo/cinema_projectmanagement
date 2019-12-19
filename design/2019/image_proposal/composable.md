@@ -9,7 +9,7 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
 - The **consumer** must know about the structure of the `.cis` file in order to display it. Therefore, multiple representations are possible in the Cinema database. Two reasonable options are shown below.
 - `lighting`, `depth` and `mask` channels shall not be explicitly represented in the Cinema database. In general, they need not be present in the `cis` file, so **consumers** are expected to examine the contents of the file for that information. 
 
-## Option 1: include all layers
+## Option 1: include images, layers and channels
 
 | time | phi  | theta | isoval | isovar  | cis:image | cis:layer | cis:channel | FILE |
 | ---- | ---- | ----- | ------ | ---- | ----- | ----- | ------- | -------- |
