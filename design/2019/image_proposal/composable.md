@@ -11,20 +11,20 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
 
 ## Option 1: include images, layers and channels
 
-| time | phi  | theta | isoval | isovar  | cis:image | cis:layer | cis:channel | FILE |
+| time | phi  | theta | isovar | isoval  | cis:image | cis:layer | cis:channel | FILE |
 | ---- | ---- | ----- | ------ | ---- | ----- | ----- | ------- | -------- |
-| 1.0  | 10.0 | 10.0  | 10.0   | density | 0000 | 0000 | temperature | output.cis |
-| 1.0  | 10.0 | 10.0  | 10.0   | density | 0000 | 0000 | pressure | output.cis |
-| 1.0  | 10.0 | 10.0  | 10.0   | density | 0000 | 0000 | procID | output.cis |
-| 1.0  | 10.0 | 10.0  | 20.0   | density | 0000 | 0001 | temperature | output.cis |
-| 1.0  | 10.0 | 10.0  | 20.0   | density | 0000 | 0001 | pressure | output.cis |
-| 1.0  | 10.0 | 10.0  | 20.0   | density | 0000 | 0001 | procID | output.cis |
-| 2.0  | 10.0 | 10.0  | 10.0   | density | 0001 | 0000 | temperature | output.cis |
-| 2.0  | 10.0 | 10.0  | 10.0   | density | 0001 | 0000 | pressure | output.cis |
-| 2.0  | 10.0 | 10.0  | 10.0   | density | 0001 | 0000 | procID | output.cis |
-| 2.0  | 10.0 | 10.0  | 20.0   | density | 0001 | 0001 | temperature | output.cis |
-| 2.0  | 10.0 | 10.0  | 20.0   | density | 0001 | 0001 | pressure | output.cis |
-| 2.0  | 10.0 | 10.0  | 20.0   | density | 0001 | 0001 | procID | output.cis |
+| 1.0  | 10.0 | 10.0  | density | 10.0   | 0000 | 0000 | temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | density | 10.0   | 0000 | 0000 | pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | density | 10.0   | 0000 | 0000 | procID | output.cis |
+| 1.0  | 10.0 | 10.0  | density | 20.0   | 0000 | 0001 | temperature | output.cis |
+| 1.0  | 10.0 | 10.0  | density | 20.0   | 0000 | 0001 | pressure | output.cis |
+| 1.0  | 10.0 | 10.0  | density | 20.0   | 0000 | 0001 | procID | output.cis |
+| 2.0  | 10.0 | 10.0  | density | 10.0   | 0001 | 0000 | temperature | output.cis |
+| 2.0  | 10.0 | 10.0  | density | 10.0   | 0001 | 0000 | pressure | output.cis |
+| 2.0  | 10.0 | 10.0  | density | 10.0   | 0001 | 0000 | procID | output.cis |
+| 2.0  | 10.0 | 10.0  | density | 20.0   | 0001 | 0001 | temperature | output.cis |
+| 2.0  | 10.0 | 10.0  | density | 20.0   | 0001 | 0001 | pressure | output.cis |
+| 2.0  | 10.0 | 10.0  | density | 20.0   | 0001 | 0001 | procID | output.cis |
 
 ## Option 2: images, channels and layers derived through cis file 
 
@@ -44,12 +44,13 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
     image/
         0000/
             parameter/
-                phi 10.0
+                phi   10.0
                 theta 10.0
-                time 1.0
+                time   1.0
             layer/
                 0000/
                     parameter/     	
+                        isovar density
                         isoval 10.0
                     channel/
                         depth
@@ -59,8 +60,8 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
                         procID
                 0001/
                     parameter/     	
-                        isoval 20.0
                         isovar density
+                        isoval 20.0
                     channel/
                         depth
                         lighting
@@ -69,12 +70,13 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
                         procID
         0001/
             parameter/
-                phi 10.0
+                phi   10.0
                 theta 10.0
-                time 2.0
+                time   2.0
             layer/
                 0000/
                     parameter/     	
+                        isovar density
                         isoval 10.0
                     channel/
                         depth
@@ -84,8 +86,8 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
                         procID
                 0001/
                     parameter/     	
-                        isoval 20.0
                         isovar density
+                        isoval 20.0
                     channel/
                         depth
                         lighting
