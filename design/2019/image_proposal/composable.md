@@ -19,9 +19,12 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
 | 1.0  | 10.0 | 10.0  | 20.0   | density | 0000 | 0001 | temperature | output.cis |
 | 1.0  | 10.0 | 10.0  | 20.0   | density | 0000 | 0001 | pressure | output.cis |
 | 1.0  | 10.0 | 10.0  | 20.0   | density | 0000 | 0001 | procID | output.cis |
-| 1.0  | 10.0 | 10.0  | 30.0   | density | 0000 | 0002 | temperature | output.cis |
-| 1.0  | 10.0 | 10.0  | 30.0   | density | 0000 | 0002 | pressure | output.cis |
-| 1.0  | 10.0 | 10.0  | 30.0   | density | 0000 | 0002 | procID | output.cis | 
+| 2.0  | 10.0 | 10.0  | 10.0   | density | 0001 | 0000 | temperature | output.cis |
+| 2.0  | 10.0 | 10.0  | 10.0   | density | 0001 | 0000 | pressure | output.cis |
+| 2.0  | 10.0 | 10.0  | 10.0   | density | 0001 | 0000 | procID | output.cis |
+| 2.0  | 10.0 | 10.0  | 20.0   | density | 0001 | 0001 | temperature | output.cis |
+| 2.0  | 10.0 | 10.0  | 20.0   | density | 0001 | 0001 | pressure | output.cis |
+| 2.0  | 10.0 | 10.0  | 20.0   | density | 0001 | 0001 | procID | output.cis |
 
 ## Option 2: images, channels and layers derived through cis file 
 
@@ -38,18 +41,16 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
         theta  [type:float]
         isoval [type:float]
         isovar [type:string]
-    parameter/
-        time 1.0
     image/
         0000/
             parameter/
                 phi 10.0
                 theta 10.0
+                time 1.0
             layer/
                 0000/
                     parameter/     	
                         isoval 10.0
-                        isovar density
                     channel/
                         depth
                         lighting
@@ -66,9 +67,24 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
                         temperature
                         pressure
                         procID
-                0002/
+        0001/
+            parameter/
+                phi 10.0
+                theta 10.0
+                time 2.0
+            layer/
+                0000/
                     parameter/     	
-                        isoval 30.0
+                        isoval 10.0
+                    channel/
+                        depth
+                        lighting
+                        temperature
+                        pressure
+                        procID
+                0001/
+                    parameter/     	
+                        isoval 20.0
                         isovar density
                     channel/
                         depth
