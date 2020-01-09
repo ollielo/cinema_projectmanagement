@@ -9,6 +9,7 @@ class cis:
     version       = "1.0"
     flags         = "CONSTANT_CHANNELS"
     parameterlist = []
+    variablelist  = {} 
     images        = {} 
 
     def __init__(self, filename):
@@ -21,6 +22,10 @@ class cis:
         print("version: {}".format(self.version))
         print("flags:   {}".format(self.flags))
 
+        print("variablelist/")
+        for i in self.variablelist:
+            print("    {}: {}".format(i, self.variablelist[i]))
+
         print("parameterlist/")
         for i in self.parameterlist:
             print("    {}: {}".format(i[0], i[1]))
@@ -32,6 +37,10 @@ class cis:
     def add_parameter(self, name, type):
         # check for duplicates
         self.parameterlist.append([name, type])
+
+    def add_variable(self, name, type, min, max):
+        # check for duplicates
+        self.variablelist[name] = [type, min, max]
 
     def add_image(self, name):
         # check for duplicates

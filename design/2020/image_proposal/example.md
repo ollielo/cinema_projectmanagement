@@ -15,6 +15,19 @@
     dims [1024, 768]
     version 1.0
     flags [CONSTANT_CHANNELS]
+    variablelist/
+        temperature/
+            type float
+            min  0.0
+            max  1000.0
+        pressure/
+            type float
+            min  0.0
+            max  5000.0
+        procID/
+            type int
+            min  0
+            max  1024 
     parameterlist/
         time    [type:float]
         phi     [type:float]
@@ -32,8 +45,11 @@
                         depth
                         lighting
                         temperature
+                            variable temperature
                         pressure
+                            variable pressure
                         procID
+                            variable procID
                 0001/
                     parameter/     	
                         cut 1
@@ -41,5 +57,10 @@
                         depth
                         lighting
                         temperature
+                            variable temperature
+                        pressure
+                            variable pressure
+                        procID
+                            variable procID
 
 ```

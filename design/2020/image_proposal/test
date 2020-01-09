@@ -7,6 +7,10 @@ channels = ["depth", "lighting", "temperature", "pressure", "procID"]
 myCIS = cis.cis("test.cis")
 myCIS.set_size(1024, 768)
 
+myCIS.add_variable("temperature", "float", 0.0, 1000.0)
+myCIS.add_variable("pressure", "float", 0.50, 5000.0)
+myCIS.add_variable("procID", "int", 0, 1024) 
+
 myCIS.add_parameter("time", "float")
 myCIS.add_parameter("phi", "float")
 myCIS.add_parameter("theta", "float")
