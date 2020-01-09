@@ -51,13 +51,6 @@ The following example shows two options for encoding images over:
 | 1.0  | 10.0 | 10.0  | density | 20.0   | 0000/0001 | output.cis |
 | 1.0  | 10.0 | 10.0  | volfrac |  0.9   | 0000/0002 | output.cis |
 
-## Option 3: images, channels and layers derived through cis file 
-
-| time | FILE | 
-| ---- | ---- | 
-| 1.0  | output.cis |
-| 2.0  | output.cis |
-
 #### HDF5 Encoding (include depth and lighting channels)
 ```
 /
@@ -75,17 +68,16 @@ The following example shows two options for encoding images over:
             min  0
             max  1024 
     database/
+        (encoding of the cinema database that points to this file)
+        | time | phi  | theta | isovar  | isoval | path      |
+        | ---- | ---- | ----- | ------  | ------ | --------- |
+        | 1.0  | 10.0 |  10.0 | density |  10.0  | 0000/0000 |
+        | 1.0  | 10.0 |  10.0 | density |  20.0  | 0000/0001 |
+        | 1.0  | 10.0 |  10.0 | volfrac |   0.9  | 0000/0002 |
     image/
         0000/
-            parameter/
-                phi   10.0
-                theta 10.0
-                time   1.0
             layer/
                 0000/
-                    parameter/     	
-                        isovar density
-                        isoval 10.0
                     channel/
                         depth
                         lighting
@@ -93,9 +85,6 @@ The following example shows two options for encoding images over:
                         pressure
                         procID
                 0001/
-                    parameter/     	
-                        isovar density
-                        isoval 20.0
                     channel/
                         depth
                         lighting
@@ -103,9 +92,6 @@ The following example shows two options for encoding images over:
                         pressure
                         procID
                 0002/
-                    parameter/     	
-                        isovar volfrac
-                        isoval 0.9
                     channel/
                         depth
                         lighting
@@ -113,15 +99,8 @@ The following example shows two options for encoding images over:
                         pressure
                         procID
         0001/
-            parameter/
-                phi   10.0
-                theta 10.0
-                time   2.0
             layer/
                 0000/
-                    parameter/     	
-                        isovar density
-                        isoval 10.0
                     channel/
                         depth
                         lighting
@@ -129,9 +108,6 @@ The following example shows two options for encoding images over:
                         pressure
                         procID
                 0001/
-                    parameter/     	
-                        isovar density
-                        isoval 20.0
                     channel/
                         depth
                         lighting
@@ -139,9 +115,6 @@ The following example shows two options for encoding images over:
                         pressure
                         procID
                 0002/
-                    parameter/     	
-                        isovar volfrac
-                        isoval 0.9
                     channel/
                         depth
                         lighting
