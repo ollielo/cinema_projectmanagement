@@ -89,8 +89,14 @@ If it is stored in HDF5 format, it shall have the following structure:
             The 0,0 point for the image. Default value is UL
     version (attribute, required) string
             The version of this specification that the data conforms with
+    parameterlist/ (group, optional)
+        <name> (attribute, at least one required if this group is present)
+    variablelist/ (group, optional)
+        <name>/ (group, at least one required if this group is present)
+            type (attribute, required)
+            min (attribute, required)
+            max (attribute, required)
     <name>  (attribute, optional) 
-            Optional attributes may be added
     <type>/ (group, optional)
         <name> (attribute, optional)
             Named instace of a type of data 
