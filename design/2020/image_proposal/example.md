@@ -11,11 +11,16 @@
 #### HDF5 Encoding with depth and lighting channels
 ```
 /
+    class COMPOSABLE_IMAGE_SET
+    dims [1024, 768]
+    version 1.0
+    flags [CONSTANT_CHANNELS]
     parameterlist/
-        isoval [type:float]
-        isovar [type:string]
-        cut    [type:int]
-        var    [type:string]
+        time    [type:float]
+        phi     [type:float]
+        theta   [type:float]
+        isoval  [type:float]
+        isovar  [type:string]
     image/
         0000/
             layers/
