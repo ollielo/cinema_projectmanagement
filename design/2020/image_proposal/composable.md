@@ -53,6 +53,19 @@ The following example shows two options for encoding images over:
 #### HDF5 Encoding (include depth and lighting channels)
 ```
 /
+    variablelist/
+        density/
+            type float
+            min  0.0
+            max  1000.0
+        temperature/
+            type float
+            min  0.0
+            max  1000.0
+        procID/
+            type int
+            min  0
+            max  1024 
     parameterlist/
         time   [type:float]
         phi    [type:float]
