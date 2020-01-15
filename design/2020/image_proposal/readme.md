@@ -93,18 +93,18 @@ If it is stored in HDF5 format, it shall have the following structure. **NOTE:**
         columns/ (group, required)
             <name> (dataset of ascii encoded string values, one for each colname 
                     can include null strings and the value "NaN" for NaN as needed)
-    variablelist/ (group, optional)
-                  Information about the variables encoded in image layers
-                  NOTE: no non-variable groups allowed below this level; groups assumed to be variables 
+    variables/ (group, optional)
+               Information about the variables encoded in image layers
+        NOTE: no non-variable groups allowed below this level; groups assumed to be variables 
         <name>/ (group, at least one required if this group is present)
             type (attribute, required)
             min (attribute, required)
             max (attribute, required)
     image/ (group, required)
-           NOTE: no non-image groups allowed below this level; groups assumed to be images 
+        NOTE: no non-image groups allowed below this level; groups assumed to be images 
         <name>/ (one or more named groups, each of which is an image) (required)
             layer/ (group, required)
-                   NOTE: no non-layer groups allowed below this level; groups assumed to be layers 
+                NOTE: no non-layer groups allowed below this level; groups assumed to be layers 
                 <name>/ (required. one or more named groups, each of which is a layer)
                     offset (attribute, optional) [int, int]
                            Offset of the layer's channels from "/origin". If not included, default
@@ -112,7 +112,7 @@ If it is stored in HDF5 format, it shall have the following structure. **NOTE:**
                     dims   (attribute, optional) [int, int]
                            Dimensions of the layer. If not present, assumed to be "/dims"
                     channel/ (group, required)
-                             NOTE: no non-channel groups allowed below this level; groups assumed to be channels 
+                        NOTE: no non-channel groups allowed below this level; groups assumed to be channels 
                         depth/  (dataset, optional)
                             type (attribute) (optional) [valid type string]
                                  If not present, values are assumed to be float
