@@ -90,7 +90,7 @@ If it is stored in HDF5 format, it shall have the following structure:
     version (attribute, required) string
             The version of this specification that the data conforms with
     parametertable/ (group, optional)
-                    A table encoding the paramter/image/layer relationships 
+                    A table encoding paramter/image/layer relationships for this file
         colnames (attribute, required, comma separated string of all column names)
         num_cols (attribute, required, number of columns (int) )
         num_rows (attribute, required, number of rows (int) )
