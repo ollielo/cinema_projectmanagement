@@ -73,7 +73,7 @@ A `composable image set` may be stored in any of several formats.
 
 The `composable image set` can be stored a single [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) file. We note the [existing specification](https://support.hdfgroup.org/HDF5/doc/ADGuide/ImageSpec.html) for images to be stored in HDF5 format. Where possible, this specification adopts conventions from that specification. 
 
-If it is stored in HDF5 format, it shall have the following structure:
+If it is stored in HDF5 format, it shall have the following structure. Where they do not clash with the specification, additional attributes, groups and datasets may be added by other applications or extensions to this specification, but they are ignored by this specification.
 
 ```
 /
@@ -99,34 +99,24 @@ If it is stored in HDF5 format, it shall have the following structure:
                     can include null strings and the value "NaN" for NaN as needed)
     variablelist/ (group, optional)
                   Information about the variables encoded in image layers
+                  NOTE: no non-variable groups allowed below this level; groups assumed to be variables 
         <name>/ (group, at least one required if this group is present)
             type (attribute, required)
             min (attribute, required)
             max (attribute, required)
-    <name> (attribute, optional) 
-           Additional attributes allowed by this spec, but ignored
-    <name> (dataset, optional) 
-           Additional datasets allowed by this spec, but ignored
-    <name>/ (group, optional)
-           Additional groups allowed by this spec, but ignored
     image/ (group, required)
-        <name> (attribute, optional) 
-               Optional attributes may be added
+           NOTE: no non-image groups allowed below this level; groups assumed to be images 
         <name>/ (one or more named groups, each of which is an image) (required)
-            <name> (attribute, optional) 
-                   Optional attributes may be added
             layer/ (group, required)
-                <name> (attribute, optional) 
-                       Optional attributes may be added
-                <name>/ (one or more named groups, each of which is a layer) (required)
+                   NOTE: no non-layer groups allowed below this level; groups assumed to be layers 
+                <name>/ (required. one or more named groups, each of which is a layer)
                     offset (attribute, optional) [int, int]
                            Offset of the layer's channels from "/origin". If not included, default
                            value is [0, 0], or no offset
                     dims   (attribute, optional) [int, int]
                            Dimensions of the layer. If not present, assumed to be "/dims"
-                    <name> (attribute, optional) 
-                           Optional attributes may be added
-                    channel/
+                    channel/ (group, required)
+                             NOTE: no non-channel groups allowed below this level; groups assumed to be channels 
                         depth/  (dataset, optional)
                             type (attribute) (optional) [valid type string]
                                  If not present, values are assumed to be float
