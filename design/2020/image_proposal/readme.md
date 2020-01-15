@@ -103,10 +103,12 @@ If it is stored in HDF5 format, it shall have the following structure:
             type (attribute, required)
             min (attribute, required)
             max (attribute, required)
-    <name>  (attribute, optional) 
-    <type>/ (group, optional)
-        <name> (attribute, optional)
-            Named instace of a type of data 
+    <name> (attribute, optional) 
+           Additional attributes allowed by this spec, but ignored
+    <name> (dataset, optional) 
+           Additional datasets allowed by this spec, but ignored
+    <name>/ (group, optional)
+           Additional groups allowed by this spec, but ignored
     image/ (group, required)
         <name> (attribute, optional) 
                Optional attributes may be added
