@@ -21,7 +21,14 @@ class writer:
             for p in CISimage.parameterlist:
                 parameters.attrs[p[0]] = p[1]
 
+            table = f.create_group("table")
+            self.write_table()
+
             images = f.create_group("image")
 
             for i in CISimage.images:
                 image = images.create_group(i)
+
+    def write_table(self, table, csv):
+        table.create_data(
+    
