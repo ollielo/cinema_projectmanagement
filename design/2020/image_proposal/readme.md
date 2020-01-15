@@ -137,15 +137,14 @@ If it is stored in HDF5 format, it shall have the following structure. Where the
 
 Example python code included in this directory writes and reads a simple `composable image set` in HDF5 format.
 
-1. run `./write` to create example files:
+1. run `./test` to create example file(s)
     - `composable.cis` contains several images with several layers that can be composed together, and recolored by several variables.  
-1. run `./dump <filename>` to dump the example files
-1. run `./render <filename>` to render the images (under development)
-
+2. run `h5dump composable.cis` to inspect the contents of the results. `h5dump` is a tool supported by the HDF5 project - you have to download and install those yourself.
 
 Requirements:
 
 1. `h5py` module
+2. HDF5-supported tools (optional)
 
 ## Cinema Database Reference Example
 
