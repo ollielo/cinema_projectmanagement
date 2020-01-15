@@ -91,8 +91,11 @@ If it is stored in HDF5 format, it shall have the following structure. **NOTE:**
         num_cols (attribute, required, number of columns (int) )
         num_rows (attribute, required, number of rows (int) )
         columns/ (group, required)
-            <name> (dataset of ascii encoded string values, one for each colname 
-                    can include null strings and the value "NaN" for NaN as needed)
+            NOTE: no non-column groups allowed below this level; groups assumed to be columns 
+            <int> (dataset of ascii encoded string values, one for each colname.
+                  The name of the dataset is a zero-based index that maps to the colnames
+                  data above. The values in this dataset can include null strings and the 
+                  value "NaN" for NaN as needed)
     variables/ (group, optional)
                Information about the variables encoded in image layers
         NOTE: no non-variable groups allowed below this level; groups assumed to be variables 
