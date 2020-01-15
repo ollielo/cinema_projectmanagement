@@ -14,6 +14,17 @@
   dims [1024, 768]
   version 1.0
   flags [CONSTANT_CHANNELS]
+  parametertable/
+    col_names "time,phi,theta,isoval,isovar,path"
+    num_cols 6
+    num_rows 2
+    columns/
+        time
+        phi
+        theta
+        isoval
+        isovar
+        path
   variablelist/
     temperature/
       type float

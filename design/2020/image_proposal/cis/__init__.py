@@ -9,6 +9,7 @@ class cis:
     version       = "1.0"
     flags         = "CONSTANT_CHANNELS"
     parameterlist = []
+    p_table       = None
     variablelist  = {} 
     images        = {} 
 
@@ -33,6 +34,9 @@ class cis:
         print("image/")
         for i in self.images:
             self.get_image(i).print()
+
+    def set_parameter_table(self, table):
+        self.p_table = table.copy(deep=True)
 
     def add_parameter(self, name, type):
         # check for duplicates
