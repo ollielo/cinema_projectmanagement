@@ -89,8 +89,14 @@ If it is stored in HDF5 format, it shall have the following structure:
             The 0,0 point for the image. Default value is UL
     version (attribute, required) string
             The version of this specification that the data conforms with
-    parameterlist/ (group, optional)
-        <name> (attribute, at least one required if this group is present)
+    parametertable/ (group, optional)
+                    A table encoding the paramter/image/layer relationships 
+        colnames (attribute, required, comma separated string of all column names)
+        num_cols (attribute, required, number of columns (int) )
+        num_rows (attribute, required, number of rows (int) )
+        columns/ (group, required)
+            <name> (dataset of ascii encoded string values, at least one required
+                    can include null strings and the value "NaN" for NaN as needed)
     variablelist/ (group, optional)
         <name>/ (group, at least one required if this group is present)
             type (attribute, required)
@@ -106,14 +112,10 @@ If it is stored in HDF5 format, it shall have the following structure:
         <name>/ (one or more named groups, each of which is an image) (required)
             <name> (attribute, optional) 
                    Optional attributes may be added
-            parameter/ (group, optional)
-                    parameters that define this level of the hierarchy
             layer/ (group, required)
                 <name> (attribute, optional) 
                        Optional attributes may be added
                 <name>/ (one or more named groups, each of which is a layer) (required)
-                    parameter/ (group, optional)
-                                 parameters that define this level of the hierarchy
                     offset (attribute, optional) [int, int]
                            Offset of the layer's channels from "/origin". If not included, default
                            value is [0, 0], or no offset
