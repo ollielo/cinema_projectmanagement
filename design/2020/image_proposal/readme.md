@@ -95,7 +95,7 @@ If it is stored in HDF5 format, it shall have the following structure:
         num_cols (attribute, required, number of columns (int) )
         num_rows (attribute, required, number of rows (int) )
         columns/ (group, required)
-            <name> (dataset of ascii encoded string values, at least one required
+            <name> (dataset of ascii encoded string values, one for each colname 
                     can include null strings and the value "NaN" for NaN as needed)
     variablelist/ (group, optional)
         <name>/ (group, at least one required if this group is present)
