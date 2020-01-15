@@ -98,6 +98,7 @@ If it is stored in HDF5 format, it shall have the following structure:
             <name> (dataset of ascii encoded string values, one for each colname 
                     can include null strings and the value "NaN" for NaN as needed)
     variablelist/ (group, optional)
+                  Information about the variables encoded in image layers
         <name>/ (group, at least one required if this group is present)
             type (attribute, required)
             min (attribute, required)
