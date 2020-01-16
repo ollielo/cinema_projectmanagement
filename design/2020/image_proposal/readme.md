@@ -8,7 +8,12 @@
 | Extension | `.cis` |
 | Authors | David H. Rogers, John Patchet, Ethan Stam, Dave DeMarle, Sebastian Jourdain, Jonas Lucasczyk |
 
-Cinema creates two types of image-based data that are useful within Cinema but also to a wider set of applications. The formats are discussed in <sup>[1]</sup>. The purpose of this specification is to standardize these data types and enable their use in other applications.
+Cinema creates image-based data that is useful within Cinema but also to a wider set of applications. The format is discussed in <sup>[1]</sup>. The purpose of this specification is to standardize this data type and enable use in other applications.
+
+The specification shall:
+
+1. Capture the requirements for the data type, and use cases
+1. Describe a detailed storage specification for this data
 
 <table>
 <tr>
