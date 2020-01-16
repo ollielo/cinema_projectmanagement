@@ -28,8 +28,6 @@ A Cinema image is the result of compositing a set of layers together into a fina
 </tr>
 </table>
 
-## Flexible Information Encoding
-
 This specification allows the **producer** of the image to encode a range of information, though there are no constraints on what a **consumer** of the image must do with it. The range of information goes from:
 
 1. Minimal information. This is the minimal information needed to construct an image. All consumers of the images are expected to behave reasonably when minimal information is provided. 
@@ -105,7 +103,7 @@ If it is stored in HDF5 format, it shall have the following structure. **NOTE:**
     colormaps/ (group, optional)
         <name>/ (group, at least one required)
         	space (attribute, required) RGB
-            colormap (dataset, required) set of 5D points [x, o, r, g, b]
+            colormap (dataset, required) array of 5D points [x, o, r, g, b]
     image/ (group, required)
         NOTE: no non-image groups allowed below this level; groups assumed to be images 
         <name>/ (one or more named groups, each of which is an image) (required)
