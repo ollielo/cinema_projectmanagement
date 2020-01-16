@@ -16,15 +16,15 @@ Cinema creates image-based data that is useful within Cinema but also to a wider
 
 # Cinema's compositable images
 
-Cinema is a way to create, manage and view elements from analysis workflows. One element that can be created is an 'explorable image', which the user can interacti with. In practice, this is achieved by logically grouping a set of images together, with elements that can be turned on and off, and sliders that can control things like viewing angle, time, and other parameters. This provides a more interactive image for an end user of a Cinema workflow than a single image that contained no layers. More detailed explanation of these interactive images created can be found in <sup>[1]</sup>, and online examples are [here](https://www.cinemaviewer.org).
+Cinema is a way to create, manage and view elements from analysis workflows. One element that can be created is an 'explorable image', which the user can interacti with. In practice, this is achieved by logically grouping a set of images together, with layers that can be turned on and off, and sliders that can control things like viewing angle, time, and other parameters. This provides a more interactive image for an end user of a Cinema workflow than a single image that contained no layers. More detailed explanation of these interactive images created can be found in <sup>[1]</sup>, and online examples are [here](https://www.cinemaviewer.org).
 
-A Cinema image is the result of compositing a set of elements together into a final image. A set of elements is chosen, then they are colored, then composited into a final image. The results of the coloring and compositing steps are dependent upon the information contained in the `.cis` file, and the capabilities of the consumer.
+A Cinema image is the result of compositing a set of layers together into a final image. A set of layers is chosen, then they are colored, then composited into a final image. The results of the coloring and compositing steps are dependent upon the information contained in the `.cis` file, and the capabilities of the consumer.
 
 <table>
 <tr>
 <td><img src="img/composite.png"></img></td>
 <tr>
-<td>Diagram of layers and possible composited images. Layers can be combined together in many ways. This can be done interactively, giving the user the ability to turn elements on and off.</td>
+<td>Diagram of layers and possible composited images. Layers can be combined together in many ways. This can be done interactively, giving the user the ability to turn layers on and off.</td>
 </tr>
 </table>
 
