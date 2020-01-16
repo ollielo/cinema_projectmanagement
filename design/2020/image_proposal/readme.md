@@ -8,12 +8,11 @@
 | Extension | `.cis` |
 | Authors | David H. Rogers, John Patchet, Ethan Stam, Dave DeMarle, Sebastian Jourdain, Jonas Lucasczyk |
 
-Cinema creates image-based data that is useful within Cinema but also to a wider set of applications. The format is discussed in <sup>[1]</sup>. The purpose of this specification is to standardize this data type and enable use in other applications.
+Cinema creates image-based data that is useful within Cinema but also to a wider set of applications. The format is discussed in <sup>[1]</sup>. The purpose of this specification is to:
 
-The specification shall:
-
-1. Capture the requirements for the data type, and use cases
-1. Describe a detailed storage specification for this data
+1. Completely describe this data type, 
+2. Standardize its storage, and 
+3. Enable its use by any **producer** or **consumer**. 
 
 <table>
 <tr>
@@ -66,8 +65,6 @@ There are several **channels** with reserved names. These are:
 
 1. **depth** A channel containing per-pixel depth information. Each value is no the range [0.0, 1.0], where 0.0 is *close*, and 1.0 is *far*.
 2. **lighting** A channel containing lighting information. The information can be a single value, or a set of values.
-3. **mask** A boolean valued channel that notes whether a pixel is on or off.
- 
 
 # Storage
 
@@ -131,9 +128,6 @@ If it is stored in HDF5 format, it shall have the following structure. **NOTE:**
                         lighting/ (dataset, optional)
                             type (attribute, optional) [valid type string]
                                  If not present, values are assumed to be float
-                        mask/   (dataset, optional)
-                            type (attribute, optional) [valid type string]
-                                 If not present, values are assumed to be boolean
                         <name>/ (one or more named datasets, required)
                             type (attribute, optional) [valid type string]
                                  If not present, values are assumed to be float
