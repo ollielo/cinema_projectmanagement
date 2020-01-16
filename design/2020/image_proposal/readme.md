@@ -45,21 +45,19 @@ An **image** is a logical collection of data, formatted to be rendered into an `
 2. Has a specific 2D integer size (`MxN`)
 3. Has one or more `layers`.
 
-A **layer** is a logical collection of values used to construct a final `image`. A layer:
+A **layer** is a collection of values that comprise an element of an image. A layer:
 
 1. Is of known 2D integer size, less than or equal to the size of the `image`.
-2. Is placed at a properly oriented [x,y] offset from the `image` origin. The offset values must be integers on the ranges `[0,M]` and `[0,N]`.
-3. Must contain one or more channels. 
+2. Has an offset from the `image` origin. The offset values must be integers on the ranges `[0,M]` and `[0,N]`.
+3. Shall contain one or more channels. 
 
 A **channel** is a set of values. A channel:
 
-1. Is the dimension of the layer that contains it
+1. Is the size of the layer that contains it
 2. Can be of any valid type
-
-There are several **channels** with reserved names. These are:
-
-1. **depth** A channel containing per-pixel depth information. Each value is on the range [0.0, 1.0], which is [top, bottom].
-2. **lighting** A channel containing lighting information. The information can be a single value, or a set of values.
+3. May be one of a set of **reserved names**. These are:
+    - **depth** A channel containing per-pixel depth information. Each value is on the range [0.0, 1.0], which is [top, bottom].
+    - **lighting** A channel containing lighting information. The information can be a single value, or a set of values.
 
 # Storage
 
@@ -106,8 +104,8 @@ If it is stored in HDF5 format, it shall have the following structure. **NOTE:**
             max (attribute, required)
     colormaps/ (group, optional)
         <name>/ (group, at least one required)
-            type (attribute, required)
-            colormap (dataset, required)
+        	space (attribute, required) RGB
+            colormap (dataset, required) set of 5D points [x, o, r, g, b]
     image/ (group, required)
         NOTE: no non-image groups allowed below this level; groups assumed to be images 
         <name>/ (one or more named groups, each of which is an image) (required)
