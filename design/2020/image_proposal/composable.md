@@ -11,8 +11,5 @@ This proposal exposes `cis:image`, `cis:layer`, and `cis:channel` as parameters.
 
 ## Examples
 
-We expect to encode two types of Cinema-specific data in this format. Other encodings are possible, but not supported by this specification.
-
-- [float images](example_float_image.md)
 - [composable images](example_composable.md)
 

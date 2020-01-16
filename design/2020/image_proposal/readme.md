@@ -77,6 +77,7 @@ If it is stored in HDF5 format, it shall have the following structure. **NOTE:**
 ```
 /
     class   (attribute, required) COMPOSABLE_IMAGE_SET 
+    type    (attribute, optional) FLOAT_IMAGE 
     dims    (attribute, required) [int, int]
             This is the absolute size of the completed image
     flags   (attribute, optional)
