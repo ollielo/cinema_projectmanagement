@@ -59,6 +59,12 @@ A **channel** is a set of values. A channel:
 
 1. Is the dimension of the layer that contains it
 2. May be of any valid type
+
+There are several **channels** with reserved names. These are:
+
+1. **depth** A channel containing per-pixel depth information. Each value is no the range [0.0, 1.0], where 0.0 is *close*, and 1.0 is *far*.
+2. **lighting** A channel containing lighting information. The information can be a single value, or a set of values.
+3. **mask** A boolean valued channel that notes whether a pixel is on or off.
  
 
 # Storage
