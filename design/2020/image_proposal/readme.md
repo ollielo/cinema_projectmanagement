@@ -70,7 +70,6 @@ If it is stored in HDF5 format, it shall have the following structure. **NOTE:**
 ```
 /
     class   (attribute, required) COMPOSABLE_IMAGE_SET 
-    type    (attribute, optional) FLOAT_IMAGE 
     dims    (attribute, required) [int, int]
             This is the absolute size of the completed image
     flags   (attribute, optional)
@@ -78,10 +77,10 @@ If it is stored in HDF5 format, it shall have the following structure. **NOTE:**
             - IMAGES_INDEPENDENT images DO NOT have the same set of layers and channels. 
                                  Default, if this flag is not included, is that all images 
                                  have the same layers, and all layers have the same channels.
-    origin  (attribute, optional) [UL, UR, LL, LR]
-            The 0,0 point for the image. Default value is UL
     version (attribute, required) string
             The version of this specification that the data conforms with
+    origin  (attribute, optional) [UL, UR, LL, LR]
+            The 0,0 point for the image. Default value is UL
     parametertable/ (group, optional)
                     A table encoding paramter/image/layer relationships for this file
         colnames (attribute, required, comma separated string of all column names)
