@@ -2,13 +2,11 @@ import numpy
 
 class channel:
 
-    name = None
-    type = "float" 
-    data = None
-    size = [0,0]
-
     def __init__(self, name):
         self.name = name
+        self.type = "float" 
+        self.data = None
+        self.size = [0,0]
 
     def set_type(self, type):
         self.type = type
@@ -18,9 +16,7 @@ class channel:
         self.create_test_data()
 
     def create_test_data(self):
-        self.data = numpy.random.rand(self.size[0], self.size[1])
+        self.data = numpy.random.random_sample(self.size)
 
-    def print(self):
-        print("                {}".format(self.name))
-        print("                    type: {}".format(self.type))
-
+    def write_hdf5(self, channelgroup):
+        channelgroup.create_dataset(self.name, shape=self.size, data=self.data)

@@ -5,7 +5,7 @@ import pandas
 
 channels = ["depth", "lighting", "temperature", "pressure", "procID"]
 
-myCIS = cis.cis("test.cis")
+myCIS = cis.cis("composable.cis")
 myCIS.set_size(1024, 768)
 
 ptable = pandas.read_csv("csv/example.csv", dtype=str, keep_default_na=False) 
@@ -24,35 +24,23 @@ myCIS.add_parameter("isoval", "float")
 myCIS.add_image("0000")
 
 image = myCIS.get_image("0000")
-image.set_parameter("phi",   "10.0")
-image.set_parameter("theta", "10.0")
-image.set_parameter("time",   "1.0")
-layer = image.add_layer("0000")
-layer.set_parameter("isovar", "density")
-layer.set_parameter("isoval", "10.0")
+layer = image.add_layer("l000")
 layer.set_offset(60, 60)
-layer.set_size(50, 50)
+layer.set_size(2, 2)
 for c in channels: 
     channel = layer.add_channel(c)
 
-layer = image.add_layer("0001")
-layer.set_parameter("isovar", "density")
-layer.set_parameter("isoval", "20.0")
+layer = image.add_layer("l001")
+layer.set_offset(90, 90)
+layer.set_size(4, 4)
+for c in channels: 
+    channel = layer.add_channel(c)
+
+layer = image.add_layer("l002")
 layer.set_offset(110, 110)
-layer.set_size(100, 100)
+layer.set_size(6, 6)
 for c in channels: 
     channel = layer.add_channel(c)
 
-layer = image.add_layer("0002")
-layer.set_parameter("isovar", "density")
-layer.set_parameter("isoval", "30.0")
-layer.set_offset(160, 160)
-layer.set_size(150, 150)
-for c in channels: 
-    channel = layer.add_channel(c)
-
-# myCIS.print()
-
-writer = cis.hdf5.writer()
-writer.write(myCIS)
+myCIS.write_hdf5()
 

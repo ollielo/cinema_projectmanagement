@@ -25,7 +25,7 @@
         isoval
         isovar
         path
-  variablelist/
+  variables/
     temperature/
       type float
       min  0.0

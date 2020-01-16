@@ -2,17 +2,12 @@ from . import channel
 
 class layer:
 
-    name = None 
-    offset = [0,0]
-    size = [0,0]
-    parameters = {}
-    channels = {}
 
     def __init__(self, name):
-        self.name = name
-
-    def set_parameter(self, name, value):
-        self.parameters[name] = value
+        self.name     = name
+        self.offset   = [0,0]
+        self.size     = [0,0]
+        self.channels = {}
 
     def set_offset(self, x, y):
         self.offset = [x, y]
@@ -20,20 +15,17 @@ class layer:
     def set_size(self, w, h):
         self.size = [w, h]
 
-    def print(self):
-        print("            {}/".format(self.name))
-        print("                size:   {}".format(self.size))
-        print("                offset: {}".format(self.offset))
-        for p in self.parameters:
-            print("                {}: {}".format(p, self.parameters[p]))
-        print("            channel/")
-        for c in self.channels:
-            self.channels[c].print()
-
     def add_channel(self, name):
         self.channels[name] = channel.channel(name)
         self.channels[name].set_size(self.size[0], self.size[1])
 
         return self.channels[name]
 
+    def write_hdf5(self, layergroup):
+        layer = layergroup.create_group(self.name)
+        layer.attrs["offset"] = str(self.offset[0]) + "," + str(self.offset[1])
+        layer.attrs["size"]   = str(self.size[0]) + "," + str(self.size[1])
+        channelgroup = layer.create_group("channel")
+        for c in self.channels:
+            self.channels[c].write_hdf5(channelgroup)
     

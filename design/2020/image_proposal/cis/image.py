@@ -1,28 +1,20 @@
 from . import layer
 
 class image:
-    name       = None
-    parameters = {}
-    layers     = {} 
 
     def __init__(self, name):
-        self.name = name
-
-    def set_parameter(self, name, value):
-        self.parameters[name] = value
-
-    def print(self):
-        print("    {}/".format(self.name))
-        print("        parameter/")
-        for p in self.parameters:
-            print("            {}: {}".format(p, self.parameters[p]))
-
-        print("        layer/")
-        for l in self.layers:
-            self.layers[l].print()
+        self.name   = name
+        self.layers = {} 
 
     def add_layer(self, name):
         self.layers[name] = layer.layer(name)
 
         return self.layers[name]
+
+    def write_hdf5(self, imagegroup):
+        image = imagegroup.create_group(self.name)
+        layergroup = image.create_group("layer")
+        for l in self.layers:
+            self.layers[l].write_hdf5(layergroup)
+
 
