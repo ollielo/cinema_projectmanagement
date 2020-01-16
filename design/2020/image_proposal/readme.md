@@ -18,7 +18,7 @@ Cinema creates image-based data that is useful within Cinema but also to a wider
 
 Cinema is a way to create, manage and view elements from analysis workflows. One element that can be created is an 'explorable image', which the user can interacti with. In practice, this is achieved by logically grouping a set of images together, with elements that can be turned on and off, and sliders that can control things like viewing angle, time, and other parameters. This provides a more interactive image for an end user of a Cinema workflow than a single image that contained no layers. More detailed explanation of these interactive images created can be found in <sup>[1]</sup>, and online examples are [here](https://www.cinemaviewer.org).
 
-A Cinema image is the result of compositing a set of elements together into a final image. A set of elements is chosen, then they are colored, then composited into a final image. The coloring and compositing steps are dependent upon the information contained in the `.cis` file, and the capabilities of the consumer.
+A Cinema image is the result of compositing a set of elements together into a final image. A set of elements is chosen, then they are colored, then composited into a final image. The results of the coloring and compositing steps are dependent upon the information contained in the `.cis` file, and the capabilities of the consumer.
 
 <table>
 <tr>
@@ -27,10 +27,6 @@ A Cinema image is the result of compositing a set of elements together into a fi
 <td>Diagram of layers and possible composited images. Layers can be combined together in many ways. This can be done interactively, giving the user the ability to turn elements on and off.</td>
 </tr>
 </table>
-
-## Requirements
-
-- The specification shall provide capabilities for a **consumer** of the data to reconstruct a completely reproducable result. This data is not required, but the capabilty must exist within the specification.
 
 ## Flexible Information Encoding
 
@@ -43,7 +39,7 @@ This specification allows the **producer** of the image to encode a range of inf
 
 A **composable image set** is a collection of one or more `images`. `Images` are sets of one or more `layers`. `Layers` are composed of one or more `channels`. `Channels` are composed of `values`.
 
-An **image** is: a logical collection of data, formatted to be rendered into an `MxN` array of values intended to be transformed into a color image for display, printing, or in-memory computation. How the pixels are transformed and displayed is up to the consumer of this data, though the producer can provide information about expected results and constraints on this process. The image:
+An **image** is a logical collection of data, formatted to be rendered into an `MxN` array of values intended to be transformed into a color image for display, printing, or in-memory computation. How the pixels are transformed and displayed is up to the consumer of this data, though the producer can provide information about expected results and constraints on this process. The image:
 
 1. Has a know origin, which is one of four values: UL, UR, LL, LR. (upper left, upper right, lower left, lower right)
 2. Has a specific 2D integer size (`MxN`)
@@ -58,11 +54,11 @@ A **layer** is a logical collection of values used to construct a final `image`.
 A **channel** is a set of values. A channel:
 
 1. Is the dimension of the layer that contains it
-2. May be of any valid type
+2. Can be of any valid type
 
 There are several **channels** with reserved names. These are:
 
-1. **depth** A channel containing per-pixel depth information. Each value is no the range [0.0, 1.0], where 0.0 is *close*, and 1.0 is *far*.
+1. **depth** A channel containing per-pixel depth information. Each value is on the range [0.0, 1.0], which is [top, bottom].
 2. **lighting** A channel containing lighting information. The information can be a single value, or a set of values.
 
 # Storage
