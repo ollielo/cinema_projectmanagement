@@ -10,7 +10,7 @@ This example encodes a single float image.
   version 1.0
   image/
     0000/
-      layers/
+      layer/
         0000/
           channel/
             values
