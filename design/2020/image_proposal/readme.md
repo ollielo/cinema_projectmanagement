@@ -51,9 +51,6 @@ A **layer** is a logical collection of values used to construct a final `image`.
 1. Is of known 2D integer size, less than or equal to the size of the `image`.
 2. Is placed at a properly oriented [x,y] offset from the `image` origin. The offset values must be integers on the ranges `[0,M]` and `[0,N]`.
 3. Must contain one or more channels. 
-4. May contain an optional `lighting` channel. This contains information about the lighting at a value. A lighting channel can be of several types `[TYPE1, TYPE2, ...]`
-5. May contain an optional `depth` channel. This contains information about the depth of a value in image space. Values are in the range `[0.0, 1.0]`, where `0.0` is the closest, and `1.0` is the farthest.
-6. May contain an optional `mask` channel. This channel's values are by default boolean, but they may be any other valid type.
 
 A **channel** is a set of values. A channel:
 
