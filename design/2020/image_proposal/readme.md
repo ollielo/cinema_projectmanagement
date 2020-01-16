@@ -14,20 +14,19 @@ Cinema creates image-based data that is useful within Cinema but also to a wider
 2. Standardize its storage, and 
 3. Enable its use by any **producer** or **consumer**. 
 
+# Cinema's compositable images
+
+Cinema is a way to create, manage and view elements from analysis workflows. One element that can be created is an 'explorable image', which the user can interacti with. In practice, this is achieved by logically grouping a set of images together, with elements that can be turned on and off, and sliders that can control things like viewing angle, time, and other parameters. This provides a more interactive image for an end user of a Cinema workflow than a single image that contained no layers. More detailed explanation of these interactive images created can be found in <sup>[1]</sup>, and online examples are [here](https://www.cinemaviewer.org).
+
+A Cinema image is the result of compositing a set of elements together into a final image. A set of elements is chosen, then they are colored, then composited into a final image. The coloring and compositing steps are dependent upon the information contained in the `.cis` file, and the capabilities of the consumer.
+
 <table>
 <tr>
-<td><img src="img/image_pipeline_numbers_fill.png"></img></td>
+<td><img src="img/composite.png"></img></td>
 <tr>
-<td>Workflow for Cinema image set. Channels (1) are selected (2) to create layers (3), which are then composited into a final image (4) for viewing in some application (5).</td>
+<td>Diagram of layers and possible composited images. Layers can be combined together in many ways. This can be done interactively, giving the user the ability to turn elements on and off.</td>
 </tr>
 </table>
-
-This specification covers data needed to write out Cinema's `float images` and `composable images`. Per current Cinema specs:
-
-1. `float images` contain float values for a single image. These are used to compute information about a variable from a rendered object, or to allow an image to be recolored with different color maps after it has been rendered. 
-1. `composable images` contain several layers that can be composited to show a correct rendering from a specific camera position. These can also be recolored with different color maps. Using a set of these images, one can turn on and off different parts of a rendering, making the resulting image more interactive.
-
-Often these images are useful to collect in sets, so this specification defines a format for collections of one or more such images.
 
 ## Requirements
 
@@ -109,6 +108,10 @@ If it is stored in HDF5 format, it shall have the following structure. **NOTE:**
             type (attribute, required)
             min (attribute, required)
             max (attribute, required)
+    colormaps/ (group, optional)
+        <name>/ (group, at least one required)
+            type (attribute, required)
+            colormap (dataset, required)
     image/ (group, required)
         NOTE: no non-image groups allowed below this level; groups assumed to be images 
         <name>/ (one or more named groups, each of which is an image) (required)
