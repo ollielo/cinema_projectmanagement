@@ -18,7 +18,6 @@ There are many ways to encode Cinema `.csv` file and image information within th
   class COMPOSABLE_IMAGE_SET
   dims [1024, 768]
   version 1.0
-  flags [CONSTANT_CHANNELS]
   parametertable/
     col_names "time,phi,theta,isoval,isovar,path"
     num_cols 6
