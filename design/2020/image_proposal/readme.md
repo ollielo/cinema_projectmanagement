@@ -14,6 +14,14 @@ Cinema creates image-based data that is useful within Cinema but also to a wider
 2. Standardize its storage, and 
 3. Enable its use by any **producer** or **consumer**. 
 
+# Use cases
+
+1. **Use Case 1** A **producer** writes out a self-contained `.cis` file. Then,:
+    a. that single file is then used by a **consumer** to view the contents in a single window, with a series of sliders allowing control over all possible combinations of compositing operations per **image**. The viewer shows a single image at a time.
+    b. that single file is then used by a **consumer** to explore all images satisfying a query over a subset of the paramters in the `.csv` file. 
+1. **Use Case f** A **producer** writes out a `.cis` file and a `.csv` file containing metadata information. Then,:
+    a. that pair of files is then used by a **consumer** to view the contents in a single window, with a series of sliders allowing control over all possible combinations of compositing operations per **image**. The viewer shows a single image at a time.
+    b. that pair of files is then used by a **consumer** to explore all images satisfying a query over a subset of the paramters in the `.csv` file. 
 # Cinema's compositable images
 
 Cinema is a way to create, manage and view elements from analysis workflows. One element that can be created is an 'explorable image', which the user can interacti with. In practice, this is achieved by logically grouping a set of images together, with layers that can be turned on and off, and sliders that can control things like viewing angle, time, and other parameters. This provides a more interactive image for an end user of a Cinema workflow than a single image that contained no layers. More detailed explanation of these interactive images created can be found in <sup>[1]</sup>, and online examples are [here](https://www.cinemaviewer.org).
