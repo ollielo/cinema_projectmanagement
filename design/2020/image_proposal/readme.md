@@ -87,7 +87,7 @@ The `composable image set` can be stored a single [HDF5](https://en.wikipedia.or
 
 If it is stored in HDF5 format, it shall have the following structure, with the following overall restrictions:
 
-1. A `<name>` is any string of ASCII characters not containing a slash (`/`) or a dot (`/`).
+1. A `<name>` is any string of ASCII characters not containing a slash `/` or a dot `.`.
 2. Where they do not clash with the specification, additional attributes, groups and datasets may be added by other applications or extensions to this specification, but they are ignored by this specification.
  
 
