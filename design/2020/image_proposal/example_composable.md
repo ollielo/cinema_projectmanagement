@@ -72,7 +72,10 @@ There are many ways to encode Cinema `.csv` file and image information within th
 
 ### 2. HDF5 Encoding with Minimal Data
 
-In this example, we do not encode the Cinema `.csv` file in the `.cis` file. This is a valid encoding of the data, but it relies on either introspection or an acompanying `.csv` file to allow the file to be manipulated.
+In this example, we do not encode the Cinema `.csv` file in the `.cis` file. This is a valid encoding of the data, but it relies on either introspection or an acompanying `.csv` file to allow the file to be manipulated. Note:
+
+1. Because of defaults defined in the **CIS** specification, we can assume that the `temperature`, `pressure`, and `procID` channels represent the same data.
+
 
 ```
 /
