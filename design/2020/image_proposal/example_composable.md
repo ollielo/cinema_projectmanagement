@@ -1,13 +1,18 @@
 # Composable Image Set example
 
-#### Cinema `.csv.` file
+There are many ways to encode Cinema `.csv` file and image information within the **HDF5** format. Two are provided below:
+
+1. An encoding that includes maximum information, including the `.csv` file data.
+2. A minimal encoding that does not include the `.csv` file data.
+
+## Cinema `.csv.` file
 
 | time | phi  | theta | isoval | isovar  | path | FILE |
 | ---- | ---- | ----- | ------ | ------  | ---- | -------- |
 | 1.0  | 10.0 | 10.0  |  10.0  | density | /image/0000/layers/0000 | output.cis |
 | 2.0  | 10.0 | 10.0  |  10.0  | density | /image/0001/layers/0000 | output.cis |
 
-#### Minimal HDF5 Encoding with depth and lighting channels
+### 1. HDF5 Encoding with embedded .csv data 
 ```
 /
   class COMPOSABLE_IMAGE_SET
@@ -63,4 +68,34 @@
               variable pressure
             procID
               variable procID
+```
+
+### 2. HDF5 Encoding with Minimal Data
+
+In this example, we do not encode the Cinema `.csv` file in the `.cis` file. This is a valid encoding of the data, but it relies on either introspection or an acompanying `.csv` file to allow the file to be manipulated.
+
+```
+/
+  class COMPOSABLE_IMAGE_SET
+  dims [1024, 768]
+  version 1.0
+  image/
+    0000/
+      layers/
+        0000/
+          channel/
+            depth
+            lighting
+            temperature
+            pressure
+            procID
+    0001/
+      layers/
+        0000/
+          channel/
+            depth
+            lighting
+            temperature
+            pressure
+            procID
 ```

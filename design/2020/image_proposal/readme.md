@@ -24,7 +24,7 @@ A Cinema image is the result of compositing a set of layers together into a fina
 <tr>
 <td><img src="img/composite.png"></img></td>
 <tr>
-<td>Diagram of layers and possible composited images. Layers can be combined together in many ways. This can be done interactively, giving the user the ability to turn layers on and off.</td>
+<td>Diagram of layers and possible composited images. Layers can be combined together in many ways, depending upon the information that is included in the .cis file, as well as the capabilities of the consumer of the data.</td>
 </tr>
 </table>
 
@@ -35,24 +35,32 @@ This specification allows the **producer** of the image to encode a range of inf
 
 ## Overview
 
-A **composable image set** is a collection of one or more `images`. `Images` are sets of one or more `layers`. `Layers` are composed of one or more `channels`. `Channels` are composed of `values`.
+A **composable image set** is a collection of one or more `images`. `Images` are sets of one or more `layers`. `Layers` are composed of one or more `channels`. `Channels` are composed of `values`. The ``image set``:
+
+1. Contains one or more image.
+    - The images need not have the same internal structure. In particular, the images may have different `layers` or `channels`.
+2. May contain parameter information about the `images`, `layers` and `channels` within the `image set`.
 
 An **image** is a logical collection of data, formatted to be rendered into an `MxN` array of values intended to be transformed into a color image for display, printing, or in-memory computation. How the pixels are transformed and displayed is up to the consumer of this data, though the producer can provide information about expected results and constraints on this process. The image:
 
-1. Has a know origin, which is one of four values: UL, UR, LL, LR. (upper left, upper right, lower left, lower right)
-2. Has a specific 2D integer size (`MxN`)
-3. Has one or more `layers`.
+1. Has a unique name relative to the **image set**. A name is any string of ASCII characters not containing a slash `'` or a dot `.`.
+2. Has a know origin, which is one of four values: UL, UR, LL, LR. (upper left, upper right, lower left, lower right)
+3. Has a specific 2D integer size (`MxN`)
+4. Contains one or more `layers`.
 
 A **layer** is a collection of values that comprise an element of an image. A layer:
 
-1. Is of known 2D integer size, less than or equal to the size of the `image`.
+1. Has a unique name, relative to the `image` it is part of. A name is any string of ASCII characters not containing a slash `/` or a dot `.`.
+1. Is of known 2D integer size (`wxh`), less than or equal to the size of the `image`.
 2. Has an offset from the `image` origin. The offset values must be integers on the ranges `[0,M]` and `[0,N]`.
-3. Shall contain one or more channels. 
+    - The `offset` and the `size` of a layer must combine such that the extents of the layer lie within the boundary of the `image`.
+4. Contains one or more `channels`.
 
 A **channel** is a set of values. A channel:
 
-1. Is the size of the layer that contains it
-2. Can be of any valid type
+1. Has a unique name, relative to the `layer` it is part of. A name is any string of ASCII characters not containing a slash `/` or a dot `.`.
+1. Is the size of the layer that contains it (`wxh`)
+2. Can be of any valid type. Default is an `wxh` array of **float**, unless otherwise specified.
 3. May be one of a set of **reserved names**. These are:
     - **depth** A channel containing per-pixel depth information. Each value is on the range [0.0, 1.0], which is [top, bottom].
     - **lighting** A channel containing lighting information. The information can be a single value, or a set of values.
@@ -65,7 +73,11 @@ A `composable image set` may be stored in any of several formats.
 
 The `composable image set` can be stored a single [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) file. We note the [existing specification](https://support.hdfgroup.org/HDF5/doc/ADGuide/ImageSpec.html) for images to be stored in HDF5 format. Where possible, this specification adopts conventions from that specification. 
 
-If it is stored in HDF5 format, it shall have the following structure. **NOTE:** Where they do not clash with the specification, additional attributes, groups and datasets may be added by other applications or extensions to this specification, but they are ignored by this specification.
+If it is stored in HDF5 format, it shall have the following structure, with the following overall restrictions:
+
+1. A `<name>` is any string of ASCII characters not containing a slash (`/`) or a dot (`/`).
+2. Where they do not clash with the specification, additional attributes, groups and datasets may be added by other applications or extensions to this specification, but they are ignored by this specification.
+ 
 
 ```
 /
