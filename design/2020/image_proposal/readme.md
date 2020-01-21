@@ -77,6 +77,10 @@ A **channel** is a set of values. A channel:
 
 A `composable image set` may be stored in any of several formats.
 
+## Cinema database storage
+
+**TBD** (A description of the current storage method.)
+
 ## HDF5 storage
 
 The `composable image set` can be stored a single [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) file. We note the [existing specification](https://support.hdfgroup.org/HDF5/doc/ADGuide/ImageSpec.html) for images to be stored in HDF5 format. Where possible, this specification adopts conventions from that specification. 
