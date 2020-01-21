@@ -7,7 +7,7 @@ There are many ways to encode Cinema `.csv` file and image information within th
 
 ## Cinema `.csv.` file
 
-| time | phi  | theta | isoval | isovar  | path | FILE |
+| time | phi  | theta | isoval | isovar  | cis:path | FILE |
 | ---- | ---- | ----- | ------ | ------  | ---- | -------- |
 | 1.0  | 10.0 | 10.0  |  10.0  | density | /image/0000/layers/0000 | output.cis |
 | 2.0  | 10.0 | 10.0  |  10.0  | density | /image/0001/layers/0000 | output.cis |
@@ -19,7 +19,7 @@ There are many ways to encode Cinema `.csv` file and image information within th
   dims [1024, 768]
   version 1.0
   parametertable/
-    col_names "time,phi,theta,isoval,isovar,path"
+    col_names "time,phi,theta,isoval,isovar,cis:path"
     num_cols 6
     num_rows 2
     columns/
@@ -28,7 +28,7 @@ There are many ways to encode Cinema `.csv` file and image information within th
         theta
         isoval
         isovar
-        path
+        cis:path
   variables/
     temperature/
       type float
