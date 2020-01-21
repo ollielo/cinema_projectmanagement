@@ -7,6 +7,10 @@ There are many ways to encode Cinema `.csv` file and image information within th
 
 ## Cinema `.csv.` file
 
+We note:
+
+1. The `cis:path` column name is a reserved keyword noting the HDF5 path to the data within the `.cis` file.
+
 | time | phi  | theta | isoval | isovar  | cis:path | FILE |
 | ---- | ---- | ----- | ------ | ------  | ---- | -------- |
 | 1.0  | 10.0 | 10.0  |  10.0  | density | /image/0000/layers/0000 | output.cis |
