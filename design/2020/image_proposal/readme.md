@@ -43,8 +43,10 @@ This specification allows the **producer** of the image to encode a range of inf
 
 ## Overview
 
-A **composable image set** is a collection of one or more `images`. `Images` are sets of one or more `layers`. `Layers` are composed of one or more `channels`. `Channels` are composed of `values`. The ``image set``:
+A **composable image set** is a collection of one or more `images` and optional associated metadata. `Images` are sets of one or more `layers`. `Layers` are composed of one or more `channels`. `Channels` are composed of `values`. The ``image set``:
 
+
+1. May contain a table of metadata, which follows the ``Cinema Specification``. The table must encode metadata about some or all `images`, `layers`, or `channels` contained within the image set. 
 1. Contains one or more image.
     - The images need not have the same internal structure. In particular, the images may have different `layers` or `channels`.
 2. May contain parameter information about the `images`, `layers` and `channels` within the `image set`.
