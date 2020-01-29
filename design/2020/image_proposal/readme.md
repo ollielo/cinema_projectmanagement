@@ -49,7 +49,6 @@ A **composable image set** is a collection of one or more `images` and optional 
 1. May contain a table of metadata, which follows the ``Cinema Specification``. The table must encode metadata about some or all `images`, `layers`, or `channels` contained within the image set. 
 1. Contains one or more image.
     - The images need not have the same internal structure. In particular, the images may have different `layers` or `channels`.
-2. May contain parameter information about the `images`, `layers` and `channels` within the `image set`.
 
 An **image** is a logical collection of data, formatted to be rendered into an `MxN` array of values intended to be transformed into a color image for display, printing, or in-memory computation. How the pixels are transformed and displayed is up to the consumer of this data, though the producer can provide information about expected results and constraints on this process. The image:
 
