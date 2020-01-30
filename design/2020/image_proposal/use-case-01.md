@@ -7,12 +7,14 @@ A **producer** saves a `.cis` file with:
 - a `colormap` named `rainbow`
 - an `image` named `0000` with:
     - `layer` named `foo`
-        - `variable` defined as `temperature`
-        - `colormap` defined as `rainbow`
+        - `channel` named `bar`
+            - `variable` defined as `temperature`
+            - `colormap` defined as `rainbow`
 - an `image` named `0001` with:
     - `layer` named `bar`
-        - `variable` defined as `temperature`
-        - `colormap` defined as `rainbow`
+        - `channel` named `foo`
+            - `variable` defined as `temperature`
+            - `colormap` defined as `rainbow`
 
 A **consumer** reads the file and displays a single, initial image.
 
