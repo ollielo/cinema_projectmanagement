@@ -3,8 +3,12 @@
 This use case describes a workflow on a specific `.cis` file.
 
 A **producer** saves a `.cis` file with:
-- a `variable` named `temperature`
-- a `colormap` named `rainbow`
+- `variables`
+    - a `variable` named `temperature`
+    - a `variable` named `pressure`
+- `colormaps`
+    - a `colormap` named `rainbow`
+    - a `colormap` named `greyscale`
 - an `image` named `0000` with:
     - `layer` named `foo`
         - `channel` named `bar`
@@ -13,8 +17,8 @@ A **producer** saves a `.cis` file with:
 - an `image` named `0001` with:
     - `layer` named `bar`
         - `channel` named `foo`
-            - `variable` defined as `temperature`
-            - `colormap` defined as `rainbow`
+            - `variable` defined as `pressure`
+            - `colormap` defined as `greyscale`
 
 A **consumer** reads the file and displays a single initial image.
 
