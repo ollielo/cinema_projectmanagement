@@ -6,11 +6,11 @@ A **producer** saves a `.cis` file with:
 - a `variable` named `temperature`
 - a `colormap` named `rainbow`
 - an `image` named `0000` with:
-    - `layer` named `f00`
+    - `layer` named `foo`
         - `variable` defined as `temperature`
         - `colormap` defined as `rainbow`
 - an `image` named `0001` with:
-    - `layer` named `f00`
+    - `layer` named `bar`
         - `variable` defined as `temperature`
         - `colormap` defined as `rainbow`
 
