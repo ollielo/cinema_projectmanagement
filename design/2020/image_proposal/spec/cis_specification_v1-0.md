@@ -68,6 +68,19 @@ A **channel** is a set of values. A channel:
 3. May be one of a set of **reserved names**. These are:
     - **depth** A channel containing per-pixel depth information. Each value is on the range [0.0, 1.0], which is [top, bottom].
     - **lighting** A channel containing lighting information. The information can be a single value, or a set of values.
+1. May reference a **variable** which can be used by a consumer to psuedocolor it.
+2. May reference a colormapt which can be used by a consumer to psuedocolor it.
+
+A **variable** is a definition of a value. A variable:
+
+1. Has a unique name, type and range (min, max)
+
+A **colormap** is data used to map a value to a color. A colormap:
+
+1. Has a unique name.
+2. The definition of the colormap:
+    - may be included in the `.cis` file, or
+    - may be and external reference (URL) to a colormap definition
 
 # Storage
 
