@@ -14,8 +14,9 @@ We note that we must define timesteps, isocontour values and variable values to 
         - isosurface values: (iso1, iso2, iso3) 
         - variable values: (v1, v2)
 1. The entire resulting dataset shall be included in a single `.cis` file. For this file:
-    - each `[timestep, phi, theta]` combination shall be a separate `.cis` image.
-    - within each image, the visualization context (colorbars, scales, etc.) shall be a layer
+    - the storage method shall be `HDF5`,
+    - each `[timestep, phi, theta]` combination shall be a separate `.cis` image,
+    - within each image, the visualization context (colorbars, scales, etc.) shall be a layer,
     - within each image, each isosurface shall be a layer.
         - within each of these layers, each variable value shall be a channel.
 1. A python notebook viewer is run to visualize the resulting `.cis` data. The viewer shall read and parse the `.cis` file and provide appropriate sliders, on/off buttons, and selection controls to: 
