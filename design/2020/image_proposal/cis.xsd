@@ -5,6 +5,15 @@
 <!-- attributes -->
 
 <!-- complex elements -->
+
+<!-- basic tuple data type -->
+<xs:complexType name="FloatTuple">
+  <xs:sequence> 
+    <xs:element name="item" minOccurs="2" maxOccurs="2" type="xs:float"/>
+  </xs:sequence> 
+</xs:complexType>
+
+<!-- variable -->
 <xs:element name="variable">
   <xs:attribute name="name" type="xs:string" use="required" />
   <xs:attribute name="type" type="xs:QName"  use="required" />
@@ -12,11 +21,11 @@
   <xs:attribute name="max"  type="xs:QName"  use="required" />
 </xs:element>
 
-<xs:complexType name="FloatTuple">
-  <xs:sequence> 
-    <xs:element name="item" minOccurs="2" maxOccurs="2" type="xs:float"/>
-  </xs:sequence> 
-</xs:complexType>
+<!-- variable -->
+<xs:element name="colormap">
+  <xs:attribute name="name" type="xs:string" use="required" />
+  <xs:attribute name="type" type="xs:QName"  use="required" />
+</xs:element>
 
 <!-- channel -->
 <xs:element name="channel">
@@ -38,7 +47,7 @@
   <xs:attribute name="dims"   ref="FloatTuple" use="optional" />
 </xs:element>
 
-<!-- main thing --> 
+<!-- main specification --> 
 <xs:element>
   <xs:element name="variables" minOccurs="0" maxOccurs="1">
     <xs:complexType>
