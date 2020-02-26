@@ -1,5 +1,7 @@
 # ECP end-to-end use case
 
+The goal of this use case is to develop and test components and capabilities that bring ECP ALPINE pipelines up to date with current Cinema specifications and data types.
+
 1. Warp3D is run coupled with ASCENT to produce a Cinema database of a visualization of selected isosurface values. 
 2. A Cinema database is produced over multiple timesteps to produce a `.cis` dataset that includes:
     - three timesteps, valued at (t1, t2, t3)
