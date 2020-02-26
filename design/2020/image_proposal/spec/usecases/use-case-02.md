@@ -2,6 +2,8 @@
 
 The goal of this use case is to develop and test components and capabilities that bring ECP ALPINE pipelines up to date with current Cinema specifications and data types.
 
+We note that we must define timesteps, isocontour values and variable values to complete this use case.
+
 1. Warp3D is run coupled with ASCENT to produce a Cinema database of a visualization of selected isosurface values. The isosurface values shall be a subset of those defined by G. Weber's topological selection algorithm. Those values shall be defined outside of this workflow.
 2. A Cinema database is produced over multiple timesteps to produce a `.cis` dataset that includes:
     - three timesteps, valued at (t1, t2, t3)
