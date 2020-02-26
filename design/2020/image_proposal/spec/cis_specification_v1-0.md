@@ -21,7 +21,7 @@ Cinema is a way to create, manage and view elements from analysis workflows. One
 ### Overview
 A `.cis` file is a logical collection of related images.
 
-A `.cis` image is the result of coloring and compositing a set of elements together. The results of the coloring and compositing steps are dependent upon the information contained in the `.cis` file, choices by the user, and the capabilities of the **consumer** application.
+A single `.cis` image is the result of coloring and compositing a set of elements together. The results of the coloring and compositing steps are dependent upon the information contained in the `.cis` file, choices by the user, and the capabilities of the **consumer** application.
 
 <table>
 <tr>
