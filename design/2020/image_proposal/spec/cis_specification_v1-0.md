@@ -73,9 +73,9 @@ A **channel** is a set of values. A channel:
 
 A `composable image set` may be stored in any of several formats.
 
-## Cinema database storage
+## File-based Cinema database 
 
-**TBD** (A description of the current storage method.)
+**TBD** pointer to detailed documentation of the current storage method.
 
 ## HDF5 storage
 
