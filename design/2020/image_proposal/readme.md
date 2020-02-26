@@ -12,7 +12,7 @@ This repository includes specification, documenation and examples for the Cinema
 
 ## Current specification
 
-- [v1.0]([spec/cis_specification_v1-0.md)
+- [v1.0](spec/cis_specification_v1-0.md)
 
 ## Overview
 
