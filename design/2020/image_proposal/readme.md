@@ -22,7 +22,7 @@ Cinema creates image-based data that is useful within Cinema but also to a wider
 2. Standardize its storage, and 
 3. Enable its use by any **producer** or **consumer**. 
 
-# Use cases
+## Use cases
 
 Here are the current use cases:
 
