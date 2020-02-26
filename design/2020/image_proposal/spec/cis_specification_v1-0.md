@@ -14,9 +14,11 @@ This is a draft specification for the `.cis` format, and is under review by the 
 
 ## Introduction
 
-Cinema is a way to create, manage and view elements from analysis workflows. One element that can be created is an 'explorable image', which the user can interacti with. In practice, this is achieved by logically grouping a set of images together, with layers that can be turned on and off, and sliders that can control things like viewing angle, time, and other parameters. This provides a more interactive image for an end user of a Cinema workflow than a single image that contained no layers. More detailed explanation of these interactive images created can be found in <sup>[1]</sup>, and online examples are [here](https://www.cinemaviewer.org).
+Cinema is a way to create, manage and view elements from analysis workflows. One element that can be created is an explorable image, which the user can interact with. In practice, interactivity is achieved through the `.cis` data specification and a **viewer** which provides controls for the elements of the `.cis` data. The viewer can implement controls that allow elements to be turned on and off,and recolored, as well as controls for parameters such as viewing angle, time, and others. More detailed explanation of these interactive images created can be found in <sup>[1]</sup>, and online examples are [here](https://www.cinemaviewer.org).
 
-A Cinema image is the result of compositing a set of layers together into a final image. A set of layers is chosen, then they are colored, then composited into a final image. The results of the coloring and compositing steps are dependent upon the information contained in the `.cis` file, choices by the user, and the capabilities of the **consumer** application.
+### A `.cis` image
+
+A `.cis` image is the result of coloring and compositing a set of elements together. The results of the coloring and compositing steps are dependent upon the information contained in the `.cis` file, choices by the user, and the capabilities of the **consumer** application.
 
 <table>
 <tr>
@@ -33,12 +35,11 @@ This specification allows the **producer** of the image to encode a range of inf
 
 ## Overview
 
-A **composable image set** is a collection of one or more `images` and optional associated metadata. `Images` are sets of one or more `layers`. `Layers` are composed of one or more `channels`. `Channels` are composed of `values`. The ``image set``:
+A **composable image set** is a collection of one or more `images` and optional associated metadata. `Images` are sets of one or more `layers`. `Layers` are composed of one or more `channels`. `Channels` are composed of `values`. The **composable image set**:
 
-
-1. May contain a table of metadata, which follows the ``Cinema Specification``. The table must encode metadata about some or all `images`, `layers`, or `channels` contained within the image set. 
 1. Contains one or more image.
     - The images need not have the same internal structure. In particular, the images may have different `layers` or `channels`.
+1. May contain additional information not included in this specification. That data may be ignored by compliant **consumers** of this data.
 
 An **image** is a logical collection of data, formatted to be rendered into an `MxN` array of values intended to be transformed into a color image for display, printing, or in-memory computation. How the pixels are transformed and displayed is up to the consumer of this data, though the producer can provide information about expected results and constraints on this process. The image:
 
@@ -50,7 +51,7 @@ An **image** is a logical collection of data, formatted to be rendered into an `
 A **layer** is a collection of values that comprise an element of an image. A layer:
 
 1. Has a unique name, relative to the `image` it is part of. A name is any string of ASCII characters not containing a slash `/` or a dot `.`.
-1. Is of known 2D integer size (`wxh`), less than or equal to the size of the `image`.
+1. Is of known 2D integer size (`WxH`), less than or equal to the size of the `image`.
 2. Has an offset from the `image` origin. The offset values must be integers on the ranges `[0,M]` and `[0,N]`.
     - The `offset` and the `size` of a layer must combine such that the extents of the layer lie within the boundary of the `image`.
 4. Contains one or more `channels`.
@@ -58,8 +59,8 @@ A **layer** is a collection of values that comprise an element of an image. A la
 A **channel** is a set of values. A channel:
 
 1. Has a unique name, relative to the `layer` it is part of. A name is any string of ASCII characters not containing a slash `/` or a dot `.`.
-1. Is the size of the layer that contains it (`wxh`)
-2. Can be of any valid type. Default is an `wxh` array of **float**, unless otherwise specified.
+1. Is the size of the layer that contains it (`WxH`)
+2. Can be of any valid type. Default is an `WxH` array of **float**, unless otherwise specified.
 3. May be one of a set of **reserved names**. These are:
     - **depth** A channel containing per-pixel depth information. Each value is on the range [0.0, 1.0], which is [top, bottom].
     - **lighting** A channel containing lighting information. The information can be a single value, or a set of values.
