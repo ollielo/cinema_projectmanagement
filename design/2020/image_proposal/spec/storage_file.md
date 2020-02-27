@@ -27,15 +27,7 @@ cisdata.cis/
             "origin"  : "UL" 
         }
     parametertable/ (directory, optional)
-        attributes.json (file, required)
-            {
-                "colnames" : ["time", "phi", "theta", "FILE"],
-                "num_rows" : 2, 
-                "columns"  : {
-                    "0" : ["0.0", "0.0", "0.0", "path/to/file_00"],
-                    "1" : ["1.0", "1.0", "1.0", "path/to/file_01"]
-                }
-            }
+        data.csv (file, required) (a .csv file following the Cinema specification)
     variables/ (directory, optional)
         variables.json (file, required)
             {
