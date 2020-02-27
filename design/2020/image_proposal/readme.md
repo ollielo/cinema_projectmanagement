@@ -2,10 +2,6 @@
 
 This repository includes specification, documenation and examples for the Cinema **composable image set** data type.
 
-## Current specification
-
-- [v1.0](spec/cis_specification_v1-0.md)
-
 ## Overview
 
 Cinema creates image-based data that is useful within Cinema but also to a wider set of applications. The format is discussed in <sup>[1]</sup>. The purpose of this specification is to:
@@ -13,6 +9,10 @@ Cinema creates image-based data that is useful within Cinema but also to a wider
 1. Completely describe this data type, 
 2. Standardize its storage, and 
 3. Enable its use by any **producer** or **consumer**. 
+
+## Current specification
+
+- [v1.0](spec/cis_specification_v1-0.md)
 
 ## Use cases
 
