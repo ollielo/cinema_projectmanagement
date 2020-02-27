@@ -5,8 +5,8 @@
 | Date    | 10 Dec 2019 |
 | Version | 1.0 |
 | Type    | COMPOSABLE_IMAGE_SET |
+| Storage | CIS_HDF5 |
 | Extension | `.cis` |
-| Authors | David H. Rogers, John Patchet, Ethan Stam, Dave DeMarle, Sebastian Jourdain, Jonas Lucasczyk |
 
 A `composable image set` can be stored a single [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) file. We note the [existing specification](https://support.hdfgroup.org/HDF5/doc/ADGuide/ImageSpec.html) for images to be stored in HDF5 format. Where possible, this specification adopts conventions from that specification. 
 

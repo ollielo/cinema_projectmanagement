@@ -7,7 +7,6 @@
 | Type    | COMPOSABLE_IMAGE_SET |
 | Storage | CIS_FILES | 
 | Extension | `.cis` |
-| Authors | David H. Rogers, John Patchet, Ethan Stam, Dave DeMarle, Sebastian Jourdain, Jonas Lucasczyk |
 
 A `composable image set` can be stored as a set of files on disk.
 
