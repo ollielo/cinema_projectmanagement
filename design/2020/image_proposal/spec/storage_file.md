@@ -38,7 +38,11 @@ cisdata.cis/
                 }
             }
     colormaps/ (directory, optional)
-        colormap.xml (colormap file, at least one required)
+        colormap.xml (colormap file, at least one xml or linkfile required)
+        greyscale.json (link file)
+            {
+                "URL" : "https://whatever/something.xml"
+            }
     image/ (directory, required)
         <name>/ (one or more directories, each of which is an image) (required)
             layer/ (directory, required)
