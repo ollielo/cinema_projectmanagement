@@ -5,7 +5,7 @@
 | Date    | 27 Feb 2020 |
 | Version | 1.0 |
 | Type    | COMPOSABLE_IMAGE_SET |
-| Storage | CIS_FILES | 
+| Storage | FILES | 
 | Extension | `.cis` |
 
 A `composable image set` can be stored as a set of files on disk.
