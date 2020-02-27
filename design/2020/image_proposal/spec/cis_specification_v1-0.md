@@ -86,7 +86,7 @@ A **colormap** is data used to map a value to a color. A colormap:
 
 A `composable image set` may be stored in any of several formats.
 
-## File-based Cinema database 
+## File-based storage 
 
 The `composable image set` can be stored as files on disk:
 
