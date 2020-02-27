@@ -4,7 +4,7 @@ This repository includes specification, documenation and examples for the Cinema
 
 ## Overview
 
-Cinema creates image-based data that is useful within Cinema but also to a wider set of applications. The format is discussed in <sup>[1]</sup>. The purpose of this specification is to:
+Cinema creates image-based data that is useful within Cinema but also to a wider set of applications. The format is discussed in the original Cinema paper<sup>[1]</sup>. The purpose of this specification is to:
 
 1. Completely describe this data type, 
 2. Standardize its storage, and 
