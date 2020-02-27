@@ -2,14 +2,6 @@
 
 This repository includes specification, documenation and examples for the Cinema **composable image set** data type.
 
-|    |    |
-|----|----|
-| Date    | 10 Dec 2019 |
-| Version | 1.0 |
-| Type    | COMPOSABLE_IMAGE_SET |
-| Extension | `.cis` |
-| Authors | David H. Rogers, John Patchet, Ethan Stam, Dave DeMarle, Sebastian Jourdain, Jonas Lucasczyk |
-
 ## Current specification
 
 - [v1.0](spec/cis_specification_v1-0.md)
