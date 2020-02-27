@@ -1,0 +1,85 @@
+# File-based Composable Image Set format specification
+
+|    |    |
+|----|----|
+| Date    | 27 Feb 2020 |
+| Version | 1.0 |
+| Type    | COMPOSABLE_IMAGE_SET |
+| Storage | CIS_FILES | 
+| Extension | `.cis` |
+| Authors | David H. Rogers, John Patchet, Ethan Stam, Dave DeMarle, Sebastian Jourdain, Jonas Lucasczyk |
+
+A `composable image set` can be stored as a set of files on disk.
+
+1. A `<name>` is any string of ASCII characters not containing a slash `/` or a dot `.`.
+2. Where they do not clash with the specification, additional attributes, groups and datasets may be added by other applications or extensions to this specification, but they are ignored by this specification.
+ 
+
+```
+cisdata.cis/
+    attributes.json (file, required)
+        {
+            "class"   : "COMPOSABLE_IMAGE_SET",
+            "dims"    : [1024, 768],
+            "flags"   : ["IMAGES_INDEPENDENT"],
+            "version" : "1.0",
+            "origin"  : "UL" 
+        }
+    parametertable/ (directory, optional)
+        attributes.json (file, required)
+            {
+                "colnames" : ["time", "phi", "theta", "FILE"],
+                "num_rows" : 2, 
+                "columns"  : {
+                    "0" : ["0.0", "0.0", "0.0", "path/to/file_00"],
+                    "1" : ["1.0", "1.0", "1.0", "path/to/file_01"]
+                }
+            }
+    variables/ (directory, optional)
+        variables.json (file, required)
+            {
+                "name" : {
+                    "type" : "float",
+                    "min"  : "0.0",
+                    "max"  : "101.0"
+                }
+            }
+    colormaps/ (directory, optional)
+        colormap.xml (colormap file, at least one required)
+    image/ (directory, required)
+        <name>/ (one or more directories, each of which is an image) (required)
+            layer/ (directory, required)
+                NOTE: no non-layer directories allowed below this level; all directories assumed to be layers 
+                <name>/ (required. one or more directories, each of which is a layer)
+                    attributes.json (file, optional)
+                        {
+                            "offset" : [int, int], (defaults to 0,0 if not present)
+                            "dims"   : [int, int]  (defaults to 0,0 if not present)
+                        }
+                    channel/ (directory, required)
+                        NOTE: no non-channel directories allowed below this level; directories assumed to be channels 
+                        alpha/  (directory, optional)
+                            attribute.json (file, optional) (if not present, type is assumed to be float)
+                                {
+                                    "type" : "float"
+                                }
+                            data.Z (file, required) (a compressed file of type "type")    
+                        depth/  (directory, optional)
+                            attribute.json (file, optional) (if not present, type is assumed to be float)
+                                {
+                                    "type" : "float"
+                                }
+                            data.Z (file, required) (a compressed file of type "type")    
+                        lighting/ (directory, optional)
+                            attribute.json (file, optional) (if not present, type is assumed to be float)
+                                {
+                                    "type" : "float"
+                                }
+                            data.Z (file, required) (a compressed file of type "type")    
+                        <name>/ (one or more directories, required)
+                            attribute.json (file, required)
+                                {
+                                    "variable" : "name of variable this refers to. must be present in this dataset"
+                                }
+                            data.Z (file, required) (a compressed file of type "type")    
+```

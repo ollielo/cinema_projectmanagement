@@ -88,7 +88,9 @@ A `composable image set` may be stored in any of several formats.
 
 ## File-based Cinema database 
 
-**TBD** pointer to detailed documentation of the current storage method.
+The `composable image set` can be stored as files on disk:
+
+- [v1.0 file storage specification](storage_file.md) 
 
 ## HDF5 storage
 

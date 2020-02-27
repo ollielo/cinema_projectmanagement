@@ -33,7 +33,6 @@ If it is stored in HDF5 format, it shall have the following structure, with the 
     parametertable/ (group, optional)
                     A table encoding paramter/image/layer relationships for this file
         colnames (attribute, required, comma separated string of all column names)
-        num_cols (attribute, required, number of columns (int) )
         num_rows (attribute, required, number of rows (int) )
         columns/ (group, required)
             NOTE: no non-column groups allowed below this level; groups assumed to be columns 
