@@ -27,7 +27,7 @@ cisdata.cis/
             "origin"  : "UL" 
         }
     parametertable/ (directory, optional)
-        data.csv (file, required) (a .csv file following the Cinema specification)
+        data.csv (file, required) (a CSV file following the Cinema specification)
     variables/ (directory, optional)
         variables.json (file, required)
             {
