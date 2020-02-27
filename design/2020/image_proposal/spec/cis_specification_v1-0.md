@@ -89,5 +89,5 @@ A `composable image set` may be stored in any of several formats.
 - A set of files on disk:
     - [v1.0 file storage specification](storage_file.md) 
 - A single [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) file. 
-    - [v1.0 storage specification](storage_hdf5.md) 
+    - [v1.0 HDF5 storage specification](storage_hdf5.md) 
 
