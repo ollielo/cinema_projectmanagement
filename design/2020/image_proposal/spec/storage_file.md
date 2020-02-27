@@ -14,6 +14,8 @@ A `composable image set` can be stored as a set of files on disk.
 2. Where they do not clash with the specification, additional attributes, groups and datasets may be added by other applications or extensions to this specification, but they are ignored by this specification.
  
 
+A file-based `.cis` dataset shall have the following structure:
+
 ```
 cisdata.cis/
     attributes.json (file, required)
