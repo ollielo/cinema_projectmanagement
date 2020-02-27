@@ -82,7 +82,7 @@ A **colormap** is data used to map a value to a color. A colormap:
     - may be included in the `.cis` file, or
     - may be and external reference (URL) to a colormap definition
 
-# Storage
+## Storage
 
 A `composable image set` may be stored in any of several formats.
 
