@@ -31,8 +31,8 @@ cisdata.cis/
     variables/ (directory, optional)
         variables.json (file, required)
             {
-                "name" : {
-                    "type" : "float",
+                "variable_name" : {
+                    "type" : "TYPE_STRING",
                     "min"  : "0.0",
                     "max"  : "101.0"
                 }
@@ -54,19 +54,19 @@ cisdata.cis/
                         alpha/  (directory, optional)
                             attribute.json (file, optional) (if not present, type is assumed to be float)
                                 {
-                                    "type" : "float"
+                                    "type" : "TYPE_STRING"
                                 }
                             data.Z (file, required) (a compressed file of type "type")    
                         depth/  (directory, optional)
                             attribute.json (file, optional) (if not present, type is assumed to be float)
                                 {
-                                    "type" : "float"
+                                    "type" : "TYPE_STRING"
                                 }
                             data.Z (file, required) (a compressed file of type "type")    
                         lighting/ (directory, optional)
                             attribute.json (file, optional) (if not present, type is assumed to be float)
                                 {
-                                    "type" : "float"
+                                    "type" : "TYPE_STRING"
                                 }
                             data.Z (file, required) (a compressed file of type "type")    
                         <name>/ (one or more directories, required)
