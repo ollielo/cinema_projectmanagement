@@ -42,7 +42,7 @@ cisdata.cis/
     image/ (directory, required)
         <name>/ (one or more directories, each of which is an image) (required)
             layer/ (directory, required)
-                NOTE: no non-layer directories allowed below this level; all directories assumed to be layers 
+                NOTE: no non-layer directories below this level
                 <name>/ (required. one or more directories, each of which is a layer)
                     attributes.json (file, optional)
                         {
@@ -50,21 +50,21 @@ cisdata.cis/
                             "dims"   : [int, int]  (defaults to 0,0 if not present)
                         }
                     channel/ (directory, required)
-                        NOTE: no non-channel directories allowed below this level; directories assumed to be channels 
+                        NOTE: no non-channel directories below this level
                         alpha/  (directory, optional)
-                            attribute.json (file, optional) (if not present, type is assumed to be float)
+                            attribute.json (file, optional) (if not present, type is float)
                                 {
                                     "type" : "TYPE_STRING"
                                 }
                             data.Z (file, required) (a compressed file of type "type")    
                         depth/  (directory, optional)
-                            attribute.json (file, optional) (if not present, type is assumed to be float)
+                            attribute.json (file, optional) (if not present, type is float)
                                 {
                                     "type" : "TYPE_STRING"
                                 }
                             data.Z (file, required) (a compressed file of type "type")    
                         lighting/ (directory, optional)
-                            attribute.json (file, optional) (if not present, type is assumed to be float)
+                            attribute.json (file, optional) (if not present, type is float)
                                 {
                                     "type" : "TYPE_STRING"
                                 }
