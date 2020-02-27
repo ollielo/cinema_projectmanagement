@@ -26,8 +26,8 @@ Cinema creates image-based data that is useful within Cinema but also to a wider
 
 Here are the current use cases:
 
-- [Basic use case](spec/usecases/use-case-01.md)
-- [ECP 2020 workflow](spec/usecases/use-case-02.md)
+- [Basic use case](spec/usecases/01/use-case-01.md)
+- [ECP 2020 workflow](spec/usecases/02/use-case-02.md)
 
 ## Cinema Database Reference Example
 
