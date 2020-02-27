@@ -86,15 +86,8 @@ A **colormap** is data used to map a value to a color. A colormap:
 
 A `composable image set` may be stored in any of several formats.
 
-## File-based storage 
-
-The `composable image set` can be stored as files on disk:
-
-- [v1.0 file storage specification](storage_file.md) 
-
-## HDF5 storage
-
-The `composable image set` can be stored a single [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) file. 
-
-- [v1.0 storage specification](storage_hdf5.md) 
+- Files on disk:
+    - [v1.0 file storage specification](storage_file.md) 
+- A single [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format) file. 
+    - [v1.0 storage specification](storage_hdf5.md) 
 
