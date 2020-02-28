@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-import cis
+import cinemagic
 import pandas
 
 channels = ["depth", "lighting", "temperature", "pressure", "procID"]
 
-myCIS = cis.cis("composable.cis")
+myCIS = cinemagic.cis("composable.cis")
 myCIS.set_size(1024, 768)
 
 ptable = pandas.read_csv("csv/example.csv", dtype=str, keep_default_na=False) 
@@ -43,5 +43,5 @@ for c in channels:
     channel = layer.add_channel(c)
 
 # write to different storage formats 
-hdf5_writer = cis.write.hdf5.hdf5_writer()
+hdf5_writer = cinemagic.write.hdf5.hdf5_writer()
 hdf5_writer.write(myCIS)
