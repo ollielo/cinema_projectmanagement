@@ -17,6 +17,3 @@ class channel:
 
     def create_test_data(self):
         self.data = numpy.random.random_sample(self.size)
-
-    def write_hdf5(self, channelgroup):
-        channelgroup.create_dataset(self.name, shape=self.size, data=self.data)

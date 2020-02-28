@@ -42,5 +42,6 @@ layer.set_size(6, 6)
 for c in channels: 
     channel = layer.add_channel(c)
 
-myCIS.write_hdf5()
-
+# write to different storage formats 
+hdf5_writer = cis.write.hdf5.hdf5_writer()
+hdf5_writer.write(myCIS)
