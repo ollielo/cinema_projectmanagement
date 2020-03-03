@@ -72,7 +72,7 @@ A **channel** is a set of values. A channel:
 
 A **variable** is a definition of a value. A variable:
 
-1. Has a unique name, type and range (min, max). The scope of min and max are left to the writer of the data. In general, these values will be used to perform pseudo coloring of the channels.
+1. Has a unique **name**. Has **type**, **min** and **max**. The scope of min and max are left to the writer of the data. In general, these values will be used to perform pseudo coloring of the channels.
 
 A **colormap** is data used to map a value to a color. A colormap:
 
