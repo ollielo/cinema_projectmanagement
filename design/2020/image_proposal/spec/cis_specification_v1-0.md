@@ -21,7 +21,7 @@ This specification allows the **producer** of the image to encode a range of inf
 1. Minimal information. This is the minimal information needed to construct an image. All consumers of the images are expected to behave reasonably when minimal information is provided. 
 2. Maximum information. This allows a consumer to (optionally) display the finished image in the exact state that the producer expects it to be in. This allows a direct comparison between the producer's image and the consumer's.
 
-## The `.cis` file 
+## The `.cis` format 
 
 A `.cis` file is a logical collection of related images.
 
