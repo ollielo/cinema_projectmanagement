@@ -23,7 +23,7 @@ This specification allows the **producer** of the image to encode a range of inf
 
 ## The `.cis` format 
 
-A `.cis` file is a logical collection of related images.
+A `.cis` database is a logical collection of related images.
 
 A single `.cis` image is the result of coloring and compositing a set of elements together. The results of the coloring and compositing steps are dependent upon the information contained in the `.cis` file, choices by the user, and the capabilities of the **consumer** application.
 
