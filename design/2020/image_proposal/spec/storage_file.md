@@ -20,11 +20,11 @@ A file-based `.cis` dataset shall have the following structure:
 cisdata.cis/
     attributes.json (file, required)
         {
-            "class"   : "COMPOSABLE_IMAGE_SET",
-            "dims"    : [1024, 768],
-            "flags"   : ["IMAGES_INDEPENDENT"],
-            "version" : "1.0",
-            "origin"  : "UL" 
+            "classname"   : "COMPOSABLE_IMAGE_SET",
+            "dims"        : [1024, 768],
+            "flags"       : ["IMAGES_INDEPENDENT"],
+            "version"     : "1.0",
+            "origin"      : "UL" 
         }
     parametertable/ (directory, optional)
         data.csv (file, required) (a CSV file following the Cinema specification)
@@ -43,7 +43,7 @@ cisdata.cis/
             {
                 "URL" : "https://whatever/something.xml"
             }
-    image/ (directory, required)
+    images/ (directory, required)
         <name>/ (one or more directories, each of which is an image) (required)
             layer/ (directory, required)
                 NOTE: no non-layer directories below this level

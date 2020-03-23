@@ -18,18 +18,18 @@ If it is stored in HDF5 format, it shall have the following structure, with the 
 
 ```
 /
-    class   (attribute, required) COMPOSABLE_IMAGE_SET 
-    dims    (attribute, required) [int, int]
-            This is the absolute size of the completed image
-    flags   (attribute, optional)
-            A list of flags, providing additional information about this data
-            - IMAGES_INDEPENDENT images DO NOT have the same set of layers and channels. 
+    classname    (attribute, required) COMPOSABLE_IMAGE_SET 
+    dims         (attribute, required) [int, int]
+                 This is the absolute size of the completed image
+    flags        (attribute, optional)
+                 A list of flags, providing additional information about this data
+                 - IMAGES_INDEPENDENT images DO NOT have the same set of layers and channels. 
                                  Default, if this flag is not included, is that all images 
                                  have the same layers, and all layers have the same channels.
-    version (attribute, required) string
-            The version of this specification that the data conforms with
-    origin  (attribute, optional) [UL, UR, LL, LR]
-            The 0,0 point for the image. Default value is UL
+    version      (attribute, required) string
+                 The version of this specification that the data conforms with
+    origin       (attribute, optional) [UL, UR, LL, LR]
+                 The 0,0 point for the image. Default value is UL
     parametertable/ (group, optional)
                     A table encoding paramter/image/layer relationships for this file
         colnames (attribute, required, comma separated string of all column names)
@@ -40,18 +40,18 @@ If it is stored in HDF5 format, it shall have the following structure, with the 
                   The name of the dataset is a zero-based index that maps to the colnames
                   data above. The values in this dataset can include null strings and the 
                   value "NaN" for NaN as needed)
-    variables/ (group, optional)
-               Information about the variables encoded in image layers
+    variables/    (group, optional)
+                  Information about the variables encoded in image layers
         NOTE: no non-variable groups allowed below this level; groups assumed to be variables 
         <name>/ (group, at least one required if this group is present)
             type (attribute, required)
             min (attribute, required)
             max (attribute, required)
-    colormaps/ (group, optional)
+    colormaps/    (group, optional)
         <name>/ (group, at least one required)
         	space (attribute, required) RGB
             colormap (dataset, required) array of 5D points [x, o, r, g, b]
-    image/ (group, required)
+    images/     (group, required)
         NOTE: no non-image groups allowed below this level; groups assumed to be images 
         <name>/ (one or more named groups, each of which is an image) (required)
             layer/ (group, required)
