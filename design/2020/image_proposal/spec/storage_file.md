@@ -43,7 +43,7 @@ cisdata.cis/
             {
                 "URL" : "https://whatever/something.xml"
             }
-    images/ (directory, required)
+    image/ (directory, required)
         <name>/ (one or more directories, each of which is an image) (required)
             layer/ (directory, required)
                 NOTE: no non-layer directories below this level

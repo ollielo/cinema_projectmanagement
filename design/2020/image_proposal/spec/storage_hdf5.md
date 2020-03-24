@@ -51,7 +51,7 @@ If it is stored in HDF5 format, it shall have the following structure, with the 
         <name>/ (group, at least one required)
         	space (attribute, required) RGB
             colormap (dataset, required) array of 5D points [x, o, r, g, b]
-    images/     (group, required)
+    image/     (group, required)
         NOTE: no non-image groups allowed below this level; groups assumed to be images 
         <name>/ (one or more named groups, each of which is an image) (required)
             layer/ (group, required)
