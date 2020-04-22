@@ -60,23 +60,23 @@ cisdata.cis/
                                 {
                                     "type" : "TYPE_STRING"
                                 }
-                            data.Z (file, required) (a compressed file of type "type")    
+                            data.npz (file, required) (a compressed file of type "type")    
                         depth/  (directory, optional)
                             attribute.json (file, optional) (if not present, type is float)
                                 {
                                     "type" : "TYPE_STRING"
                                 }
-                            data.Z (file, required) (a compressed file of type "type")    
+                            data.npz (file, required) (a compressed file of type "type")    
                         lighting/ (directory, optional)
                             attribute.json (file, optional) (if not present, type is float)
                                 {
                                     "type" : "TYPE_STRING"
                                 }
-                            data.Z (file, required) (a compressed file of type "type")    
+                            data.npz (file, required) (a compressed file of type "type")    
                         <name>/ (one or more directories, required)
                             attribute.json (file, required)
                                 {
                                     "variable" : "name of variable this refers to. must be present in this dataset"
                                 }
-                            data.Z (file, required) (a compressed file of type "type")    
+                            data.npz (file, required) (a compressed file of type "type")    
 ```
