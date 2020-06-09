@@ -29,13 +29,11 @@ cisdata.cis/
     parametertable/ (directory, optional)
         data.csv (file, required) (a CSV file following the Cinema specification)
     variables/ (directory, optional)
-        variables.json (file, required)
+        variable_name.json (variable file, one required per variable)
             {
-                "variable_name" : {
-                    "type" : "TYPE_STRING",
-                    "min"  : "0.0",
-                    "max"  : "101.0"
-                }
+                "type" : "TYPE_STRING",
+                "min"  : "0.0",
+                "max"  : "101.0"
             }
     colormaps/ (directory, optional)
         colormap.xml (colormap file, at least one xml or linkfile required)
