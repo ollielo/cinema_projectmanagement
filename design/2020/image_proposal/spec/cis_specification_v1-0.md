@@ -62,13 +62,13 @@ A **layer** is a collection of values that comprise an element of an image. A la
 A **channel** is a set of values. A channel:
 
 1. Has a unique name, relative to the `layer` it is part of. A name is any string of ASCII characters not containing a slash `/` or a dot `.`.
-1. Is the size of the layer that contains it (`WxH`)
+1. Has the same size of the layer that contains it (`WxH`)
 1. Can be of any valid type. Default is an `WxH` array of **float**, unless otherwise specified.
 1. May be one of a set of **reserved names**. These are:
     - **depth** A channel containing per-pixel depth information. Each value is on the range [0.0, 1.0], which is [top, bottom].
     - **lighting** A channel containing lighting information. The information can be a single value, or a set of values.
 1. May reference a **variable** which can be used by a consumer to psuedocolor it.
-1. May reference a colormapt which can be used by a consumer to psuedocolor it.
+1. May reference a colormap which can be used by a consumer to psuedocolor it.
 
 A **variable** is a definition of a value. A variable:
 
